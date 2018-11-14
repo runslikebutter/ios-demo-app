@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>ButterflyMX</string>
+	<string>ButterflyMX Demo Internal</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,6 +22,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>ButterflyMX Demo needs to access your camera to capture video during video call.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>ButterflyMX Demo needs to access your microphone to capture video during video call.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>ButterflyMX Demo needs to access your Photo Library to update your profile photo.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
@@ -31,12 +37,6 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-    <key>NSCameraUsageDescription</key>
-    <string>ButterflyMX Demo needs to access your camera to capture video during video call.</string>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>ButterflyMX Demo needs to access your microphone to capture video during video call.</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>ButterflyMX Demo needs to access your Photo Library to update your profile photo.</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

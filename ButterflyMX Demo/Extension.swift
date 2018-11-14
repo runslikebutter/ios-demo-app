@@ -7,7 +7,70 @@
 //
 
 import UIKit
+import UserNotifications
 
+extension UIApplication {
+    class func topViewController(_ base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return topViewController(nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            if let selected = tab.selectedViewController {
+                return topViewController(selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(presented)
+        }
+        return base
+    }
+}
+
+let imageCache = NSCache<NSString, UIImage>()
+
+extension UIImageView {
+    func loadImageUsingCache(withUrl urlString : String) {
+        let url = URL(string: urlString)
+        if url == nil { return }
+        self.image = nil
+        if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
+            self.image = cachedImage
+            return
+        }
+
+        let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: .gray)
+        addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        activityIndicator.center = self.center
+
+        // if not, download image from url
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data!) {
+                    imageCache.setObject(image, forKey: urlString as NSString)
+                    self.image = image
+                    activityIndicator.removeFromSuperview()
+                }
+            }
+
+        }).resume()
+    }
+}
+
+extension UIView {
+    func addBlurView() {
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = self.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.addSubview(blurEffectView)
+    }
+}
 
 extension UIViewController {
     func alert(message: String, title: String = "") {
@@ -25,8 +88,22 @@ extension String {
     }
 }
 
-extension UserDefaults {
-    func isLoggedIn() -> Bool {
-        return self.bool(forKey: "loggedin")
+@available(iOS 10.0, *)
+extension UNNotificationAttachment {
+    static func create(imageFileIdentifier: String, data: NSData, options: [NSObject : AnyObject]?) -> UNNotificationAttachment? {
+        let fileManager = FileManager.default
+        let tmpSubFolderName = ProcessInfo.processInfo.globallyUniqueString
+        let tmpSubFolderURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(tmpSubFolderName, isDirectory: true)
+
+        do {
+            try fileManager.createDirectory(at: tmpSubFolderURL!, withIntermediateDirectories: true, attributes: nil)
+            let fileURL = tmpSubFolderURL?.appendingPathComponent(imageFileIdentifier)
+            try data.write(to: fileURL!, options: [])
+            let imageAttachment = try UNNotificationAttachment(identifier: imageFileIdentifier, url: fileURL!, options: options)
+            return imageAttachment
+        } catch let error {
+            print("error \(error)")
+        }
+        return nil
     }
 }

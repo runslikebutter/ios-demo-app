@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.8.1)
+  - ButterflyMX (0.13.3):
+    - Alamofire
+  - SVProgressHUD (2.2.5)
+
+DEPENDENCIES:
+  - ButterflyMX
+  - SVProgressHUD
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ButterflyMX
+    - SVProgressHUD
+
+SPEC CHECKSUMS:
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  ButterflyMX: fe013317cf7c8871bc66a2b27d805e32ff9e380b
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+
+PODFILE CHECKSUM: 35480215c59174c4eed51d21ff5569c74b4e662c
+
+COCOAPODS: 1.6.0.beta.2

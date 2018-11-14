@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A05267521F0A60700F6D373 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267421F0A60700F6D373 /* NotificationService.swift */; };
+		1A05267A21F0CE9400F6D373 /* IncomingCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267921F0CE9400F6D373 /* IncomingCallViewController.swift */; };
+		1A05268621F206F000F6D373 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05268521F206F000F6D373 /* GradientView.swift */; };
 		1A1C1303219AD954003449F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1302219AD954003449F8 /* AppDelegate.swift */; };
 		1A1C1305219AD954003449F8 /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1304219AD954003449F8 /* FeaturesViewController.swift */; };
 		1A1C1308219AD954003449F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A1C1306219AD954003449F8 /* Main.storyboard */; };
@@ -14,10 +17,45 @@
 		1A1C130D219AD956003449F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A1C130B219AD956003449F8 /* LaunchScreen.storyboard */; };
 		1A1C1316219ADC82003449F8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1315219ADC82003449F8 /* Extension.swift */; };
 		1A1C1318219ADCEE003449F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1317219ADCEE003449F8 /* LoginViewController.swift */; };
+		1A2CD59121F6310900515F51 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2CD59021F6310900515F51 /* AccountTableViewController.swift */; };
+		1A7D091021F7166F00AA1999 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2CD59021F6310900515F51 /* AccountTableViewController.swift */; };
 		1AA6FBF9219B2A78002F7168 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
+		8DE750221A7BF21D1456E64B /* Pods_ButterflyMX_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357B9DFE1973A43366F77AAC /* Pods_ButterflyMX_Demo.framework */; };
+		C3C2322C21F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1317219ADCEE003449F8 /* LoginViewController.swift */; };
+		C3C2322E21F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2322F21F5C6B500A84483 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05268521F206F000F6D373 /* GradientView.swift */; };
+		C3C2323021F5C6B500A84483 /* IncomingCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267921F0CE9400F6D373 /* IncomingCallViewController.swift */; };
+		C3C2323121F5C6B500A84483 /* FeaturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1304219AD954003449F8 /* FeaturesViewController.swift */; };
+		C3C2323221F5C6B500A84483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1302219AD954003449F8 /* AppDelegate.swift */; };
+		C3C2323321F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2323421F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2323521F5C6B500A84483 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267421F0A60700F6D373 /* NotificationService.swift */; };
+		C3C2323621F5C6B500A84483 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1315219ADC82003449F8 /* Extension.swift */; };
+		C3C2323821F5C6B500A84483 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
+		C3C2323B21F5C6B500A84483 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A1C130B219AD956003449F8 /* LaunchScreen.storyboard */; };
+		C3C2323C21F5C6B500A84483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A1C1309219AD956003449F8 /* Assets.xcassets */; };
+		C3C2323D21F5C6B500A84483 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A1C1306219AD954003449F8 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C3C2324621F5C6E300A84483 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		16C5B1111FF9392BAC303CB9 /* Pods-ButterflyMX Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButterflyMX Demo.debug.xcconfig"; path = "Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		1A05267421F0A60700F6D373 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		1A05267921F0CE9400F6D373 /* IncomingCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingCallViewController.swift; sourceTree = "<group>"; };
+		1A05268521F206F000F6D373 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		1A1C12FF219AD954003449F8 /* ButterflyMX Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ButterflyMX Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A1C1302219AD954003449F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A1C1304219AD954003449F8 /* FeaturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesViewController.swift; sourceTree = "<group>"; };
@@ -27,7 +65,13 @@
 		1A1C130E219AD956003449F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A1C1315219ADC82003449F8 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		1A1C1317219ADCEE003449F8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1A2CD59021F6310900515F51 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		1AA6FBF8219B2A78002F7168 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1ACCD9B121EF73FB00E97924 /* ButterflyMX Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ButterflyMX Demo.entitlements"; sourceTree = "<group>"; };
+		2ECABA56EFEBC255A768F2E4 /* Pods_ButterflyMX_Demo_Internal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ButterflyMX_Demo_Internal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		357B9DFE1973A43366F77AAC /* Pods_ButterflyMX_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ButterflyMX_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3C2324121F5C6B500A84483 /* ButterflyMX Demo Internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ButterflyMX Demo Internal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F12375B9271DEFF7D2988D5C /* Pods-ButterflyMX Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButterflyMX Demo.release.xcconfig"; path = "Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,18 +80,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AA6FBF9219B2A78002F7168 /* Foundation.framework in Frameworks */,
+				8DE750221A7BF21D1456E64B /* Pods_ButterflyMX_Demo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C2323721F5C6B500A84483 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C2323821F5C6B500A84483 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A05267621F0BF5D00F6D373 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A2CD59021F6310900515F51 /* AccountTableViewController.swift */,
+				1A1C1317219ADCEE003449F8 /* LoginViewController.swift */,
+				1A1C1304219AD954003449F8 /* FeaturesViewController.swift */,
+				1A05267921F0CE9400F6D373 /* IncomingCallViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1A05268421F0EB5F00F6D373 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				1A05267421F0A60700F6D373 /* NotificationService.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		1A05268721F2070400F6D373 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A05268521F206F000F6D373 /* GradientView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		1A1C12F6219AD953003449F8 = {
 			isa = PBXGroup;
 			children = (
 				1A1C1301219AD954003449F8 /* ButterflyMX Demo */,
 				1A1C1300219AD954003449F8 /* Products */,
 				2C982F0229A4D5E7B4BBC659 /* Frameworks */,
+				A27422D1F52146F27A8C64BE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				1A1C12FF219AD954003449F8 /* ButterflyMX Demo.app */,
+				C3C2324121F5C6B500A84483 /* ButterflyMX Demo Internal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,9 +144,11 @@
 		1A1C1301219AD954003449F8 /* ButterflyMX Demo */ = {
 			isa = PBXGroup;
 			children = (
+				1ACCD9B121EF73FB00E97924 /* ButterflyMX Demo.entitlements */,
 				1A1C1302219AD954003449F8 /* AppDelegate.swift */,
-				1A1C1317219ADCEE003449F8 /* LoginViewController.swift */,
-				1A1C1304219AD954003449F8 /* FeaturesViewController.swift */,
+				1A05268721F2070400F6D373 /* Views */,
+				1A05267621F0BF5D00F6D373 /* Controllers */,
+				1A05268421F0EB5F00F6D373 /* Logic */,
 				1A1C1315219ADC82003449F8 /* Extension.swift */,
 				1A1C1314219ADC62003449F8 /* Resources */,
 				1A1C130E219AD956003449F8 /* Info.plist */,
@@ -86,8 +170,19 @@
 			isa = PBXGroup;
 			children = (
 				1AA6FBF8219B2A78002F7168 /* Foundation.framework */,
+				357B9DFE1973A43366F77AAC /* Pods_ButterflyMX_Demo.framework */,
+				2ECABA56EFEBC255A768F2E4 /* Pods_ButterflyMX_Demo_Internal.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A27422D1F52146F27A8C64BE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F12375B9271DEFF7D2988D5C /* Pods-ButterflyMX Demo.release.xcconfig */,
+				16C5B1111FF9392BAC303CB9 /* Pods-ButterflyMX Demo.debug.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A1C1311219AD956003449F8 /* Build configuration list for PBXNativeTarget "ButterflyMX Demo" */;
 			buildPhases = (
+				FB5210E972B4B32D2898CC74 /* [CP] Check Pods Manifest.lock */,
 				1A1C12FB219AD954003449F8 /* Sources */,
 				1A1C12FC219AD954003449F8 /* Frameworks */,
 				1A1C12FD219AD954003449F8 /* Resources */,
+				320A534B1354CFF943A0099B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -108,6 +205,24 @@
 			name = "ButterflyMX Demo";
 			productName = "BMX API Client";
 			productReference = 1A1C12FF219AD954003449F8 /* ButterflyMX Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3C2322921F5C6B500A84483 /* ButterflyMX Demo Internal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3C2323F21F5C6B500A84483 /* Build configuration list for PBXNativeTarget "ButterflyMX Demo Internal" */;
+			buildPhases = (
+				C3C2322B21F5C6B500A84483 /* Sources */,
+				C3C2323721F5C6B500A84483 /* Frameworks */,
+				C3C2323A21F5C6B500A84483 /* Resources */,
+				C3C2324621F5C6E300A84483 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ButterflyMX Demo Internal";
+			productName = "BMX API Client";
+			productReference = C3C2324121F5C6B500A84483 /* ButterflyMX Demo Internal.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -127,7 +242,7 @@
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -147,6 +262,7 @@
 			projectRoot = "";
 			targets = (
 				1A1C12FE219AD954003449F8 /* ButterflyMX Demo */,
+				C3C2322921F5C6B500A84483 /* ButterflyMX Demo Internal */,
 			);
 		};
 /* End PBXProject section */
@@ -162,17 +278,101 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C3C2323A21F5C6B500A84483 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C2323B21F5C6B500A84483 /* LaunchScreen.storyboard in Resources */,
+				C3C2323C21F5C6B500A84483 /* Assets.xcassets in Resources */,
+				C3C2323D21F5C6B500A84483 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		320A534B1354CFF943A0099B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${PODS_ROOT}/ButterflyMX/ButterflyMXSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ButterflyMXSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB5210E972B4B32D2898CC74 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ButterflyMX Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1A1C12FB219AD954003449F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A7D091021F7166F00AA1999 /* AccountTableViewController.swift in Sources */,
 				1A1C1318219ADCEE003449F8 /* LoginViewController.swift in Sources */,
+				1A05268621F206F000F6D373 /* GradientView.swift in Sources */,
+				1A05267A21F0CE9400F6D373 /* IncomingCallViewController.swift in Sources */,
 				1A1C1305219AD954003449F8 /* FeaturesViewController.swift in Sources */,
 				1A1C1303219AD954003449F8 /* AppDelegate.swift in Sources */,
+				1A05267521F0A60700F6D373 /* NotificationService.swift in Sources */,
 				1A1C1316219ADC82003449F8 /* Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3C2322B21F5C6B500A84483 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3C2322C21F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */,
+				1A2CD59121F6310900515F51 /* AccountTableViewController.swift in Sources */,
+				C3C2322E21F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2322F21F5C6B500A84483 /* GradientView.swift in Sources */,
+				C3C2323021F5C6B500A84483 /* IncomingCallViewController.swift in Sources */,
+				C3C2323121F5C6B500A84483 /* FeaturesViewController.swift in Sources */,
+				C3C2323221F5C6B500A84483 /* AppDelegate.swift in Sources */,
+				C3C2323321F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2323421F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2323521F5C6B500A84483 /* NotificationService.swift in Sources */,
+				C3C2323621F5C6B500A84483 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,8 +455,10 @@
 		};
 		1A1C1313219AD956003449F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F12375B9271DEFF7D2988D5C /* Pods-ButterflyMX Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ButterflyMX Demo/ButterflyMX Demo.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 72UNXQ9M6U;
 				ENABLE_BITCODE = NO;
@@ -271,16 +473,162 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Dependencies/pjsip/lib",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.butterflymx.sdk.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
+		};
+		C3C2324021F5C6B500A84483 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ButterflyMX Demo/ButterflyMX Demo.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 72UNXQ9M6U;
+				ENABLE_BITCODE = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PJ_AUTOCONF=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../Dependencies/pjsip/include",
+				);
+				INFOPLIST_FILE = "ButterflyMX Demo Internal-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../Dependencies/pjsip/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.butterflymx.sdk.demo-internal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C3C2324721F5C79900A84483 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		C3C2324821F5C79900A84483 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16C5B1111FF9392BAC303CB9 /* Pods-ButterflyMX Demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ButterflyMX Demo/ButterflyMX Demo.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 72UNXQ9M6U;
+				ENABLE_BITCODE = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"PJ_AUTOCONF=1",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/ButterflyMX Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.butterflymx.sdk.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C3C2324921F5C79900A84483 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "ButterflyMX Demo/ButterflyMX Demo.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 72UNXQ9M6U;
+				ENABLE_BITCODE = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"PJ_AUTOCONF=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../Dependencies/pjsip/include",
+				);
+				INFOPLIST_FILE = "ButterflyMX Demo Internal-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../../Dependencies/pjsip/lib",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.butterflymx.sdk.demo-internal";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -289,17 +637,28 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A1C1310219AD956003449F8 /* Release */,
+				C3C2324721F5C79900A84483 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		1A1C1311219AD956003449F8 /* Build configuration list for PBXNativeTarget "ButterflyMX Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1A1C1313219AD956003449F8 /* Release */,
+				C3C2324821F5C79900A84483 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
+		};
+		C3C2323F21F5C6B500A84483 /* Build configuration list for PBXNativeTarget "ButterflyMX Demo Internal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C2324021F5C6B500A84483 /* Release */,
+				C3C2324921F5C79900A84483 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

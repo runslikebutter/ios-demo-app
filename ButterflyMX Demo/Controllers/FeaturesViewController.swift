@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import AVFoundation
 
 class FeaturesViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var openDoorButton: UIButton!
     @IBAction func openDoorAction(_ sender: Any) {
+       self.alert(message: "Not available yet")
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
 }

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import ButterflyMXSDK
+import SVProgressHUD
 class LoginViewController: UITableViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
@@ -16,6 +17,7 @@ class LoginViewController: UITableViewController {
 
     @IBAction func singInAction(_ sender: Any) {
         guard var emailValue = emailTextField.text, let passwordValue = passwordTextField.text else { return }
+        SVProgressHUD.show()
         emailValue = emailValue.trimmingCharacters(in: .whitespacesAndNewlines)
         if emailValue.isEmailAddress {
             signIn(email: emailValue, password: passwordValue)
@@ -28,6 +30,8 @@ class LoginViewController: UITableViewController {
         super.viewDidLoad()
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        BMXCore.shared.delegate = self
+        SVProgressHUD.setDefaultStyle(.light)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -35,10 +39,20 @@ class LoginViewController: UITableViewController {
         self.emailTextField.becomeFirstResponder()
     }
 
-    func signIn(email: String, password: String ) {
-        let stb = UIStoryboard(name: "Main", bundle: nil)
-        let mainViewController = stb.instantiateViewController(withIdentifier: "MainTabController")
-        self.present(mainViewController, animated: true, completion: nil)
+    private func signIn(email: String, password: String ) {
+        BMXCore.shared.loginUser(email: email, password: password, completion: { response in
+            switch response {
+                case .error(let error):
+                    print(error)
+                    SVProgressHUD.showError(withStatus: error.localizedDescription)
+                case .success(let user):
+                    print(user)
+                    SVProgressHUD.dismiss()
+                    let stb = UIStoryboard(name: "Main", bundle: nil)
+                    let mainViewController = stb.instantiateViewController(withIdentifier: "MainTabController")
+                    self.present(mainViewController, animated: true, completion: nil)
+            }
+       })
     }
 }
 
@@ -52,5 +66,11 @@ extension LoginViewController: UITextFieldDelegate {
             self.passwordTextField.resignFirstResponder()
         }
         return true
+    }
+}
+
+extension LoginViewController: BMXCoreDelegate {
+    func logging(_ data: String) {
+        print("BMXSDK Log: \(data)")
     }
 }
