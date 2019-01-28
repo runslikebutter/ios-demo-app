@@ -8,7 +8,7 @@ Get started by downloading our iOS sample app:
 
 See also
 
-* [Using sample iOS app](https://github.com/runslikebutter/ios-demo-app/wiki/Use-the-Sample-App) for more information about the iOS sample apps.
+* [Using sample iOS app](https://github.com/runslikebutter/ios-demo-app/wiki/Use-the-Sample-App) for more information about the iOS sample app.
 
 ## After you get those up and running, check out
 
