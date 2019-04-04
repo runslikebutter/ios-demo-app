@@ -8,7 +8,8 @@
 
 import UIKit
 import AVFoundation
-import ButterflyMXSDK
+import BMXCall
+import BMXCore
 
 class IncomingCallViewController: UIViewController {
 

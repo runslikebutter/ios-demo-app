@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ButterflyMXSDK
+import BMXCore
 import SVProgressHUD
 class AccountTableViewController: UITableViewController {
     private var currentUser: User?

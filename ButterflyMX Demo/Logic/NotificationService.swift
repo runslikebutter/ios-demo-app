@@ -8,7 +8,8 @@
 
 import UIKit
 import UserNotifications
-import ButterflyMXSDK
+import BMXCall
+import BMXCore
 
 class NotificationService: NSObject {
 

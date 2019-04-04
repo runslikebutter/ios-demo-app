@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import ButterflyMXSDK
+import BMXCall
+import BMXCore
 import UserNotifications
 import AVFoundation
 

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ButterflyMXSDK
+import BMXCore
 import SVProgressHUD
 class LoginViewController: UITableViewController {
 
