@@ -6,7 +6,8 @@ target 'ButterflyMX Demo' do
   use_frameworks!
 
   # Pods for ButterflyMX Demo
-  pod 'ButterflyMX'
+  pod 'BMXCore'
+  pod 'BMXCall'
   pod 'SVProgressHUD'
 
 end

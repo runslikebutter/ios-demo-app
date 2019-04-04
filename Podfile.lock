@@ -1,24 +1,29 @@
 PODS:
-  - Alamofire (4.8.1)
-  - ButterflyMX (0.13.3):
+  - Alamofire (4.8.2)
+  - BMXCall (1.0):
+    - BMXCore (~> 1.0)
+  - BMXCore (1.0):
     - Alamofire
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - ButterflyMX
+  - BMXCall
+  - BMXCore
   - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - ButterflyMX
+    - BMXCall
+    - BMXCore
     - SVProgressHUD
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  ButterflyMX: fe013317cf7c8871bc66a2b27d805e32ff9e380b
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  BMXCall: 18921b25c69b7bb6431c71bccbf0b85bcab1ac24
+  BMXCore: 4ebf5956c95d900a9fae88a672751a83525680b1
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 35480215c59174c4eed51d21ff5569c74b4e662c
+PODFILE CHECKSUM: 997e2fc47e2f672cd71cc9d4514dd08048242f64
 
 COCOAPODS: 1.6.0.beta.2

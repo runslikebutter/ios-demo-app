@@ -9,7 +9,7 @@ import UIKit
 import BMXCore
 import SVProgressHUD
 class AccountTableViewController: UITableViewController {
-    private var currentUser: User?
+    private var currentUser: UserModel?
 
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -28,10 +28,8 @@ class AccountTableViewController: UITableViewController {
     func getUserInfo() {
         self.currentUser = BMXUser.shared.getUser()
         guard let user = self.currentUser else { return }
-        if let avatarArray = user.avatar {
-            if let avatarUrl = avatarArray.first?.value {
+        if let avatarArray = user.avatars, let avatarUrl = avatarArray["medium_url"] as? String {
                 userAvatar.loadImageUsingCache(withUrl: avatarUrl)
-            }
         }
         userNameLabel.text = user.name ?? "N/a"
         emailLabel.text = user.email ?? "N/a"
