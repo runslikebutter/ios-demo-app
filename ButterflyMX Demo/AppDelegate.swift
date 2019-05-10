@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         BMXCore.shared.delegate = self
 
         NotificationService.shared.setupLocalNotifications()
+        NotificationService.shared.setupVoipPush()
         requestAccessMicCamera(callback: { status in
             print("User media permission status \(status.rawValue)")
         })
