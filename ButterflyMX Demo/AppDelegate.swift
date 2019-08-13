@@ -26,8 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let loginViewController = stb.instantiateViewController(withIdentifier: "LoginViewController")
             window!.rootViewController = loginViewController
         }
-        let auth = BMXAuthProvider(secret: ProcessInfo.processInfo.environment["SECRET"] ?? "N/a",
-                                   clientID: ProcessInfo.processInfo.environment["CLIENTID"] ?? "N/a")
+
+        let auth = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
+                                   clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
         let env = BMXEnvironment(backendEnvironment: .development)
         BMXCore.shared.configure(withEnvironment: env, andAuthProvider: auth)
         BMXCall.shared.notificationsDelegate = self
