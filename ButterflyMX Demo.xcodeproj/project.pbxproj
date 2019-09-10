@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A6557238757F65C4326AE42 /* Pods_ButterflyMX_Demo_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FCEB3C63133500C3E755854 /* Pods_ButterflyMX_Demo_Internal.framework */; };
 		1A05267521F0A60700F6D373 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267421F0A60700F6D373 /* NotificationService.swift */; };
 		1A05267A21F0CE9400F6D373 /* IncomingCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267921F0CE9400F6D373 /* IncomingCallViewController.swift */; };
 		1A05268621F206F000F6D373 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05268521F206F000F6D373 /* GradientView.swift */; };
@@ -33,15 +34,14 @@
 		1A8DF4A2225CBAF000AB0393 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8DF4A1225CBAF000AB0393 /* Colors.swift */; };
 		1A8DF4A3225CBAF500AB0393 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8DF4A1225CBAF000AB0393 /* Colors.swift */; };
 		1AA6FBF9219B2A78002F7168 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
-		431D6B16739454A5B6F3C68A /* Pods_ButterflyMX_Demo_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F37260D6BD3915850AF5F9 /* Pods_ButterflyMX_Demo_Internal.framework */; };
-		C3C2322C21F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		C3C2322C21F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1317219ADCEE003449F8 /* LoginViewController.swift */; };
-		C3C2322E21F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		C3C2322E21F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		C3C2322F21F5C6B500A84483 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05268521F206F000F6D373 /* GradientView.swift */; };
 		C3C2323021F5C6B500A84483 /* IncomingCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267921F0CE9400F6D373 /* IncomingCallViewController.swift */; };
 		C3C2323221F5C6B500A84483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1302219AD954003449F8 /* AppDelegate.swift */; };
-		C3C2323321F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		C3C2323421F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		C3C2323321F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2323421F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		C3C2323521F5C6B500A84483 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267421F0A60700F6D373 /* NotificationService.swift */; };
 		C3C2323621F5C6B500A84483 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1315219ADC82003449F8 /* Extension.swift */; };
 		C3C2323821F5C6B500A84483 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
@@ -87,9 +87,9 @@
 		1A8DF4A1225CBAF000AB0393 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1AA6FBF8219B2A78002F7168 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1ACCD9B121EF73FB00E97924 /* ButterflyMX Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ButterflyMX Demo.entitlements"; sourceTree = "<group>"; };
-		2C43562D24464A35A4CC84CF /* Pods-ButterflyMX Demo Internal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButterflyMX Demo Internal.debug.xcconfig"; path = "../../../Pods/Target Support Files/Pods-ButterflyMX Demo Internal/Pods-ButterflyMX Demo Internal.debug.xcconfig"; sourceTree = "<group>"; };
-		35F37260D6BD3915850AF5F9 /* Pods_ButterflyMX_Demo_Internal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ButterflyMX_Demo_Internal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E1C31DCBF18CEE052282A9B /* Pods-ButterflyMX Demo Internal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButterflyMX Demo Internal.release.xcconfig"; path = "../../../Pods/Target Support Files/Pods-ButterflyMX Demo Internal/Pods-ButterflyMX Demo Internal.release.xcconfig"; sourceTree = "<group>"; };
+		3A6BCF8E142DA7087E97842C /* Pods-ButterflyMX Demo Internal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButterflyMX Demo Internal.release.xcconfig"; path = "../../../Pods/Target Support Files/Pods-ButterflyMX Demo Internal/Pods-ButterflyMX Demo Internal.release.xcconfig"; sourceTree = "<group>"; };
+		7FCEB3C63133500C3E755854 /* Pods_ButterflyMX_Demo_Internal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ButterflyMX_Demo_Internal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEF2A98FE6EB6A9DEC347F5A /* Pods-ButterflyMX Demo Internal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButterflyMX Demo Internal.debug.xcconfig"; path = "../../../Pods/Target Support Files/Pods-ButterflyMX Demo Internal/Pods-ButterflyMX Demo Internal.debug.xcconfig"; sourceTree = "<group>"; };
 		C3C2324121F5C6B500A84483 /* ButterflyMX Demo Internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ButterflyMX Demo Internal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -109,7 +109,7 @@
 				1A1E860A2254B9FB00189782 /* BMXCall.framework in Frameworks */,
 				C3C2323821F5C6B500A84483 /* Foundation.framework in Frameworks */,
 				1A1E860D2254B9FB00189782 /* BMXCore.framework in Frameworks */,
-				431D6B16739454A5B6F3C68A /* Pods_ButterflyMX_Demo_Internal.framework in Frameworks */,
+				0A6557238757F65C4326AE42 /* Pods_ButterflyMX_Demo_Internal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				1AA6FBF8219B2A78002F7168 /* Foundation.framework */,
-				35F37260D6BD3915850AF5F9 /* Pods_ButterflyMX_Demo_Internal.framework */,
+				7FCEB3C63133500C3E755854 /* Pods_ButterflyMX_Demo_Internal.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -221,8 +221,8 @@
 		A27422D1F52146F27A8C64BE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8E1C31DCBF18CEE052282A9B /* Pods-ButterflyMX Demo Internal.release.xcconfig */,
-				2C43562D24464A35A4CC84CF /* Pods-ButterflyMX Demo Internal.debug.xcconfig */,
+				3A6BCF8E142DA7087E97842C /* Pods-ButterflyMX Demo Internal.release.xcconfig */,
+				AEF2A98FE6EB6A9DEC347F5A /* Pods-ButterflyMX Demo Internal.debug.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -251,12 +251,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3C2323F21F5C6B500A84483 /* Build configuration list for PBXNativeTarget "ButterflyMX Demo Internal" */;
 			buildPhases = (
-				3A64C36F723B8F38DBF7756A /* [CP] Check Pods Manifest.lock */,
+				CB92C44F72615B71A5D0C962 /* [CP] Check Pods Manifest.lock */,
 				C3C2322B21F5C6B500A84483 /* Sources */,
 				C3C2323721F5C6B500A84483 /* Frameworks */,
 				C3C2323A21F5C6B500A84483 /* Resources */,
 				C3C2324621F5C6E300A84483 /* Embed Frameworks */,
-				1010C2035D184A8663E1FBFE /* [CP] Embed Pods Frameworks */,
+				FA50FCDB1B2896B089EDD314 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -333,24 +333,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1010C2035D184A8663E1FBFE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo Internal/Pods-ButterflyMX Demo Internal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo Internal/Pods-ButterflyMX Demo Internal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo Internal/Pods-ButterflyMX Demo Internal-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3A64C36F723B8F38DBF7756A /* [CP] Check Pods Manifest.lock */ = {
+		CB92C44F72615B71A5D0C962 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -370,6 +353,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA50FCDB1B2896B089EDD314 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo Internal/Pods-ButterflyMX Demo Internal-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo Internal/Pods-ButterflyMX Demo Internal-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo Internal/Pods-ButterflyMX Demo Internal-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -398,19 +398,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3C2322C21F5C6B500A84483 /* (null) in Sources */,
+				C3C2322C21F5C6B500A84483 /* BuildFile in Sources */,
 				1A8DF4A0225CB26800AB0393 /* DoorsTableViewController.swift in Sources */,
 				C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */,
 				1A2CD59121F6310900515F51 /* AccountTableViewController.swift in Sources */,
-				C3C2322E21F5C6B500A84483 /* (null) in Sources */,
+				C3C2322E21F5C6B500A84483 /* BuildFile in Sources */,
 				C3C2322F21F5C6B500A84483 /* GradientView.swift in Sources */,
 				1A715B10225632290002772C /* UnitsViewController.swift in Sources */,
 				C3C2323021F5C6B500A84483 /* IncomingCallViewController.swift in Sources */,
 				1A715B0622561DE10002772C /* DoorTableViewCell.swift in Sources */,
 				1A8DF4A3225CBAF500AB0393 /* Colors.swift in Sources */,
 				C3C2323221F5C6B500A84483 /* AppDelegate.swift in Sources */,
-				C3C2323321F5C6B500A84483 /* (null) in Sources */,
-				C3C2323421F5C6B500A84483 /* (null) in Sources */,
+				C3C2323321F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2323421F5C6B500A84483 /* BuildFile in Sources */,
 				C3C2323521F5C6B500A84483 /* NotificationService.swift in Sources */,
 				C3C2323621F5C6B500A84483 /* Extension.swift in Sources */,
 				1A715B0E22562E280002772C /* UnitTableViewCell.swift in Sources */,
@@ -523,7 +523,7 @@
 		};
 		C3C2324021F5C6B500A84483 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E1C31DCBF18CEE052282A9B /* Pods-ButterflyMX Demo Internal.release.xcconfig */;
+			baseConfigurationReference = 3A6BCF8E142DA7087E97842C /* Pods-ButterflyMX Demo Internal.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ButterflyMX Demo/ButterflyMX Demo.entitlements";
@@ -640,7 +640,7 @@
 		};
 		C3C2324921F5C79900A84483 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C43562D24464A35A4CC84CF /* Pods-ButterflyMX Demo Internal.debug.xcconfig */;
+			baseConfigurationReference = AEF2A98FE6EB6A9DEC347F5A /* Pods-ButterflyMX Demo Internal.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ButterflyMX Demo/ButterflyMX Demo.entitlements";

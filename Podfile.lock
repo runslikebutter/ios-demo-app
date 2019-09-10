@@ -3,17 +3,17 @@ PODS:
   - BMXCall (1.0):
     - BMXCore (~> 1.0)
   - BMXCore (1.0):
-    - Alamofire
-    - Japx/CodableAlamofire
-  - Japx/Alamofire (2.0.1):
+    - Alamofire (~> 4.8.2)
+    - Japx/CodableAlamofire (~> 2.0.2)
+  - Japx/Alamofire (2.0.2):
     - Alamofire (~> 4.5)
     - Japx/Core
-  - Japx/Codable (2.0.1):
+  - Japx/Codable (2.0.2):
     - Japx/Core
-  - Japx/CodableAlamofire (2.0.1):
+  - Japx/CodableAlamofire (2.0.2):
     - Japx/Alamofire
     - Japx/Codable
-  - Japx/Core (2.0.1)
+  - Japx/Core (2.0.2)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -32,10 +32,10 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   BMXCall: 18921b25c69b7bb6431c71bccbf0b85bcab1ac24
-  BMXCore: 76a113c1b728ba8d80f909756901538311dca7c2
-  Japx: 153a8a39a71121827bcf89c6f89ef28091f2b3e7
+  BMXCore: db697484bc76bb0f07992c1e172995ded0f637bc
+  Japx: fad17fcb8fe56d69a493ea7d3fce6e1d796879f8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
 PODFILE CHECKSUM: 997e2fc47e2f672cd71cc9d4514dd08048242f64
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.7.3
