@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ButterflyMXSDK
+import BMXCore
 import SVProgressHUD
 class LoginViewController: UITableViewController {
 
@@ -50,7 +50,10 @@ class LoginViewController: UITableViewController {
                     SVProgressHUD.dismiss()
                     let stb = UIStoryboard(name: "Main", bundle: nil)
                     let mainViewController = stb.instantiateViewController(withIdentifier: "MainTabController")
-                    self.present(mainViewController, animated: true, completion: nil)
+                    self.present(mainViewController, animated: true, completion: {
+                        guard let pushToken = NotificationService.shared.pushkitToken else { return }
+                        BMXCore.shared.registerPushKitToken(pushToken)
+                    })
             }
        })
     }

@@ -8,13 +8,16 @@
 
 import UIKit
 import UserNotifications
-import ButterflyMXSDK
+import BMXCall
+import BMXCore
+import PushKit
 
 class NotificationService: NSObject {
 
     static let shared = NotificationService()
     private var notificationId = 0
-
+    var pushkitToken: Data?
+    
     func setupLocalNotifications() {
         let notificationCenter = UNUserNotificationCenter.current()
         let acceptCallAction = UNNotificationAction(identifier: "accept_call", title: "Accept call", options: [])
@@ -30,6 +33,13 @@ class NotificationService: NSObject {
                 print("User allowed notifications")
             }
         }
+    }
+    
+    func setupVoipPush() {
+        let mainQueue = DispatchQueue.main
+        let voipRegistry = PKPushRegistry(queue: mainQueue)
+        voipRegistry.delegate = self
+        voipRegistry.desiredPushTypes = [.voIP]
     }
 
     func createLocalNotification(fromCall: Call, with body: String) {
@@ -102,6 +112,20 @@ extension NotificationService: UNUserNotificationCenterDelegate {
             print("Default action")
         }
         completionHandler()
+    }
+}
+
+extension NotificationService: PKPushRegistryDelegate {
+    
+    func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
+        if BMXCore.shared.isUserLoggedIn {
+            pushkitToken = pushCredentials.token
+            BMXCore.shared.registerPushKitToken(pushCredentials.token)
+        }
+    }
+    
+    func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType) {
+        BMXCall.shared.processCall(payload: payload)
     }
 }
 
