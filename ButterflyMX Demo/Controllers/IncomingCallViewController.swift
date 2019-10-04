@@ -149,7 +149,7 @@ class IncomingCallViewController: UIViewController {
     }
 
     private func setupUIData() {
-        if let call = BMXCall.shared.activeCall {
+        if let call = BMXCall.shared.activeCall?.callDetails {
             if let image = call.mediumUrl {
                 let imageData = NSData(contentsOf: URL(string: image)!)
                 self.imagePreview.image = UIImage(data: imageData! as Data)
@@ -213,7 +213,7 @@ extension IncomingCallViewController: BMXCallDelegate {
         self.setIncomingVideo(video)
     }
 
-    func callEnded(_ call: Call) {
+    func callEnded(_ call: CallStatus) {
         self.dismiss(animated: true, completion: nil)
     }
 }

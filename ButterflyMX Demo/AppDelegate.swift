@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: BMXCallNotificationsDelegate {
-    func callCanceled(_ call: Call, reason: CallCancelReason) {
+    func callCanceled(_ call: CallStatus, reason: CallCancelReason) {
         NotificationService.shared.removeLocalNotifications()
         switch reason {
         case .AnsweredByOthers:
@@ -82,12 +82,11 @@ extension AppDelegate: BMXCallNotificationsDelegate {
             NotificationService.shared.createLocalNotification(fromCall: call, with: "Call missed")
         }
     }
-
-    func callReceived(_ call: Call) {
-        NotificationService.shared.createLocalNotification(fromCall: call, with: "You have a \(call.getTitle())")
+    
+    func callReceived(_ call: CallStatus) {
+        NotificationService.shared.createLocalNotification(fromCall: call, with: "You have a \(String(describing: call.callDetails?.getTitle()))")
     }
 }
-
 extension AppDelegate: BMXCoreDelegate {
     func logging(_ data: String) {
         print("BMXSDK Log: \(data)")

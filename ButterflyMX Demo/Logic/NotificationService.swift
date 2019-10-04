@@ -13,7 +13,7 @@ import BMXCore
 import PushKit
 
 class NotificationService: NSObject {
-
+    
     static let shared = NotificationService()
     private var notificationId = 0
     var pushkitToken: Data?
@@ -41,21 +41,21 @@ class NotificationService: NSObject {
         voipRegistry.delegate = self
         voipRegistry.desiredPushTypes = [.voIP]
     }
-
-    func createLocalNotification(fromCall: Call, with body: String) {
+    
+    func createLocalNotification(fromCall: CallStatus, with body: String) {
         let content = UNMutableNotificationContent()
-        guard let guid = fromCall.guid else {
+        guard let guid = fromCall.callDetails?.guid else {
             print("No call guid")
             return
         }
-        content.title = fromCall.panelName ?? "Front door"
+        content.title = fromCall.callDetails?.panelName ?? "Front door"
         content.body = body
         content.categoryIdentifier = "IncomingCallCategory"
         content.userInfo = [
             "guid" : guid
         ]
         
-        if let visitorImageUrl = fromCall.mediumUrl {
+        if let visitorImageUrl = fromCall.callDetails?.mediumUrl {
             let imageData = NSData(contentsOf: URL(string: visitorImageUrl)!)
             if let data = imageData {
                 content.attachments = [UNNotificationAttachment.create(imageFileIdentifier: "\(guid).png", data: data, options: nil)!]
@@ -63,9 +63,9 @@ class NotificationService: NSObject {
         }
 
         self.notificationId += 1
-        print("Notification: incoming_call_\(fromCall.guid ?? "n/a")_\(self.notificationId)")
-
-        let req = UNNotificationRequest(identifier: "incoming_call_\(fromCall.guid ?? "n/a")_\(self.notificationId)", content: content, trigger: nil)
+        print("Notification: incoming_call_\(fromCall.callDetails?.guid ?? "n/a")_\(self.notificationId)")
+        
+        let req = UNNotificationRequest(identifier: "incoming_call_\(fromCall.callDetails?.guid ?? "n/a")_\(self.notificationId)", content: content, trigger: nil)
         UNUserNotificationCenter.current().add(req)
     }
 
