@@ -22,6 +22,7 @@
 		1A1E860E2254B9FB00189782 /* BMXCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1E860C2254B9FB00189782 /* BMXCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A2CD59121F6310900515F51 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2CD59021F6310900515F51 /* AccountTableViewController.swift */; };
 		1A59B850234B514200E1E536 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A59B84F234B514200E1E536 /* CallKit.framework */; };
+		1A59B851234B529300E1E536 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A59B84F234B514200E1E536 /* CallKit.framework */; };
 		1A715B0522561DDE0002772C /* DoorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A715B0422561DDE0002772C /* DoorTableViewCell.swift */; };
 		1A715B0622561DE10002772C /* DoorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A715B0422561DDE0002772C /* DoorTableViewCell.swift */; };
 		1A715B0B22562BA10002772C /* UnitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A715B0A22562BA10002772C /* UnitsViewController.swift */; };
@@ -102,6 +103,7 @@
 			files = (
 				1AA6FBF9219B2A78002F7168 /* Foundation.framework in Frameworks */,
 				F1E41B2D8EB0FE7A4D8FA974 /* Pods_ButterflyMX_Demo.framework in Frameworks */,
+				1A59B851234B529300E1E536 /* CallKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
