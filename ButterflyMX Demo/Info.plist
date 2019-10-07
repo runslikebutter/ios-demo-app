@@ -26,6 +26,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
