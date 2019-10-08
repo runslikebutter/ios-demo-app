@@ -84,7 +84,7 @@ extension AppDelegate: BMXCallNotificationsDelegate {
     }
     
     func callReceived(_ call: CallStatus) {
-        NotificationService.shared.createLocalNotification(fromCall: call, with: "You have a \(String(describing: call.callDetails?.getTitle()))")
+//        NotificationService.shared.createLocalNotification(fromCall: call, with: "You have a \(String(describing: call.callDetails?.getTitle()))")
     }
 }
 extension AppDelegate: BMXCoreDelegate {

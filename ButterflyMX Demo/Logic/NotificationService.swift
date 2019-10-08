@@ -19,7 +19,13 @@ class NotificationService: NSObject {
     private var notificationId = 0
     var pushkitToken: Data?
     
-    fileprivate var provider: CXProvider!
+    fileprivate var provider: CXProvider
+    
+    private override init() {
+       provider = CXProvider(configuration: type(of: self).providerConfiguration)
+       super.init()
+       provider.setDelegate(self, queue: nil)
+    }
     
     static var providerConfiguration: CXProviderConfiguration {
            let providerConfiguration = CXProviderConfiguration(localizedName: "ButterflyMXDemo")
@@ -52,8 +58,6 @@ class NotificationService: NSObject {
         let voipRegistry = PKPushRegistry(queue: mainQueue)
         voipRegistry.delegate = self
         voipRegistry.desiredPushTypes = [.voIP]
-        provider = CXProvider(configuration: type(of: self).providerConfiguration)
-        provider.setDelegate(self, queue: nil)
     }
     
     func createLocalNotification(fromCall: CallStatus, with body: String) {
@@ -153,18 +157,34 @@ extension NotificationService: PKPushRegistryDelegate, CXProviderDelegate {
         update.hasVideo = true
         guard let callGuid = payload.dictionaryPayload["guid"] as? String else { return }
         reportNewIncomingCall(with: UUID(uuidString: callGuid)!, update: update, completion: { (error) in
-            
+            if let error = error {
+                let reason = CXCallEndedReason(rawValue: 0)
+                self.provider.reportCall(with: UUID(uuidString: callGuid)!, endedAt: Date(), reason: reason!)
+                print("Incoming CallKit error: \(String(describing: error.localizedDescription))")
+            }
         })
         BMXCall.shared.processCall(payload: payload)
+        if let topViewController = UIApplication.topViewController() {
+           let incomingViewController = IncomingCallViewController.initViewController()
+            incomingViewController.currentCallGuid = callGuid
+           topViewController.present(incomingViewController, animated: true)
+        }
     }
     
     func reportNewIncomingCall(with UUID: UUID, update: CXCallUpdate, completion: @escaping (Error?) -> Void) {
         provider.reportNewIncomingCall(with: UUID, update: update) { error in
-            if error != nil {
-                print("Incoming CallKit error: \(String(describing: error?.localizedDescription))")
-            }
             completion(error)
         }
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXStartCallAction) {
+        BMXCall.shared.answerCall()
+        action.fulfill()
+    }
+    
+    func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
+        BMXCall.shared.declineCall()
+        action.fulfill()
     }
 }
 
