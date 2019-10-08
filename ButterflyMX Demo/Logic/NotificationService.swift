@@ -11,12 +11,24 @@ import UserNotifications
 import BMXCall
 import BMXCore
 import PushKit
+import CallKit
 
 class NotificationService: NSObject {
     
     static let shared = NotificationService()
     private var notificationId = 0
     var pushkitToken: Data?
+    
+    fileprivate var provider: CXProvider!
+    
+    static var providerConfiguration: CXProviderConfiguration {
+           let providerConfiguration = CXProviderConfiguration(localizedName: "ButterflyMXDemo")
+           providerConfiguration.maximumCallsPerCallGroup = 1
+           providerConfiguration.maximumCallGroups = 1
+           providerConfiguration.supportsVideo = true
+           providerConfiguration.supportedHandleTypes = [.generic]
+           return providerConfiguration
+    }
     
     func setupLocalNotifications() {
         let notificationCenter = UNUserNotificationCenter.current()
@@ -40,6 +52,8 @@ class NotificationService: NSObject {
         let voipRegistry = PKPushRegistry(queue: mainQueue)
         voipRegistry.delegate = self
         voipRegistry.desiredPushTypes = [.voIP]
+        provider = CXProvider(configuration: type(of: self).providerConfiguration)
+        provider.setDelegate(self, queue: nil)
     }
     
     func createLocalNotification(fromCall: CallStatus, with body: String) {
@@ -94,6 +108,7 @@ extension NotificationService: UNUserNotificationCenterDelegate {
         completionHandler([.alert, .sound])
     }
 
+
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         switch response.actionIdentifier {
         case UNNotificationDismissActionIdentifier:
@@ -115,7 +130,11 @@ extension NotificationService: UNUserNotificationCenterDelegate {
     }
 }
 
-extension NotificationService: PKPushRegistryDelegate {
+extension NotificationService: PKPushRegistryDelegate, CXProviderDelegate {
+    func providerDidReset(_ provider: CXProvider) {
+        print("provider reset")
+    }
+    
     
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         if BMXCore.shared.isUserLoggedIn {
@@ -125,7 +144,27 @@ extension NotificationService: PKPushRegistryDelegate {
     }
     
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType) {
+        print(payload)
+        let update = CXCallUpdate()
+        update.remoteHandle = CXHandle(type: .generic, value: "Test")
+        update.supportsGrouping = false
+        update.supportsHolding = false
+        update.supportsUngrouping = false
+        update.hasVideo = true
+        guard let callGuid = payload.dictionaryPayload["guid"] as? String else { return }
+        reportNewIncomingCall(with: UUID(uuidString: callGuid)!, update: update, completion: { (error) in
+            
+        })
         BMXCall.shared.processCall(payload: payload)
+    }
+    
+    func reportNewIncomingCall(with UUID: UUID, update: CXCallUpdate, completion: @escaping (Error?) -> Void) {
+        provider.reportNewIncomingCall(with: UUID, update: update) { error in
+            if error != nil {
+                print("Incoming CallKit error: \(String(describing: error?.localizedDescription))")
+            }
+            completion(error)
+        }
     }
 }
 
