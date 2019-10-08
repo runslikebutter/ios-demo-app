@@ -72,12 +72,16 @@ class IncomingCallViewController: UIViewController {
 
     @IBAction func declineCall(_ sender: Any) {
         BMXCall.shared.declineCall()
-        self.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 
     @IBAction func hangUpAction(_ sender: Any) {
         BMXCall.shared.hangupCall()
-        self.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 
     @IBAction func openDoorAction(_ sender: Any) {
@@ -214,6 +218,8 @@ extension IncomingCallViewController: BMXCallDelegate {
     }
 
     func callEnded(_ call: CallStatus) {
-        self.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }

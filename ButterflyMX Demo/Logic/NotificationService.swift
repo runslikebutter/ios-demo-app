@@ -12,6 +12,7 @@ import BMXCall
 import BMXCore
 import PushKit
 import CallKit
+import AVFoundation
 
 class NotificationService: NSObject {
     
@@ -20,7 +21,7 @@ class NotificationService: NSObject {
     var pushkitToken: Data?
     
     fileprivate var provider: CXProvider
-    
+    var callGuid = ""
     private override init() {
        provider = CXProvider(configuration: type(of: self).providerConfiguration)
        super.init()
@@ -148,26 +149,40 @@ extension NotificationService: PKPushRegistryDelegate, CXProviderDelegate {
     }
     
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType) {
-        print(payload)
         let update = CXCallUpdate()
         update.remoteHandle = CXHandle(type: .generic, value: "Test")
         update.supportsGrouping = false
         update.supportsHolding = false
         update.supportsUngrouping = false
         update.hasVideo = true
-        guard let callGuid = payload.dictionaryPayload["guid"] as? String else { return }
-        reportNewIncomingCall(with: UUID(uuidString: callGuid)!, update: update, completion: { (error) in
-            if let error = error {
-                let reason = CXCallEndedReason(rawValue: 0)
-                self.provider.reportCall(with: UUID(uuidString: callGuid)!, endedAt: Date(), reason: reason!)
-                print("Incoming CallKit error: \(String(describing: error.localizedDescription))")
+        guard let guid = payload.dictionaryPayload["guid"] as? String else { return }
+        let session = AVAudioSession()
+        do {
+            try session.setCategory(.playAndRecord, mode: .voiceChat, options: [.allowBluetooth, .allowBluetoothA2DP])
+            try session.overrideOutputAudioPort(.speaker)
+            try session.setActive(true)
+        } catch {
+            print("Override audio to Speaker error: \(error)")
+        }
+        if callGuid == guid {
+            print("Ignore changes")
+        } else {
+           callGuid = guid
+            reportNewIncomingCall(with: UUID(uuidString: callGuid)!, update: update, completion: { (error) in
+                      if let error = error {
+                          let reason = CXCallEndedReason(rawValue: 0)
+                          self.provider.reportCall(with: UUID(uuidString: self.callGuid)!, endedAt: Date(), reason: reason!)
+                          print("Incoming CallKit error: \(String(describing: error.localizedDescription))")
+                      }
+            })
+            BMXCall.shared.processCall(payload: payload)
+            if let topViewController = UIApplication.topViewController() {
+                   let incomingViewController = IncomingCallViewController.initViewController()
+                   incomingViewController.currentCallGuid = callGuid
+                DispatchQueue.main.async {
+                   topViewController.present(incomingViewController, animated: true)
+                }
             }
-        })
-        BMXCall.shared.processCall(payload: payload)
-        if let topViewController = UIApplication.topViewController() {
-           let incomingViewController = IncomingCallViewController.initViewController()
-            incomingViewController.currentCallGuid = callGuid
-           topViewController.present(incomingViewController, animated: true)
         }
     }
     

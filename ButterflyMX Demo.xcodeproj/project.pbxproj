@@ -21,8 +21,6 @@
 		1A1E860D2254B9FB00189782 /* BMXCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1E860C2254B9FB00189782 /* BMXCore.framework */; };
 		1A1E860E2254B9FB00189782 /* BMXCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1E860C2254B9FB00189782 /* BMXCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A2CD59121F6310900515F51 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2CD59021F6310900515F51 /* AccountTableViewController.swift */; };
-		1A4EA2A9234C8BA8002C6B42 /* CallKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4EA2A8234C8BA8002C6B42 /* CallKitManager.swift */; };
-		1A4EA2AA234C8BA8002C6B42 /* CallKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4EA2A8234C8BA8002C6B42 /* CallKitManager.swift */; };
 		1A59B850234B514200E1E536 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A59B84F234B514200E1E536 /* CallKit.framework */; };
 		1A59B851234B529300E1E536 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A59B84F234B514200E1E536 /* CallKit.framework */; };
 		1A715B0522561DDE0002772C /* DoorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A715B0422561DDE0002772C /* DoorTableViewCell.swift */; };
@@ -38,14 +36,14 @@
 		1A8DF4A3225CBAF500AB0393 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8DF4A1225CBAF000AB0393 /* Colors.swift */; };
 		1AA6FBF9219B2A78002F7168 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
 		2EDCB61E09700412A91E1943 /* Pods_ButterflyMX_Demo_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6FEDC3E637745D45CA1B7A /* Pods_ButterflyMX_Demo_Internal.framework */; };
-		C3C2322C21F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2322C21F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1317219ADCEE003449F8 /* LoginViewController.swift */; };
-		C3C2322E21F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2322E21F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C3C2322F21F5C6B500A84483 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05268521F206F000F6D373 /* GradientView.swift */; };
 		C3C2323021F5C6B500A84483 /* IncomingCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267921F0CE9400F6D373 /* IncomingCallViewController.swift */; };
 		C3C2323221F5C6B500A84483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1302219AD954003449F8 /* AppDelegate.swift */; };
-		C3C2323321F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		C3C2323421F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2323321F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		C3C2323421F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C3C2323521F5C6B500A84483 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267421F0A60700F6D373 /* NotificationService.swift */; };
 		C3C2323621F5C6B500A84483 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1315219ADC82003449F8 /* Extension.swift */; };
 		C3C2323821F5C6B500A84483 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
@@ -86,7 +84,6 @@
 		1A1E86092254B9FB00189782 /* BMXCall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BMXCall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A1E860C2254B9FB00189782 /* BMXCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BMXCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A2CD59021F6310900515F51 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
-		1A4EA2A8234C8BA8002C6B42 /* CallKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallKitManager.swift; sourceTree = "<group>"; };
 		1A59B84F234B514200E1E536 /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
 		1A715B0422561DDE0002772C /* DoorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoorTableViewCell.swift; sourceTree = "<group>"; };
 		1A715B0A22562BA10002772C /* UnitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				1A05267421F0A60700F6D373 /* NotificationService.swift */,
-				1A4EA2A8234C8BA8002C6B42 /* CallKitManager.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -440,7 +436,6 @@
 			files = (
 				1A7D091021F7166F00AA1999 /* AccountTableViewController.swift in Sources */,
 				1A8DF4A2225CBAF000AB0393 /* Colors.swift in Sources */,
-				1A4EA2A9234C8BA8002C6B42 /* CallKitManager.swift in Sources */,
 				1A1C1318219ADCEE003449F8 /* LoginViewController.swift in Sources */,
 				1A05268621F206F000F6D373 /* GradientView.swift in Sources */,
 				1A05267A21F0CE9400F6D373 /* IncomingCallViewController.swift in Sources */,
@@ -458,20 +453,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3C2322C21F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2322C21F5C6B500A84483 /* (null) in Sources */,
 				1A8DF4A0225CB26800AB0393 /* DoorsTableViewController.swift in Sources */,
-				1A4EA2AA234C8BA8002C6B42 /* CallKitManager.swift in Sources */,
 				C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */,
 				1A2CD59121F6310900515F51 /* AccountTableViewController.swift in Sources */,
-				C3C2322E21F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2322E21F5C6B500A84483 /* (null) in Sources */,
 				C3C2322F21F5C6B500A84483 /* GradientView.swift in Sources */,
 				1A715B10225632290002772C /* UnitsViewController.swift in Sources */,
 				C3C2323021F5C6B500A84483 /* IncomingCallViewController.swift in Sources */,
 				1A715B0622561DE10002772C /* DoorTableViewCell.swift in Sources */,
 				1A8DF4A3225CBAF500AB0393 /* Colors.swift in Sources */,
 				C3C2323221F5C6B500A84483 /* AppDelegate.swift in Sources */,
-				C3C2323321F5C6B500A84483 /* BuildFile in Sources */,
-				C3C2323421F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2323321F5C6B500A84483 /* (null) in Sources */,
+				C3C2323421F5C6B500A84483 /* (null) in Sources */,
 				C3C2323521F5C6B500A84483 /* NotificationService.swift in Sources */,
 				C3C2323621F5C6B500A84483 /* Extension.swift in Sources */,
 				1A715B0E22562E280002772C /* UnitTableViewCell.swift in Sources */,
