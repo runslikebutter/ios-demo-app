@@ -34,7 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         BMXCall.shared.notificationsDelegate = self
         BMXCore.shared.delegate = self
 
-        NotificationService.shared.setupLocalNotifications()
         NotificationService.shared.setupVoipPush()
         requestAccessMicCamera(callback: { status in
             print("User media permission status \(status.rawValue)")
@@ -74,17 +73,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: BMXCallNotificationsDelegate {
     func callCanceled(_ call: CallStatus, reason: CallCancelReason) {
-        NotificationService.shared.removeLocalNotifications()
-        switch reason {
-        case .AnsweredByOthers:
-            NotificationService.shared.createLocalNotification(fromCall: call, with: "Call answered on another device")
-        default:
-            NotificationService.shared.createLocalNotification(fromCall: call, with: "Call missed")
-        }
     }
     
     func callReceived(_ call: CallStatus) {
-//        NotificationService.shared.createLocalNotification(fromCall: call, with: "You have a \(String(describing: call.callDetails?.getTitle()))")
     }
 }
 extension AppDelegate: BMXCoreDelegate {

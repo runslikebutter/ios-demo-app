@@ -17,7 +17,7 @@ class IncomingCallViewController: UIViewController {
     fileprivate var startTime = 0.0
     fileprivate var previewTime = 0.0
     fileprivate var timer: Timer?
-    private var speakerIsEnabled = false
+    private var speakerIsEnabled = true
     private var microphoneIsEnabled = true
     var currentCallGuid = ""
 
@@ -72,6 +72,8 @@ class IncomingCallViewController: UIViewController {
 
     @IBAction func declineCall(_ sender: Any) {
         BMXCall.shared.declineCall()
+        NotificationService.shared.endCurrentCall()
+
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
         }
@@ -79,6 +81,8 @@ class IncomingCallViewController: UIViewController {
 
     @IBAction func hangUpAction(_ sender: Any) {
         BMXCall.shared.hangupCall()
+        NotificationService.shared.endCurrentCall()
+
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil)
         }
@@ -153,6 +157,10 @@ class IncomingCallViewController: UIViewController {
     }
 
     private func setupUIData() {
+        if speakerIsEnabled {
+            speakerButton.setImage(UIImage(named: "button_speaker_active"), for: .normal)
+        }
+
         if let call = BMXCall.shared.activeCall?.callDetails {
             if let image = call.mediumUrl {
                 let imageData = NSData(contentsOf: URL(string: image)!)
