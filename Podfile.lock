@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
-  - BMXCall (1.0.1):
+  - BMXCall (1.0.2):
     - BMXCore (~> 1.0.1)
   - BMXCore (1.0.1):
     - Alamofire (~> 4.8.2)
@@ -17,8 +17,8 @@ PODS:
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - BMXCall (= 1.0.1)
-  - BMXCore (= 1.0.1)
+  - BMXCall (~> 1.0.2)
+  - BMXCore (~> 1.0.1)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -31,11 +31,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  BMXCall: de366e3934ad473d34da7ecc9ca2418470f8e162
+  BMXCall: 4b2c28524da366cf55c7724c01a2fa0cbd969d10
   BMXCore: cbc096ab90811521659944b69f61ae92134f916b
   Japx: fad17fcb8fe56d69a493ea7d3fce6e1d796879f8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: af748fec34bfe16008be7d3f081f0899a5120bbe
+PODFILE CHECKSUM: ab9e12b972d39082b3a02b358e355de99346d4c5
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.7.3
