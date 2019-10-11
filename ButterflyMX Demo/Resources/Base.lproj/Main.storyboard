@@ -683,7 +683,7 @@
                                     <constraint firstItem="kge-Lz-QnG" firstAttribute="leading" secondItem="AM8-kk-Aad" secondAttribute="leading" id="reN-dd-H8M"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7dt-0s-G11" customClass="GradientView" customModule="ButterflyMX_Demo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dt-0s-G11" customClass="GradientView" customModule="ButterflyMX_Demo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-wy-ODY">
@@ -768,7 +768,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k28-H7-v11" customClass="GradientView" customModule="ButterflyMX_Demo" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k28-H7-v11" customClass="GradientView" customModule="ButterflyMX_Demo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="347" width="375" height="320"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -881,59 +881,6 @@
                                     <constraint firstItem="lEY-ZY-RcA" firstAttribute="centerX" secondItem="KOP-Ws-zOU" secondAttribute="centerX" id="z3b-Vk-SSq"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqJ-bg-o7c">
-                                <rect key="frame" x="0.0" y="387" width="375" height="280"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1VS-Zh-dWs">
-                                        <rect key="frame" x="58" y="148" width="72" height="72"/>
-                                        <state key="normal" image="button_decline_call"/>
-                                        <connections>
-                                            <action selector="declineCall:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="44n-AQ-JVw"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1t-TJ-K2k">
-                                        <rect key="frame" x="245.5" y="148" width="72" height="72"/>
-                                        <state key="normal" image="button_accept_call"/>
-                                        <connections>
-                                            <action selector="acceptCall:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="yxw-Bd-5o0"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Decline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cE1-fK-4fc">
-                                        <rect key="frame" x="69.5" y="225" width="48.5" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accept" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxm-3v-ETj">
-                                        <rect key="frame" x="258.5" y="225" width="45.5" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26f-1Y-MD3">
-                                        <rect key="frame" x="61.5" y="60" width="252" height="48"/>
-                                        <state key="normal" image="button_open_door"/>
-                                        <state key="highlighted" image="button_open_door_pressed"/>
-                                        <connections>
-                                            <action selector="openDoorAction:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="xUl-7M-iWn"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="1VS-Zh-dWs" firstAttribute="top" secondItem="26f-1Y-MD3" secondAttribute="bottom" constant="40" id="3iA-eY-f4t"/>
-                                    <constraint firstItem="26f-1Y-MD3" firstAttribute="centerX" secondItem="qqJ-bg-o7c" secondAttribute="centerX" id="3vb-kX-qVb"/>
-                                    <constraint firstAttribute="bottom" secondItem="1VS-Zh-dWs" secondAttribute="bottom" constant="60" id="AWX-gv-Peb"/>
-                                    <constraint firstItem="cE1-fK-4fc" firstAttribute="centerX" secondItem="1VS-Zh-dWs" secondAttribute="centerX" id="Amp-qA-sNk"/>
-                                    <constraint firstItem="1VS-Zh-dWs" firstAttribute="centerX" secondItem="qqJ-bg-o7c" secondAttribute="centerX" multiplier="0.5" id="FkC-k3-Bb8"/>
-                                    <constraint firstAttribute="height" constant="280" id="Jmg-N3-ujy"/>
-                                    <constraint firstItem="t1t-TJ-K2k" firstAttribute="bottom" secondItem="1VS-Zh-dWs" secondAttribute="bottom" id="RSL-qf-lXx"/>
-                                    <constraint firstItem="sxm-3v-ETj" firstAttribute="centerX" secondItem="t1t-TJ-K2k" secondAttribute="centerX" id="XiU-U2-BaJ"/>
-                                    <constraint firstItem="t1t-TJ-K2k" firstAttribute="centerX" secondItem="qqJ-bg-o7c" secondAttribute="centerX" multiplier="1.5" id="g0X-40-39z"/>
-                                    <constraint firstItem="sxm-3v-ETj" firstAttribute="top" secondItem="t1t-TJ-K2k" secondAttribute="bottom" constant="5" id="nvH-Sv-aaB"/>
-                                    <constraint firstItem="cE1-fK-4fc" firstAttribute="top" secondItem="1VS-Zh-dWs" secondAttribute="bottom" constant="5" id="pfy-GI-ZQx"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -941,15 +888,14 @@
                             <constraint firstAttribute="trailing" secondItem="7dt-0s-G11" secondAttribute="trailing" id="38a-n9-z3H"/>
                             <constraint firstAttribute="bottom" secondItem="k28-H7-v11" secondAttribute="bottom" id="6CB-H9-Lcl"/>
                             <constraint firstAttribute="trailing" secondItem="89j-Hh-axu" secondAttribute="trailing" constant="10" id="ARb-RE-gTf"/>
-                            <constraint firstItem="Cm9-au-GmR" firstAttribute="top" secondItem="qqJ-bg-o7c" secondAttribute="bottom" id="Aqs-za-1ni"/>
                             <constraint firstAttribute="trailing" secondItem="5S4-x6-l61" secondAttribute="trailing" id="BQI-dz-bro"/>
                             <constraint firstItem="7dt-0s-G11" firstAttribute="leading" secondItem="X0P-dg-JZC" secondAttribute="leading" id="Cn1-Bg-N6B"/>
                             <constraint firstItem="7dt-0s-G11" firstAttribute="top" secondItem="X0P-dg-JZC" secondAttribute="top" id="Euh-ga-O1g"/>
                             <constraint firstItem="Kms-wy-ODY" firstAttribute="top" secondItem="2Js-uV-lDp" secondAttribute="bottom" constant="14" id="GWj-Ki-DrH"/>
                             <constraint firstAttribute="bottom" secondItem="5S4-x6-l61" secondAttribute="bottom" id="KOh-OM-IeH"/>
+                            <constraint firstItem="k28-H7-v11" firstAttribute="top" secondItem="5S4-x6-l61" secondAttribute="top" id="LPH-s6-fg6"/>
                             <constraint firstItem="k28-H7-v11" firstAttribute="leading" secondItem="X0P-dg-JZC" secondAttribute="leading" id="O9g-9G-8gE"/>
                             <constraint firstItem="89j-Hh-axu" firstAttribute="top" secondItem="NWE-ZG-470" secondAttribute="bottom" constant="10" id="SD7-ap-rf7"/>
-                            <constraint firstAttribute="trailing" secondItem="qqJ-bg-o7c" secondAttribute="trailing" id="UP8-G4-HCq"/>
                             <constraint firstAttribute="trailing" secondItem="k28-H7-v11" secondAttribute="trailing" id="Xr4-xF-Q9t"/>
                             <constraint firstItem="ITy-gt-EL5" firstAttribute="top" secondItem="X0P-dg-JZC" secondAttribute="top" constant="40" id="Y2V-FJ-HrD"/>
                             <constraint firstItem="ITy-gt-EL5" firstAttribute="leading" secondItem="X0P-dg-JZC" secondAttribute="leading" constant="15" id="agi-7F-ol1"/>
@@ -962,7 +908,6 @@
                             <constraint firstItem="AM8-kk-Aad" firstAttribute="top" secondItem="X0P-dg-JZC" secondAttribute="top" id="pWT-Zi-ONm"/>
                             <constraint firstItem="AM8-kk-Aad" firstAttribute="centerX" secondItem="X0P-dg-JZC" secondAttribute="centerX" id="tdk-jt-vSn"/>
                             <constraint firstItem="2Js-uV-lDp" firstAttribute="centerX" secondItem="X0P-dg-JZC" secondAttribute="centerX" id="xkb-Nk-Ctl"/>
-                            <constraint firstItem="qqJ-bg-o7c" firstAttribute="leading" secondItem="X0P-dg-JZC" secondAttribute="leading" id="zJq-o4-gcz"/>
                         </constraints>
                     </view>
                     <connections>
@@ -974,7 +919,6 @@
                         <outlet property="fullScreenButton" destination="89j-Hh-axu" id="3wa-2k-NMr"/>
                         <outlet property="imagePreview" destination="kge-Lz-QnG" id="VPI-OU-tUl"/>
                         <outlet property="micButton" destination="ymp-aF-c0z" id="Ip1-4P-2Hi"/>
-                        <outlet property="newCallContainerView" destination="qqJ-bg-o7c" id="utd-Be-wIG"/>
                         <outlet property="panelNameLabel" destination="MrG-i9-LbE" id="yib-gY-o0k"/>
                         <outlet property="selfVideoView" destination="ITy-gt-EL5" id="Jmr-4v-7GV"/>
                         <outlet property="speakerButton" destination="8ml-kh-xgN" id="fQ3-RE-WIw"/>
@@ -1055,7 +999,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="button_accept_call" width="72" height="72"/>
         <image name="button_camera" width="72" height="72"/>
         <image name="button_decline_call" width="72" height="72"/>
         <image name="button_edit" width="34" height="34"/>

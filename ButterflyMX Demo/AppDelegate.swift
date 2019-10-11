@@ -31,10 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                    clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
         let env = BMXEnvironment(backendEnvironment: .development)
         BMXCore.shared.configure(withEnvironment: env, andAuthProvider: auth)
-        BMXCall.shared.notificationsDelegate = self
         BMXCore.shared.delegate = self
 
-        NotificationService.shared.setupVoipPush()
+        CallsService.shared.setupVoipPush()
         requestAccessMicCamera(callback: { status in
             print("User media permission status \(status.rawValue)")
         })
@@ -71,13 +70,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-extension AppDelegate: BMXCallNotificationsDelegate {
-    func callCanceled(_ call: CallStatus, reason: CallCancelReason) {
-    }
-    
-    func callReceived(_ call: CallStatus) {
-    }
-}
 extension AppDelegate: BMXCoreDelegate {
     func logging(_ data: String) {
         print("BMXSDK Log: \(data)")
