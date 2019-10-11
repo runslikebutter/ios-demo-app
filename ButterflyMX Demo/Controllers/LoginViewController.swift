@@ -50,8 +50,9 @@ class LoginViewController: UITableViewController {
                     SVProgressHUD.dismiss()
                     let stb = UIStoryboard(name: "Main", bundle: nil)
                     let mainViewController = stb.instantiateViewController(withIdentifier: "MainTabController")
+                    mainViewController.modalPresentationStyle = .overFullScreen
                     self.present(mainViewController, animated: true, completion: {
-                        guard let pushToken = NotificationService.shared.pushkitToken else { return }
+                        guard let pushToken = CallsService.shared.pushkitToken else { return }
                         BMXCore.shared.registerPushKitToken(pushToken)
                     })
             }
