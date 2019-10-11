@@ -19,7 +19,6 @@ class IncomingCallViewController: UIViewController {
     fileprivate var timer: Timer?
     private var speakerIsEnabled = true
     private var microphoneIsEnabled = true
-    var currentCallGuid = ""
 
     //MARK: - Outlets
     @IBOutlet weak var callTimeLabel: UILabel!

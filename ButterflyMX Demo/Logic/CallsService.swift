@@ -135,7 +135,6 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
                     DispatchQueue.main.async {
                         self.incomingViewController = IncomingCallViewController.initViewController()
                         if let topViewController = UIApplication.topViewController(), let vc = self.incomingViewController {
-                            vc.currentCallGuid = guid
                             topViewController.present(vc, animated: true)
                         }
                     }
