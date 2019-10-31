@@ -11,7 +11,7 @@ import BMXCore
 
 class DoorsTableViewController: UITableViewController {
     var panels: [PanelModel]?
-    var unit: UnitModel?
+    var tenant: TenantModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,17 +36,17 @@ extension DoorsTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoorTableViewCell", for: indexPath) as! DoorTableViewCell
-        guard let unit = panels else { return cell }
-        cell.doorNameLabel.text = unit[indexPath.row].name ?? ""
+        guard let panels = panels else { return cell }
+        cell.doorNameLabel.text = panels[indexPath.row].name ?? ""
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let panel = panels, let currentUnit = unit else { return }
+        guard let panel = panels, let tenant = tenant else { return }
         let cell = tableView.cellForRow(at: indexPath) as! DoorTableViewCell
         cell.isUserInteractionEnabled = false
         cell.pleaseWait()
-        BMXDoor.shared.openDoor(panel: panel[indexPath.row], unit: currentUnit, completion: { data in
+        BMXDoor.shared.openDoor(panel: panel[indexPath.row], tenant: tenant, completion: { data in
             switch data {
             case .success():
                 cell.completeWith("Success!", color: Colors.lightGreen)
