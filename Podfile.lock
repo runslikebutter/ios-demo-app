@@ -1,9 +1,9 @@
 PODS:
-  - Alamofire (4.8.2)
-  - BMXCall (1.0.2):
-    - BMXCore (~> 1.0.1)
-  - BMXCore (1.0.1):
-    - Alamofire (~> 4.8.2)
+  - Alamofire (4.9.1)
+  - BMXCall (1.0.3):
+    - BMXCore (~> 1.0.3)
+  - BMXCore (1.0.3):
+    - Alamofire (~> 4.9.1)
     - Japx/CodableAlamofire (~> 2.0.2)
   - Japx/Alamofire (2.0.2):
     - Alamofire (~> 4.5)
@@ -17,12 +17,12 @@ PODS:
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - BMXCall (~> 1.0.2)
-  - BMXCore (~> 1.0.1)
+  - BMXCall (~> 1.0.3)
+  - BMXCore (~> 1.0.3)
   - SVProgressHUD
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - BMXCall
     - BMXCore
@@ -30,12 +30,12 @@ SPEC REPOS:
     - SVProgressHUD
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  BMXCall: 4b2c28524da366cf55c7724c01a2fa0cbd969d10
-  BMXCore: cbc096ab90811521659944b69f61ae92134f916b
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  BMXCall: e663826b6a9efee99fc56ab1ed5fc9b53b8b2206
+  BMXCore: b0b9ab45c5022b4180daaf633bdce9c73b1fac06
   Japx: fad17fcb8fe56d69a493ea7d3fce6e1d796879f8
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: ab9e12b972d39082b3a02b358e355de99346d4c5
+PODFILE CHECKSUM: fd9cfe415a120afb94d412410ee4c75b2b54fbf5
 
-COCOAPODS: 1.7.3
+COCOAPODS: 1.8.4

@@ -6,8 +6,8 @@ target 'ButterflyMX Demo' do
   use_frameworks!
 
   # Pods for ButterflyMX Demo
-  pod 'BMXCore', '~> 1.0.1'
-  pod 'BMXCall', '~> 1.0.2'
+  pod 'BMXCore', '~> 1.0.3'
+  pod 'BMXCall', '~> 1.0.3'
   pod 'SVProgressHUD'
 
 end

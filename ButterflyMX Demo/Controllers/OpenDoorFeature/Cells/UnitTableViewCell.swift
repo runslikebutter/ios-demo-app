@@ -13,8 +13,8 @@ class UnitTableViewCell: UITableViewCell {
     @IBOutlet weak var unitLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
 
-    func setUnit(_ data: UnitModel) {
-        unitLabel.text = "Unit: " + (data.label ?? "")
+    func setTenant(_ data: TenantModel) {
+        unitLabel.text = "Unit: " + (data.unit?.label ?? "")
         if data.isOpenDoorEnabled {
             statusLabel.text = "Available"
             statusLabel.textColor = Colors.lightGreen

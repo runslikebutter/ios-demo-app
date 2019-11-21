@@ -147,7 +147,7 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
     }
 
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
-        BMXCall.shared.answerCall()
+        BMXCall.shared.previewCall(autoAccept: true)
         action.fulfill()
     }
 
