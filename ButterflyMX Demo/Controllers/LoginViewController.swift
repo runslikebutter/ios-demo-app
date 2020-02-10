@@ -18,7 +18,7 @@ class LoginViewController: UITableViewController {
                                    clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
          BMXCore.shared.authorize(withAuthProvider: auth, callbackURL: URL(string: "demoapp://test")!) { result in
                  switch result {
-                 case .success(let model):
+                 case .success(let _):
                       let stb = UIStoryboard(name: "Main", bundle: nil)
                       let mainViewController = stb.instantiateViewController(withIdentifier: "MainTabController")
                       mainViewController.modalPresentationStyle = .overFullScreen
