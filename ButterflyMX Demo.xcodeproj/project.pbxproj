@@ -37,14 +37,14 @@
 		1AA6FBF9219B2A78002F7168 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
 		B07FDFF3DFC3BCD98DF57668 /* Pods_ButterflyMX_Demo_Internal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F797500B5DCB321D7E5E49 /* Pods_ButterflyMX_Demo_Internal.framework */; };
 		C3689694234CD51F003DED8D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3689693234CD51F003DED8D /* AVFoundation.framework */; };
-		C3C2322C21F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2322C21F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1317219ADCEE003449F8 /* LoginViewController.swift */; };
-		C3C2322E21F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2322E21F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C3C2322F21F5C6B500A84483 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05268521F206F000F6D373 /* GradientView.swift */; };
 		C3C2323021F5C6B500A84483 /* IncomingCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267921F0CE9400F6D373 /* IncomingCallViewController.swift */; };
 		C3C2323221F5C6B500A84483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1302219AD954003449F8 /* AppDelegate.swift */; };
-		C3C2323321F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		C3C2323421F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2323321F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		C3C2323421F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C3C2323521F5C6B500A84483 /* CallsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267421F0A60700F6D373 /* CallsService.swift */; };
 		C3C2323621F5C6B500A84483 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1315219ADC82003449F8 /* Extension.swift */; };
 		C3C2323821F5C6B500A84483 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
@@ -408,19 +408,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3C2322C21F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2322C21F5C6B500A84483 /* (null) in Sources */,
 				1A8DF4A0225CB26800AB0393 /* DoorsTableViewController.swift in Sources */,
 				C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */,
 				1A2CD59121F6310900515F51 /* AccountTableViewController.swift in Sources */,
-				C3C2322E21F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2322E21F5C6B500A84483 /* (null) in Sources */,
 				C3C2322F21F5C6B500A84483 /* GradientView.swift in Sources */,
 				1A715B10225632290002772C /* UnitsViewController.swift in Sources */,
 				C3C2323021F5C6B500A84483 /* IncomingCallViewController.swift in Sources */,
 				1A715B0622561DE10002772C /* DoorTableViewCell.swift in Sources */,
 				1A8DF4A3225CBAF500AB0393 /* Colors.swift in Sources */,
 				C3C2323221F5C6B500A84483 /* AppDelegate.swift in Sources */,
-				C3C2323321F5C6B500A84483 /* BuildFile in Sources */,
-				C3C2323421F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2323321F5C6B500A84483 /* (null) in Sources */,
+				C3C2323421F5C6B500A84483 /* (null) in Sources */,
 				C3C2323521F5C6B500A84483 /* CallsService.swift in Sources */,
 				C3C2323621F5C6B500A84483 /* Extension.swift in Sources */,
 				1A715B0E22562E280002772C /* UnitTableViewCell.swift in Sources */,
@@ -545,23 +545,34 @@
 					"$(inherited)",
 					"PJ_AUTOCONF=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/../../BMXCall/Dependencies/pjsip/include",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/ButterflyMX Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/../../BMXCall/Dependencies/pjsip/include",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"Japx\"",
+					"-framework",
+					"\"OAuthSwift\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-l\"c++\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.butterflymx.sdk.demo-internal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(PROJECT_DIR)/../../BMXCall/Dependencies/pjsip/include";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -663,23 +674,34 @@
 					"$(inherited)",
 					"PJ_AUTOCONF=1",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/../../BMXCall/Dependencies/pjsip/include",
-				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/ButterflyMX Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/../../BMXCall/Dependencies/pjsip/include",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"Japx\"",
+					"-framework",
+					"\"OAuthSwift\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-l\"c++\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.butterflymx.sdk.demo-internal";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INCLUDE_PATHS = "$(inherited) $(PROJECT_DIR)/../../BMXCall/Dependencies/pjsip/include";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
