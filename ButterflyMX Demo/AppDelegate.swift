@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let auth = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
                                    clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
         let env = BMXEnvironment(backendEnvironment: .development)
-        BMXCore.shared.configure(withEnvironment: env, andAuthProvider: auth)
+        BMXCore.shared.configure(withEnvironment: env)
         BMXCore.shared.delegate = self
 
         CallsService.shared.setupVoipPush()
@@ -39,6 +39,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+         if (url.host == "test") {
+             BMXCore.shared.handle(url: url)
+         }
+       return true
+     }
 
     func requestAccessMicCamera(callback: @escaping (_ status: AVAuthorizationStatus) -> Void) {
         AVCaptureDevice.requestAccess(for: .audio, completionHandler: { granted in

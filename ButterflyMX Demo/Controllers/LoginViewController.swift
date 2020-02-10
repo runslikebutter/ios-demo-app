@@ -11,65 +11,32 @@ import BMXCore
 import SVProgressHUD
 class LoginViewController: UITableViewController {
 
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var singInButton: UIButton!
 
     @IBAction func singInAction(_ sender: Any) {
-        guard var emailValue = emailTextField.text, let passwordValue = passwordTextField.text else { return }
-        SVProgressHUD.show()
-        emailValue = emailValue.trimmingCharacters(in: .whitespacesAndNewlines)
-        if emailValue.isEmailAddress {
-            signIn(email: emailValue, password: passwordValue)
-        } else {
-            self.alert(message: "Invalid Email", title: "Autorization error")
+        let auth = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
+                                   clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
+         BMXCore.shared.authorize(withAuthProvider: auth, callbackURL: URL(string: "demoapp://test")!) { result in
+                 switch result {
+                 case .success(let model):
+                      let stb = UIStoryboard(name: "Main", bundle: nil)
+                      let mainViewController = stb.instantiateViewController(withIdentifier: "MainTabController")
+                      mainViewController.modalPresentationStyle = .overFullScreen
+                      self.present(mainViewController, animated: true, completion: {
+                          guard let pushToken = CallsService.shared.pushkitToken else { return }
+                          BMXCore.shared.registerPushKitToken(pushToken)
+                      })
+                 case .error(let error):
+                     print(error)
+                     SVProgressHUD.showError(withStatus: error.localizedDescription)
+                 }
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
         BMXCore.shared.delegate = self
         SVProgressHUD.setDefaultStyle(.light)
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.emailTextField.becomeFirstResponder()
-    }
-
-    private func signIn(email: String, password: String ) {
-        BMXCore.shared.loginUser(email: email, password: password, completion: { response in
-            switch response {
-                case .error(let error):
-                    print(error)
-                    SVProgressHUD.showError(withStatus: error.localizedDescription)
-                case .success(let user):
-                    print(user)
-                    SVProgressHUD.dismiss()
-                    let stb = UIStoryboard(name: "Main", bundle: nil)
-                    let mainViewController = stb.instantiateViewController(withIdentifier: "MainTabController")
-                    mainViewController.modalPresentationStyle = .overFullScreen
-                    self.present(mainViewController, animated: true, completion: {
-                        guard let pushToken = CallsService.shared.pushkitToken else { return }
-                        BMXCore.shared.registerPushKitToken(pushToken)
-                    })
-            }
-       })
-    }
-}
-
-extension LoginViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == self.emailTextField {
-            self.emailTextField.resignFirstResponder()
-            self.passwordTextField.becomeFirstResponder()
-        }
-        if textField == self.passwordTextField {
-            self.passwordTextField.resignFirstResponder()
-        }
-        return true
     }
 }
 
