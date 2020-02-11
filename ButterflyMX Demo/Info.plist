@@ -25,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>demoapp://test</string>
+				<string>demoapp</string>
 			</array>
 		</dict>
 	</array>
