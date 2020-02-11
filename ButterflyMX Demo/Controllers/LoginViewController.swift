@@ -14,6 +14,7 @@ class LoginViewController: UITableViewController {
     @IBOutlet weak var singInButton: UIButton!
 
     @IBAction func singInAction(_ sender: Any) {
+        SVProgressHUD.show()
         let auth = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
                                    clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
          BMXCore.shared.authorize(withAuthProvider: auth, callbackURL: URL(string: "demoapp://test")!) { result in
@@ -22,6 +23,7 @@ class LoginViewController: UITableViewController {
                       let stb = UIStoryboard(name: "Main", bundle: nil)
                       let mainViewController = stb.instantiateViewController(withIdentifier: "MainTabController")
                       mainViewController.modalPresentationStyle = .overFullScreen
+                      SVProgressHUD.dismiss()
                       self.present(mainViewController, animated: true, completion: {
                           guard let pushToken = CallsService.shared.pushkitToken else { return }
                           BMXCore.shared.registerPushKitToken(pushToken)
