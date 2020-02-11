@@ -24,7 +24,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.butterflymx.sdk.demo-internal</string>
+			<string>com.butterflymx.sdk.demo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>demoapp</string>
