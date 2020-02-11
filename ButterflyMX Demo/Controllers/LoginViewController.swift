@@ -14,6 +14,7 @@ class LoginViewController: UITableViewController {
     @IBOutlet weak var singInButton: UIButton!
 
     @IBAction func singInAction(_ sender: Any) {
+        SVProgressHUD.show()
         let auth = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
                                    clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
          BMXCore.shared.authorize(withAuthProvider: auth, callbackURL: URL(string: "demoapp://test")!) { result in
