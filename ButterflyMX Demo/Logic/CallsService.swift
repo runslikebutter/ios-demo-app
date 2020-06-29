@@ -85,7 +85,7 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         if BMXCore.shared.isUserLoggedIn {
             pushkitToken = pushCredentials.token
-            BMXCore.shared.registerPushKitToken(pushCredentials.token)
+            BMXCore.shared.registerPushKitToken(pushCredentials.token, apnsSandbox: true)
         }
     }
 

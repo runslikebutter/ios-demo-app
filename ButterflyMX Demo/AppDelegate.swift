@@ -75,6 +75,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: BMXCoreDelegate {
+
+    func didUpdate(accessToken: String, refreshToken: String) {
+        // handle update
+    }
+
     func logging(_ data: String) {
         print("BMXSDK Log: \(data)")
     }
