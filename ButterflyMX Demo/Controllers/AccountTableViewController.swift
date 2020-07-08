@@ -41,7 +41,6 @@ class AccountTableViewController: UITableViewController {
         if indexPath.section == 1 && indexPath.row == 0 {
             SVProgressHUD.show()
             BMXCore.shared.logoutUser(completion: { result in
-                print(result)
                 switch result {
                 case .success:
                     let stb = UIStoryboard(name: "Main", bundle: nil)
