@@ -12,7 +12,6 @@ import BMXCore
 import PushKit
 import CallKit
 import AVFoundation
-import UserNotifications
 
 class CallsService: NSObject {
     
