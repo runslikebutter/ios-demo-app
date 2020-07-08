@@ -40,11 +40,22 @@ class AccountTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
             SVProgressHUD.show()
-            BMXCore.shared.logoutUser()
-            let stb = UIStoryboard(name: "Main", bundle: nil)
-            let loginViewController = stb.instantiateViewController(withIdentifier: "LoginViewController")
-            SVProgressHUD.dismiss()
-            self.present(loginViewController, animated: true, completion: nil)
+            BMXCore.shared.logoutUser(completion: { result in
+                print(result)
+                switch result {
+                case .success:
+                    let stb = UIStoryboard(name: "Main", bundle: nil)
+                    let loginViewController = stb.instantiateViewController(withIdentifier: "LoginViewController")
+                    SVProgressHUD.dismiss()
+                    loginViewController.modalPresentationStyle = .fullScreen
+                    self.present(loginViewController, animated: true, completion: nil)
+                case .failure(let error):
+                    print(error)
+                    SVProgressHUD.dismiss()
+                    self.alert(message: error.localizedDescription)
+                }
+            })
+           
         }
     }
 

@@ -46,12 +46,12 @@ extension DoorsTableViewController {
         let cell = tableView.cellForRow(at: indexPath) as! DoorTableViewCell
         cell.isUserInteractionEnabled = false
         cell.pleaseWait()
-        BMXDoor.shared.openDoor(panel: panel[indexPath.row], tenant: tenant, completion: { data in
-            switch data {
+        BMXDoor.shared.openDoor(panel: panel[indexPath.row], tenant: tenant, completion: { result in
+            switch result {
             case .success():
                 cell.completeWith("Success!", color: Colors.lightGreen)
                 tableView.deselectRow(at: indexPath, animated: true)
-            case .error(let error):
+            case .failure(let error):
                 cell.completeWith("Error", color: Colors.lightGray)
                 tableView.deselectRow(at: indexPath, animated: true)
                 print("Error: \(error)")
