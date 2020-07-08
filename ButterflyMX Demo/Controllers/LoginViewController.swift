@@ -25,10 +25,13 @@ class LoginViewController: UITableViewController {
                       mainViewController.modalPresentationStyle = .overFullScreen
                       SVProgressHUD.dismiss()
                       self.present(mainViewController, animated: true, completion: {
-                          guard let pushToken = CallsService.shared.pushkitToken else { return }
-                          BMXCore.shared.registerPushKitToken(pushToken)
+                        guard let pushToken = CallsService.shared.pushkitToken else { return }
+                        let token = pushToken.map { String(format: "%02.2hhx", $0) }.joined()
+                        BMXCore.shared.registerDevice(with: .voip(token: token), apnsSandbox: true) { result in
+                            print(result)
+                         }
                       })
-                 case .error(let error):
+                 case .failure(let error):
                      print(error)
                      SVProgressHUD.showError(withStatus: error.localizedDescription)
                  }
@@ -43,6 +46,10 @@ class LoginViewController: UITableViewController {
 }
 
 extension LoginViewController: BMXCoreDelegate {
+    func didUpdate(accessToken: String, refreshToken: String) {
+        print(accessToken, refreshToken)
+    }
+    
     func logging(_ data: String) {
         print("BMXSDK Log: \(data)")
     }
