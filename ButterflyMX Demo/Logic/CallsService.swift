@@ -85,7 +85,15 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         if BMXCore.shared.isUserLoggedIn {
             pushkitToken = pushCredentials.token
-            BMXCore.shared.registerPushKitToken(pushCredentials.token)
+            let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
+            BMXCore.shared.registerDevice(with: .voip(token: token), apnsSandbox: true) { result in
+                switch result {
+                case .success(let data):
+                    print(data)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
 
@@ -138,7 +146,8 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
                             topViewController.present(vc, animated: true)
                         }
                     }
-                case .error(_):
+                case .failure(let error):
+                    print(error.localizedDescription)
                     self.reportFailedCall(reason: .failed)
                 }
 
