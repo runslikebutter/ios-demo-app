@@ -17,9 +17,9 @@
 		1A1C1316219ADC82003449F8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1315219ADC82003449F8 /* Extension.swift */; };
 		1A1C1318219ADCEE003449F8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1317219ADCEE003449F8 /* LoginViewController.swift */; };
 		1A1E860A2254B9FB00189782 /* BMXCall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1E86092254B9FB00189782 /* BMXCall.framework */; };
-		1A1E860B2254B9FB00189782 /* BMXCall.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1E86092254B9FB00189782 /* BMXCall.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1A1E860B2254B9FB00189782 /* BMXCall.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1E86092254B9FB00189782 /* BMXCall.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1A1E860D2254B9FB00189782 /* BMXCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1E860C2254B9FB00189782 /* BMXCore.framework */; };
-		1A1E860E2254B9FB00189782 /* BMXCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1E860C2254B9FB00189782 /* BMXCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1A1E860E2254B9FB00189782 /* BMXCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A1E860C2254B9FB00189782 /* BMXCore.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1A2CD59121F6310900515F51 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2CD59021F6310900515F51 /* AccountTableViewController.swift */; };
 		1A59B850234B514200E1E536 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A59B84F234B514200E1E536 /* CallKit.framework */; };
 		1A59B851234B529300E1E536 /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A59B84F234B514200E1E536 /* CallKit.framework */; };
