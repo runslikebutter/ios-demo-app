@@ -86,7 +86,7 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
         pushkitToken = pushCredentials.token
         if BMXCore.shared.isUserLoggedIn {
             let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
-            BMXCore.shared.registerDevice(with: .voip(token: token), apnsSandbox: true) { result in
+            BMXCore.shared.registerDevice(with: .voip(token: token), apnsSandbox: false) { result in
                 switch result {
                 case .success(let data):
                     print(data)

@@ -27,7 +27,7 @@ class LoginViewController: UITableViewController {
                       self.present(mainViewController, animated: true, completion: {
                         guard let pushToken = CallsService.shared.pushkitToken else { return }
                         let token = pushToken.map { String(format: "%02.2hhx", $0) }.joined()
-                        BMXCore.shared.registerDevice(with: .voip(token: token), apnsSandbox: true) { result in
+                        BMXCore.shared.registerDevice(with: .voip(token: token), apnsSandbox: false) { result in
                             switch result {
                             case .success:
                                 print("Success")
