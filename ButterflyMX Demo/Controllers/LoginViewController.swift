@@ -12,12 +12,37 @@ import SVProgressHUD
 class LoginViewController: UITableViewController {
 
     @IBOutlet weak var singInButton: UIButton!
-
+    @IBOutlet weak var environmentSegmentControll: UISegmentedControl!
+    private var environmentType: BMXBackendEnvironment = .development
+    private var authProvider: BMXAuthProvider!
+    
+    @IBAction func environmentAction(_ sender: Any) {
+        switch environmentSegmentControll.selectedSegmentIndex {
+        case 0:
+            environmentType = .development
+            authProvider = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
+            clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
+            UserDefaults.standard.set("development", forKey: "environment")
+        case 1:
+            environmentType = .sandbox
+            authProvider = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET-sandbox") as? String ?? "N/a",
+            clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID-sandbox") as? String ?? "N/a")
+            UserDefaults.standard.set("sandbox", forKey: "environment")
+        case 2:
+            environmentType = .production
+            authProvider = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET-prod") as? String ?? "N/a",
+            clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID-prod") as? String ?? "N/a")
+            UserDefaults.standard.set("production", forKey: "environment")
+        default:
+            fatalError("No environment")
+        }
+    }
+    
     @IBAction func singInAction(_ sender: Any) {
         SVProgressHUD.show()
-        let auth = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
-                                   clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
-        BMXCore.shared.authorize(withAuthProvider: auth, callbackURL: URL(string: "demoapp://test")!, viewController: self) { result in
+        let env = BMXEnvironment(backendEnvironment: environmentType)
+        BMXCore.shared.configure(withEnvironment: env)
+        BMXCore.shared.authorize(withAuthProvider: authProvider, callbackURL: URL(string: "demoapp://test")!, viewController: self) { result in
                  switch result {
                  case .success:
                       let stb = UIStoryboard(name: "Main", bundle: nil)
@@ -45,7 +70,10 @@ class LoginViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set("development", forKey: "environment")
         BMXCore.shared.delegate = self
+        authProvider = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
+                   clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
         SVProgressHUD.setDefaultStyle(.light)
     }
 }

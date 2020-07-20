@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bMj-ld-ss8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bMj-ld-ss8">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -98,7 +98,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="k8b-sc-GSJ">
-                            <rect key="frame" x="0.0" y="210" width="375" height="137"/>
+                            <rect key="frame" x="0.0" y="210" width="375" height="281"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vch-CJ-T3z">
@@ -121,11 +121,24 @@
                                         <action selector="singInAction:" destination="Y2U-sj-rV7" eventType="touchUpInside" id="kNh-ty-ZX3"/>
                                     </connections>
                                 </button>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2YN-rW-7CQ">
+                                    <rect key="frame" x="57.5" y="230" width="260" height="32"/>
+                                    <segments>
+                                        <segment title="Test"/>
+                                        <segment title="Sandbox"/>
+                                        <segment title="Production"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="environmentAction:" destination="Y2U-sj-rV7" eventType="valueChanged" id="yPx-PQ-RcB"/>
+                                    </connections>
+                                </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="vch-CJ-T3z" secondAttribute="trailing" constant="15" id="FAK-0v-GXv"/>
                                 <constraint firstItem="vch-CJ-T3z" firstAttribute="leading" secondItem="k8b-sc-GSJ" secondAttribute="leading" constant="15" id="UY2-D1-93i"/>
+                                <constraint firstAttribute="bottom" secondItem="2YN-rW-7CQ" secondAttribute="bottom" constant="20" id="bBC-OF-A7s"/>
+                                <constraint firstItem="2YN-rW-7CQ" firstAttribute="centerX" secondItem="k8b-sc-GSJ" secondAttribute="centerX" id="fHr-Sw-b73"/>
                                 <constraint firstItem="vch-CJ-T3z" firstAttribute="top" secondItem="k8b-sc-GSJ" secondAttribute="top" constant="20" id="pxV-A5-eYv"/>
                             </constraints>
                         </view>
@@ -140,12 +153,13 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="environmentSegmentControll" destination="2YN-rW-7CQ" id="zzB-CK-R1I"/>
                         <outlet property="singInButton" destination="vch-CJ-T3z" id="xQE-4v-4bT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xH-YB-987" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="-648"/>
+            <point key="canvasLocation" x="1044" y="-648.12593703148434"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="JVF-L9-IW5">
