@@ -74,5 +74,13 @@
 	<string></string>
 	<key>butterflymx-SECRET</key>
 	<string></string>
+	<key>butterflymx-CLIENTID-sandbox</key>
+	<string></string>
+	<key>butterflymx-SECRET-sandbox</key>
+	<string></string>
+	<key>butterflymx-CLIENTID-prod</key>
+	<string></string>
+	<key>butterflymx-SECRET-prod</key>
+	<string></string>
 </dict>
 </plist>
