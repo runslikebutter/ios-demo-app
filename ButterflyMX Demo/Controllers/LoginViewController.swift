@@ -20,22 +20,14 @@ class LoginViewController: UITableViewController {
         switch environmentSegmentControll.selectedSegmentIndex {
         case 0:
             environmentType = .development
-            authProvider = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
-            clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
-            UserDefaults.standard.set("development", forKey: "environment")
         case 1:
             environmentType = .sandbox
-            authProvider = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET-sandbox") as? String ?? "N/a",
-            clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID-sandbox") as? String ?? "N/a")
-            UserDefaults.standard.set("sandbox", forKey: "environment")
         case 2:
             environmentType = .production
-            authProvider = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET-prod") as? String ?? "N/a",
-            clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID-prod") as? String ?? "N/a")
-            UserDefaults.standard.set("production", forKey: "environment")
         default:
             fatalError("No environment")
         }
+        authProvider = getBMXAuthProvider(for: environmentType)
     }
     
     @IBAction func singInAction(_ sender: Any) {
@@ -75,6 +67,23 @@ class LoginViewController: UITableViewController {
         authProvider = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
                    clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
         SVProgressHUD.setDefaultStyle(.light)
+    }
+    
+    private func getBMXAuthProvider(for environment: BMXBackendEnvironment) -> BMXAuthProvider {
+        switch environment {
+        case .development:
+            UserDefaults.standard.set("development", forKey: "environment")
+            return BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
+            clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
+        case .sandbox:
+            UserDefaults.standard.set("sandbox", forKey: "environment")
+            return BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET-sandbox") as? String ?? "N/a",
+            clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID-sandbox") as? String ?? "N/a")
+        case .production:
+            UserDefaults.standard.set("production", forKey: "environment")
+            return BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET-prod") as? String ?? "N/a",
+                       clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID-prod") as? String ?? "N/a")
+        }
     }
 }
 
