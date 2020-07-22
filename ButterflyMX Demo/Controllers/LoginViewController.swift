@@ -67,8 +67,7 @@ class LoginViewController: UITableViewController {
         super.viewDidLoad()
         UserDefaults.standard.set("development", forKey: "environment")
         BMXCore.shared.delegate = self
-        authProvider = BMXAuthProvider(secret: Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a",
-                   clientID: Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a")
+        authProvider = getBMXAuthProvider(for: environmentType)
         SVProgressHUD.setDefaultStyle(.light)
     }
     
