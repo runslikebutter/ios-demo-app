@@ -76,14 +76,14 @@ class LoginViewController: UITableViewController {
         var clientId = ""
         switch environment {
         case .development:
-            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET") as? String ?? "N/a"
-            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID") as? String ?? "N/a"
+            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecret") as? String ?? "N/a"
+            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientId") as? String ?? "N/a"
         case .sandbox:
-            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET-sandbox") as? String ?? "N/a"
-            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID-sandbox") as? String ?? "N/a"
+            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretSandbox") as? String ?? "N/a"
+            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdSandbox") as? String ?? "N/a"
         case .production:
-            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymx-SECRET-prod") as? String ?? "N/a"
-            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymx-CLIENTID-prod") as? String ?? "N/a"
+            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretProd") as? String ?? "N/a"
+            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdProd") as? String ?? "N/a"
         }
         return BMXAuthProvider(secret: secret, clientID: clientId)
     }

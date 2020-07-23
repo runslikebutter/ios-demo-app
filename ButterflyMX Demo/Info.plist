@@ -70,17 +70,17 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>butterflymx-CLIENTID</key>
+	<key>butterflymxClientId</key>
 	<string></string>
-	<key>butterflymx-SECRET</key>
+	<key>butterflymxSecret</key>
 	<string></string>
-	<key>butterflymx-CLIENTID-sandbox</key>
+	<key>butterflymxClientIdSandbox</key>
 	<string></string>
-	<key>butterflymx-SECRET-sandbox</key>
+	<key>butterflymxSecretSandbox</key>
 	<string></string>
-	<key>butterflymx-CLIENTID-prod</key>
+	<key>butterflymxClientIdProd</key>
 	<string></string>
-	<key>butterflymx-SECRET-prod</key>
+	<key>butterflymxSecretProd</key>
 	<string></string>
 </dict>
 </plist>
