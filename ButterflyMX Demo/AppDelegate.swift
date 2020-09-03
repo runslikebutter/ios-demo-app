@@ -20,14 +20,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let stb = UIStoryboard(name: "Main", bundle: nil)
         if BMXCore.shared.isUserLoggedIn {
+            var env = BMXEnvironment(backendEnvironment: .development)
+            switch UserDefaults.standard.string(forKey: "environment") {
+                case "sandbox":
+                    env = BMXEnvironment(backendEnvironment: .sandbox)
+                case "production":
+                    env = BMXEnvironment(backendEnvironment: .production)
+                default:
+                    break
+            }
+            BMXCore.shared.configure(withEnvironment: env)
             let mainViewController = stb.instantiateViewController(withIdentifier: "MainTabController")
             window!.rootViewController = mainViewController
         } else {
             let loginViewController = stb.instantiateViewController(withIdentifier: "LoginViewController")
             window!.rootViewController = loginViewController
         }
-        let env = BMXEnvironment(backendEnvironment: .development)
-        BMXCore.shared.configure(withEnvironment: env)
+        
         BMXCore.shared.delegate = self
 
         CallsService.shared.setupVoipPush()
@@ -75,11 +84,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: BMXCoreDelegate {
-
     func didUpdate(accessToken: String, refreshToken: String) {
-        // handle update
+        print(accessToken, refreshToken)
     }
-
+    
     func logging(_ data: String) {
         print("BMXSDK Log: \(data)")
     }
