@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let stb = UIStoryboard(name: "Main", bundle: nil)
-        if BMXCore.shared.isUserLoggedIn {
+        if BMXCoreKit.shared.isUserLoggedIn {
             var env = BMXEnvironment(backendEnvironment: .development)
             switch UserDefaults.standard.string(forKey: "environment") {
                 case "sandbox":
@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 default:
                     break
             }
-            BMXCore.shared.configure(withEnvironment: env)
+            BMXCoreKit.shared.configure(withEnvironment: env)
             let mainViewController = stb.instantiateViewController(withIdentifier: "MainTabController")
             window!.rootViewController = mainViewController
         } else {
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window!.rootViewController = loginViewController
         }
         
-        BMXCore.shared.delegate = self
+        BMXCoreKit.shared.delegate = self
 
         CallsService.shared.setupVoipPush()
         requestAccessMicCamera(callback: { status in
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
          if (url.host == "test") {
-             BMXCore.shared.handle(url: url)
+             BMXCoreKit.shared.handle(url: url)
          }
        return true
      }

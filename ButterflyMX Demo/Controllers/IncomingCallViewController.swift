@@ -50,22 +50,22 @@ class IncomingCallViewController: UIViewController {
         if microphoneIsEnabled {
             microphoneIsEnabled = false
             sender.setImage(UIImage(named: "button_mute_active"), for: .normal)
-            BMXCall.shared.muteMic()
+            BMXCallKit.shared.muteMic()
             print("mute mic")
         } else {
             microphoneIsEnabled = true
             sender.setImage(UIImage(named: "button_mute"), for: .normal)
-            BMXCall.shared.unmuteMic()
+            BMXCallKit.shared.unmuteMic()
             print("unmute mic")
         }
     }
 
     @IBAction func hangUpAction(_ sender: Any) {
-        BMXCall.shared.endCall()
+        BMXCallKit.shared.endCall()
     }
 
     @IBAction func openDoorAction(_ sender: Any) {
-        BMXCall.shared.openDoor()
+        BMXCallKit.shared.openDoor()
         self.alert(message: "Door is open!")
     }
 
@@ -74,11 +74,11 @@ class IncomingCallViewController: UIViewController {
             sender.setImage(UIImage(named: "button_camera"), for: .normal)
             self.selfVideoView.isHidden = true
             self.cameraIsEnabled = false
-            BMXCall.shared.hideOutgoingVideo()
+            BMXCallKit.shared.hideOutgoingVideo()
         } else {
             self.selfVideoView.isHidden = false
             self.cameraIsEnabled = true
-            BMXCall.shared.showOutgoingVideo()
+            BMXCallKit.shared.showOutgoingVideo()
             sender.setImage(UIImage(named: "button_camera_active"), for: .normal)
         }
     }
@@ -104,7 +104,7 @@ class IncomingCallViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        BMXCall.shared.delegate = self
+        BMXCallKit.shared.delegate = self
         setupUIData()
     }
 
@@ -121,7 +121,7 @@ class IncomingCallViewController: UIViewController {
             speakerButton.setImage(UIImage(named: "button_speaker_active"), for: .normal)
         }
 
-        guard let call = BMXCall.shared.activeCall?.callDetails else { return }
+        guard let call = BMXCallKit.shared.activeCall?.callDetails else { return }
 
         if let image = call.mediumUrl {
             let imageData = NSData(contentsOf: URL(string: image)!)

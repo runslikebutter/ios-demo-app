@@ -36,8 +36,8 @@ class LoginViewController: UITableViewController {
     @IBAction func singInAction(_ sender: Any) {
         SVProgressHUD.show()
         let env = BMXEnvironment(backendEnvironment: environmentType)
-        BMXCore.shared.configure(withEnvironment: env)
-        BMXCore.shared.authorize(withAuthProvider: authProvider, callbackURL: URL(string: "demoapp://test")!, viewController: self) { result in
+        BMXCoreKit.shared.configure(withEnvironment: env)
+        BMXCoreKit.shared.authorize(withAuthProvider: authProvider, callbackURL: URL(string: "demoapp://test")!, viewController: self) { result in
                  switch result {
                  case .success:
                       let stb = UIStoryboard(name: "Main", bundle: nil)
@@ -47,7 +47,7 @@ class LoginViewController: UITableViewController {
                       self.present(mainViewController, animated: true, completion: {
                         guard let pushToken = CallsService.shared.pushkitToken else { return }
                         let token = pushToken.map { String(format: "%02.2hhx", $0) }.joined()
-                        BMXCore.shared.registerDevice(with: .voip(token: token), apnsSandbox: false) { result in
+                        BMXCoreKit.shared.registerDevice(with: .voip(token: token), apnsSandbox: false) { result in
                             switch result {
                             case .success:
                                 print("Success")
@@ -66,7 +66,7 @@ class LoginViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UserDefaults.standard.set("development", forKey: "environment")
-        BMXCore.shared.delegate = self
+        BMXCoreKit.shared.delegate = self
         authProvider = getBMXAuthProvider(for: environmentType)
         SVProgressHUD.setDefaultStyle(.light)
     }
