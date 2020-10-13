@@ -79,14 +79,14 @@ class CallsService: NSObject {
 
 extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
     func providerDidReset(_ provider: CXProvider) {
-        BMXCall.shared.endCall()
+        BMXCallKit.shared.endCall()
     }
 
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         pushkitToken = pushCredentials.token
-        if BMXCore.shared.isUserLoggedIn {
+        if BMXCoreKit.shared.isUserLoggedIn {
             let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
-            BMXCore.shared.registerDevice(with: .voip(token: token), apnsSandbox: false) { result in
+            BMXCoreKit.shared.registerDevice(with: .voip(token: token), apnsSandbox: false) { result in
                 switch result {
                 case .success(let data):
                     print(data)
@@ -128,7 +128,7 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
             }
 
             // Start processing the call by ButterflyMX SDK
-            BMXCall.shared.processCall(guid: guid) { result in
+            BMXCallKit.shared.processCall(guid: guid) { result in
                 switch result {
                 case .success(let call):
 
@@ -156,12 +156,12 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
     }
 
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
-        BMXCall.shared.previewCall(autoAccept: true)
+        BMXCallKit.shared.previewCall(autoAccept: true)
         action.fulfill()
     }
 
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
-        BMXCall.shared.endCall()
+        BMXCallKit.shared.endCall()
 
         incomingViewController?.dismiss(animated: true, completion: nil)
         action.fulfill()
@@ -169,20 +169,20 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
 
     func provider(_ provider: CXProvider, perform action: CXSetMutedCallAction) {
         if action.isMuted {
-            BMXCall.shared.muteMic()
+            BMXCallKit.shared.muteMic()
         } else {
-            BMXCall.shared.unmuteMic()
+            BMXCallKit.shared.unmuteMic()
         }
 
         action.fulfill()
     }
 
     func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
-        BMXCall.shared.connectSoundDevice()
+        BMXCallKit.shared.connectSoundDevice()
     }
 
     func provider(_ provider: CXProvider, didDeactivate audioSession: AVAudioSession) {
-        BMXCall.shared.disconnectSoundDevice()
+        BMXCallKit.shared.disconnectSoundDevice()
     }
 }
 

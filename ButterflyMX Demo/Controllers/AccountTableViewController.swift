@@ -40,7 +40,7 @@ class AccountTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
             SVProgressHUD.show()
-            BMXCore.shared.logoutUser(completion: { result in
+            BMXCoreKit.shared.logoutUser(completion: { result in
                 switch result {
                 case .success:
                     let stb = UIStoryboard(name: "Main", bundle: nil)

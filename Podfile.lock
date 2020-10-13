@@ -1,26 +1,27 @@
 PODS:
-  - Alamofire (4.9.1)
-  - BMXCall (1.0.7):
-    - BMXCore (~> 1.0.7)
-  - BMXCore (1.0.9):
-    - Alamofire (~> 4.9.1)
-    - Japx/CodableAlamofire (~> 2.0.2)
+  - Alamofire (5.2.2)
+  - BMXCall (1.0.12):
+    - BMXCore (~> 1.0.12)
+  - BMXCore (1.0.13):
+    - Alamofire (~> 5.2.1)
+    - Japx/CodableAlamofire (~> 3.0.0)
     - OAuthSwift (~> 2.1.0)
-  - Japx/Alamofire (2.0.2):
-    - Alamofire (~> 4.5)
+  - Japx/Alamofire (3.0.0):
+    - Alamofire (~> 5.0)
     - Japx/Core
-  - Japx/Codable (2.0.2):
+  - Japx/Codable (3.0.0):
     - Japx/Core
-  - Japx/CodableAlamofire (2.0.2):
+  - Japx/CodableAlamofire (3.0.0):
     - Japx/Alamofire
     - Japx/Codable
-  - Japx/Core (2.0.2)
+  - Japx/Core (3.0.0)
   - OAuthSwift (2.1.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - BMXCall (~> 1.0.7)
-  - BMXCore (~> 1.0.9)
+  - BMXCall (~> 1.0.12)
+  - BMXCore (~> 1.0.13)
+  - Japx/CodableAlamofire (from `https://github.com/runslikebutter/Japx`)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -28,18 +29,26 @@ SPEC REPOS:
     - Alamofire
     - BMXCall
     - BMXCore
-    - Japx
     - OAuthSwift
     - SVProgressHUD
 
+EXTERNAL SOURCES:
+  Japx:
+    :git: https://github.com/runslikebutter/Japx
+
+CHECKOUT OPTIONS:
+  Japx:
+    :commit: 10fd9e241d0565f4bfc75f581d4e900f2820a771
+    :git: https://github.com/runslikebutter/Japx
+
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  BMXCall: 01ebb6e628dc99c67b9fc180c73d3e625bbb0f59
-  BMXCore: f9100155f51f2f2bf78e395b95008159feb2e093
-  Japx: fad17fcb8fe56d69a493ea7d3fce6e1d796879f8
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  BMXCall: bdeb78af2baa43ba520e46fb0fff5f1c8cf5d534
+  BMXCore: 8670710bb7e67401a5999931e1e0ccfa294ea366
+  Japx: d1f7f3e4b94f2013538102e96cf96fd417005f76
   OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 791817e64a968f3e0ef4ff87d5243ae38cfec347
+PODFILE CHECKSUM: d1cc8379f2669e00371eefb3eda8a5b2fb844462
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
