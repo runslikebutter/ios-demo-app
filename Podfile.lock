@@ -1,8 +1,8 @@
 PODS:
   - Alamofire (5.2.2)
-  - BMXCall (1.0.12):
-    - BMXCore (~> 1.0.12)
-  - BMXCore (1.0.13):
+  - BMXCall (1.0.13):
+    - BMXCore (~> 1.0.14)
+  - BMXCore (1.0.14):
     - Alamofire (~> 5.2.1)
     - Japx/CodableAlamofire (~> 3.0.0)
     - OAuthSwift (~> 2.1.0)
@@ -19,8 +19,8 @@ PODS:
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
-  - BMXCall (~> 1.0.12)
-  - BMXCore (~> 1.0.13)
+  - BMXCall (~> 1.0.13)
+  - BMXCore (~> 1.0.14)
   - Japx/CodableAlamofire (from `https://github.com/runslikebutter/Japx`)
   - SVProgressHUD
 
@@ -43,12 +43,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
-  BMXCall: bdeb78af2baa43ba520e46fb0fff5f1c8cf5d534
-  BMXCore: 8670710bb7e67401a5999931e1e0ccfa294ea366
+  BMXCall: 53a1de03190e5afaf7052172e9eef6869a5f8568
+  BMXCore: 330e230248c8e842b1959900315d009e35ca6709
   Japx: d1f7f3e4b94f2013538102e96cf96fd417005f76
   OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: d1cc8379f2669e00371eefb3eda8a5b2fb844462
+PODFILE CHECKSUM: a44364218c1e22a3cd235cd899c388de77634868
 
 COCOAPODS: 1.9.3
