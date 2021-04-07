@@ -35,14 +35,14 @@
 		1A8DF4A3225CBAF500AB0393 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8DF4A1225CBAF000AB0393 /* Colors.swift */; };
 		1AA6FBF9219B2A78002F7168 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
 		C3689694234CD51F003DED8D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3689693234CD51F003DED8D /* AVFoundation.framework */; };
-		C3C2322C21F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		C3C2322C21F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1317219ADCEE003449F8 /* LoginViewController.swift */; };
-		C3C2322E21F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		C3C2322E21F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		C3C2322F21F5C6B500A84483 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05268521F206F000F6D373 /* GradientView.swift */; };
 		C3C2323021F5C6B500A84483 /* IncomingCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267921F0CE9400F6D373 /* IncomingCallViewController.swift */; };
 		C3C2323221F5C6B500A84483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1302219AD954003449F8 /* AppDelegate.swift */; };
-		C3C2323321F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		C3C2323421F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		C3C2323321F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		C3C2323421F5C6B500A84483 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		C3C2323521F5C6B500A84483 /* CallsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A05267421F0A60700F6D373 /* CallsService.swift */; };
 		C3C2323621F5C6B500A84483 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1315219ADC82003449F8 /* Extension.swift */; };
 		C3C2323821F5C6B500A84483 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
@@ -245,7 +245,6 @@
 			buildConfigurationList = 1A1C1311219AD956003449F8 /* Build configuration list for PBXNativeTarget "ButterflyMX Demo" */;
 			buildPhases = (
 				05A9F80604CE4B2F6F49E215 /* [CP] Check Pods Manifest.lock */,
-				63953B01A454315937E36ED8 /* [CP] Prepare Artifacts */,
 				1A1C12FB219AD954003449F8 /* Sources */,
 				1A1C12FC219AD954003449F8 /* Frameworks */,
 				1A1C12FD219AD954003449F8 /* Resources */,
@@ -367,23 +366,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		63953B01A454315937E36ED8 /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo-artifacts.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B52152921F80C322E5ED0E9A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -427,19 +409,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3C2322C21F5C6B500A84483 /* (null) in Sources */,
+				C3C2322C21F5C6B500A84483 /* BuildFile in Sources */,
 				1A8DF4A0225CB26800AB0393 /* DoorsTableViewController.swift in Sources */,
 				C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */,
 				1A2CD59121F6310900515F51 /* AccountTableViewController.swift in Sources */,
-				C3C2322E21F5C6B500A84483 /* (null) in Sources */,
+				C3C2322E21F5C6B500A84483 /* BuildFile in Sources */,
 				C3C2322F21F5C6B500A84483 /* GradientView.swift in Sources */,
 				1A715B10225632290002772C /* UnitsViewController.swift in Sources */,
 				C3C2323021F5C6B500A84483 /* IncomingCallViewController.swift in Sources */,
 				1A715B0622561DE10002772C /* DoorTableViewCell.swift in Sources */,
 				1A8DF4A3225CBAF500AB0393 /* Colors.swift in Sources */,
 				C3C2323221F5C6B500A84483 /* AppDelegate.swift in Sources */,
-				C3C2323321F5C6B500A84483 /* (null) in Sources */,
-				C3C2323421F5C6B500A84483 /* (null) in Sources */,
+				C3C2323321F5C6B500A84483 /* BuildFile in Sources */,
+				C3C2323421F5C6B500A84483 /* BuildFile in Sources */,
 				C3C2323521F5C6B500A84483 /* CallsService.swift in Sources */,
 				C3C2323621F5C6B500A84483 /* Extension.swift in Sources */,
 				1A715B0E22562E280002772C /* UnitTableViewCell.swift in Sources */,
