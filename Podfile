@@ -18,7 +18,7 @@ post_install do |installer|
       if ['BMXCall', 'BMXCore', 'Alamofire', 'Japx', 'OAuthSwift'].include? target.name
         target.build_configurations.each do |config|
             config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
-            config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+            config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64 i386'
         end
       end
     end
