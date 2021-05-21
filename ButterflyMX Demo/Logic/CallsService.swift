@@ -86,10 +86,10 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
         pushkitToken = pushCredentials.token
         if BMXCoreKit.shared.isUserLoggedIn {
             let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
-            BMXCoreKit.shared.registerDevice(with: .voip(token: token), apnsSandbox: false) { result in
+            APIClient.shared.registerDevice(with: token) { result in
                 switch result {
-                case .success(let data):
-                    print(data)
+                case .success:
+                    print("The device is registered.")
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
