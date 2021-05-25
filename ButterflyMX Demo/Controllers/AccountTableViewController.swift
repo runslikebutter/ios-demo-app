@@ -40,21 +40,25 @@ class AccountTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
             SVProgressHUD.show()
-            BMXCoreKit.shared.logoutUser(completion: { result in
+            
+            APIClient.shared.unRegisterDevice { result in
                 switch result {
                 case .success:
+                    // Will change this line when releasing a new SDK since I removed completion from logoutUser
+                    BMXCoreKit.shared.logoutUser{ result in }
+                    
+                    SVProgressHUD.dismiss()
+                    
                     let stb = UIStoryboard(name: "Main", bundle: nil)
                     let loginViewController = stb.instantiateViewController(withIdentifier: "LoginViewController")
-                    SVProgressHUD.dismiss()
                     loginViewController.modalPresentationStyle = .fullScreen
                     self.present(loginViewController, animated: true, completion: nil)
+                    
                 case .failure(let error):
-                    print(error)
                     SVProgressHUD.dismiss()
                     self.alert(message: error.localizedDescription)
                 }
-            })
-           
+            }
         }
     }
 
