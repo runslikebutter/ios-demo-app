@@ -48,14 +48,8 @@ class LoginViewController: UITableViewController {
                         guard let pushToken = CallsService.shared.pushkitToken else { return }
                         let token = pushToken.map { String(format: "%02.2hhx", $0) }.joined()
                         
-                        APIClient.shared.registerDevice(with: token) { result in
-                            switch result {
-                            case .success:
-                                print("The device is registered.")
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            }
-                        }
+                        UserDefaults.standard.set(token, forKey: "deviceToken")
+                        UserDefaults.standard.synchronize()
                       })
                  case .failure(let error):
                      print(error)
