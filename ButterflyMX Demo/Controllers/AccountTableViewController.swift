@@ -41,23 +41,39 @@ class AccountTableViewController: UITableViewController {
         if indexPath.section == 1 && indexPath.row == 0 {
             SVProgressHUD.show()
             
-            APIClient.shared.unRegisterDevice { result in
-                switch result {
-                case .success:
-                    // Will change this line when releasing a new SDK since I removed completion from logoutUser
-                    BMXCoreKit.shared.logoutUser{ result in }
+            let tenants = BMXUser.shared.getTenants()
+            
+            let dispatchGroup = DispatchGroup()
+            
+            for tenant in tenants {
+                let key = "webhook-\(tenant.id)"
+                if let webhookId = UserDefaults.standard.string(forKey: key) {
+                    dispatchGroup.enter()
                     
-                    SVProgressHUD.dismiss()
-                    
-                    let stb = UIStoryboard(name: "Main", bundle: nil)
-                    let loginViewController = stb.instantiateViewController(withIdentifier: "LoginViewController")
-                    loginViewController.modalPresentationStyle = .fullScreen
-                    self.present(loginViewController, animated: true, completion: nil)
-                    
-                case .failure(let error):
-                    SVProgressHUD.dismiss()
-                    self.alert(message: error.localizedDescription)
+                    BMXCoreKit.shared.unregisterWebhook(withTenantId: tenant.id, webhookId: webhookId) { result in
+                        switch result {
+                        case .success:
+                            print("remove webhook for key: \(key)")
+                            UserDefaults.standard.removeObject(forKey: key)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                        
+                        dispatchGroup.leave()
+                    }
                 }
+            }
+            
+            dispatchGroup.notify(queue: .main) {
+                print("Finished all requests.")
+                
+                BMXCoreKit.shared.logoutUser()
+                SVProgressHUD.dismiss()
+                
+                let stb = UIStoryboard(name: "Main", bundle: nil)
+                let loginViewController = stb.instantiateViewController(withIdentifier: "LoginViewController")
+                loginViewController.modalPresentationStyle = .fullScreen
+                self.present(loginViewController, animated: true, completion: nil)
             }
         }
     }
