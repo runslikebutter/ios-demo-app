@@ -79,6 +79,8 @@ class LoginViewController: UITableViewController {
         case .production:
             secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretProd") as? String ?? "N/a"
             clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdProd") as? String ?? "N/a"
+        @unknown default:
+            fatalError()
         }
         return BMXAuthProvider(secret: secret, clientID: clientId)
     }

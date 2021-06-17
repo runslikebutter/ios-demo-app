@@ -46,9 +46,9 @@ class UnitTableViewCell: UITableViewCell {
                 return
             }
             
-            let webhookBaseUrl = "https://a98fb4c79b25.ngrok.io/webhook/"
-            let webhookUrl = "\(webhookBaseUrl)?token=\(deviceToken)&platform=ios&type=voip"
-            
+            let ngrokId = "6036eb46088a"
+            let webhookUrl = "http://\(ngrokId).ngrok.io/webhook/?token=\(deviceToken)&type=voip"
+                        
             SVProgressHUD.show()
             BMXCoreKit.shared.registerWebhook(withTenantId: tenantModel.id, urlString: webhookUrl) { [weak self] result in
                 switch result {
