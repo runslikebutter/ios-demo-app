@@ -71,8 +71,8 @@ class LoginViewController: UITableViewController {
         var clientId = ""
         switch environment {
         case .development:
-            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecret") as? String ?? "N/a"
-            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientId") as? String ?? "N/a"
+            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretTest") as? String ?? "N/a"
+            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdTest") as? String ?? "N/a"
         case .sandbox:
             secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretSandbox") as? String ?? "N/a"
             clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdSandbox") as? String ?? "N/a"
@@ -86,12 +86,12 @@ class LoginViewController: UITableViewController {
     }
 }
 
-extension LoginViewController: BMXCoreDelegate {
-    func didUpdate(accessToken: String, refreshToken: String) {
-        print(accessToken, refreshToken)
-    }
-    
+extension LoginViewController: BMXCoreDelegate {    
     func logging(_ data: String) {
         print("BMXSDK Log: \(data)")
+    }
+    
+    func didCancelAuthorization() {
+        SVProgressHUD.dismiss()
     }
 }
