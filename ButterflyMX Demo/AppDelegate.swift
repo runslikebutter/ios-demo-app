@@ -37,8 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window!.rootViewController = loginViewController
         }
         
-        BMXCoreKit.shared.delegate = self
-
         CallsService.shared.setupVoipPush()
         requestAccessMicCamera(callback: { status in
             print("User media permission status \(status.rawValue)")
@@ -80,15 +78,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-}
-
-extension AppDelegate: BMXCoreDelegate {
-    func didUpdate(accessToken: String, refreshToken: String) {
-        print(accessToken, refreshToken)
-    }
-    
-    func logging(_ data: String) {
-        print("BMXSDK Log: \(data)")
     }
 }

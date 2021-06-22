@@ -70,9 +70,9 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>butterflymxClientId</key>
+	<key>butterflymxClientIdTest</key>
 	<string></string>
-	<key>butterflymxSecret</key>
+	<key>butterflymxSecretTest</key>
 	<string></string>
 	<key>butterflymxClientIdSandbox</key>
 	<string></string>

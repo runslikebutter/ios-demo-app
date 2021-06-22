@@ -9,6 +9,8 @@
 import UIKit
 import BMXCore
 import SVProgressHUD
+import SafariServices
+
 class LoginViewController: UITableViewController {
 
     @IBOutlet weak var singInButton: UIButton!
@@ -62,6 +64,7 @@ class LoginViewController: UITableViewController {
         super.viewDidLoad()
         UserDefaults.standard.set("development", forKey: "environment")
         BMXCoreKit.shared.delegate = self
+        BMXCoreKit.shared.authorizationWebViewDelegate = self
         authProvider = getBMXAuthProvider(for: environmentType)
         SVProgressHUD.setDefaultStyle(.light)
     }
@@ -71,25 +74,29 @@ class LoginViewController: UITableViewController {
         var clientId = ""
         switch environment {
         case .development:
-            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecret") as? String ?? "N/a"
-            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientId") as? String ?? "N/a"
+            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretTest") as? String ?? "N/a"
+            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdTest") as? String ?? "N/a"
         case .sandbox:
             secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretSandbox") as? String ?? "N/a"
             clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdSandbox") as? String ?? "N/a"
         case .production:
             secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretProd") as? String ?? "N/a"
             clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdProd") as? String ?? "N/a"
+        @unknown default:
+            fatalError()
         }
         return BMXAuthProvider(secret: secret, clientID: clientId)
     }
 }
 
-extension LoginViewController: BMXCoreDelegate {
-    func didUpdate(accessToken: String, refreshToken: String) {
-        print(accessToken, refreshToken)
-    }
-    
+extension LoginViewController: BMXCoreDelegate {    
     func logging(_ data: String) {
         print("BMXSDK Log: \(data)")
+    }
+}
+
+extension LoginViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        SVProgressHUD.dismiss()
     }
 }
