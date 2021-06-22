@@ -9,6 +9,8 @@
 import UIKit
 import BMXCore
 import SVProgressHUD
+import SafariServices
+
 class LoginViewController: UITableViewController {
 
     @IBOutlet weak var singInButton: UIButton!
@@ -62,6 +64,7 @@ class LoginViewController: UITableViewController {
         super.viewDidLoad()
         UserDefaults.standard.set("development", forKey: "environment")
         BMXCoreKit.shared.delegate = self
+        BMXCoreKit.shared.authorizationWebViewDelegate = self
         authProvider = getBMXAuthProvider(for: environmentType)
         SVProgressHUD.setDefaultStyle(.light)
     }
@@ -90,8 +93,10 @@ extension LoginViewController: BMXCoreDelegate {
     func logging(_ data: String) {
         print("BMXSDK Log: \(data)")
     }
-    
-    func didCancelAuthorization() {
+}
+
+extension LoginViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         SVProgressHUD.dismiss()
     }
 }
