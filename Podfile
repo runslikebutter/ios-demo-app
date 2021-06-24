@@ -6,8 +6,8 @@ target 'ButterflyMX Demo' do
   use_frameworks!
 
   # Pods for ButterflyMX Demo
-  pod 'BMXCore', '~> 1.0.14'
-  pod 'BMXCall', '~> 1.0.13'
+  pod 'BMXCore', '~> 2.0.0'
+  pod 'BMXCall', '~> 1.0.16'
   pod 'Japx/CodableAlamofire', :git => 'https://github.com/runslikebutter/Japx'
   pod 'SVProgressHUD'
 
