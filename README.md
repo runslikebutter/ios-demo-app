@@ -13,6 +13,6 @@ See also
 ## After you get those up and running, check out
 
 * [SDK Guide](https://github.com/runslikebutter/ios-demo-app/wiki/Getting-started-with-the-SDK)
-* [SDK Documentation Updates](https://github.com/runslikebutter/ios-demo-app/wiki/SDK-Documentation-Updates) for updates to the SDK documentation
+* [SDK Changelog](https://github.com/runslikebutter/ios-demo-app/wiki/SDK-Changelog) for updates to the SDK documentation
 
 > Note: Please [contact us](mailto:support@butterflymx.com) for any integration or partnership program questions.
