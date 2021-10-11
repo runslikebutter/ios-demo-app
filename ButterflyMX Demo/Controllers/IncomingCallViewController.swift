@@ -226,10 +226,7 @@ extension IncomingCallViewController: BMXCall.IncomingCallUIInputs {
         guard let speakerEnabled = delegate?.speakerEnabled else {
             return
         }
-
-        DispatchQueue.main.async {
-            self.speakerButton.setImage(UIImage(named: speakerEnabled ? "button_speaker_active" : "button_speaker"), for: .normal)
-        }
+        self.speakerButton.setImage(UIImage(named: speakerEnabled ? "button_speaker_active" : "button_speaker"), for: .normal)
     }
     
     func updateMicrophoneControlStatus() {
@@ -237,9 +234,7 @@ extension IncomingCallViewController: BMXCall.IncomingCallUIInputs {
             return
         }
 
-        DispatchQueue.main.async {
-            self.micButton.setImage(UIImage(named: micEnabled ? "button_mute" : "button_mute_active"), for: .normal)
-        }
+        self.micButton.setImage(UIImage(named: micEnabled ? "button_mute" : "button_mute_active"), for: .normal)
     }
     
     func updateCameraControlStatus() {
@@ -247,31 +242,23 @@ extension IncomingCallViewController: BMXCall.IncomingCallUIInputs {
             return
         }
 
-        DispatchQueue.main.async {
-            self.cameraButton.setImage(UIImage(named: cameraEnabled ? "button_camera_active" : "button_camera"), for: .normal)
-        }
+        self.cameraButton.setImage(UIImage(named: cameraEnabled ? "button_camera_active" : "button_camera"), for: .normal)
     }
     
     func handleCallConnected() {
-        DispatchQueue.main.async {
-            self.spinner.stopAnimating()
-            self.fullScreenButton.isHidden = false
-            self.acceptedCallContainerView.isHidden = false
-        }
+        spinner.stopAnimating()
+        fullScreenButton.isHidden = false
+        acceptedCallContainerView.isHidden = false
     }
     
     func handleCallAccepted(from call: Call, usingCallKit: Bool) {
-        DispatchQueue.main.async {
-            self.timer?.invalidate()
-            self.timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
-        }
+        self.timer?.invalidate()
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
     }
                 
     func handleCallEnded(guid: String, usingCallKit: Bool) {
-        DispatchQueue.main.async {
-            CallsService.shared.endCurrentCallKitCall()
-            self.dismiss(animated: true, completion: nil)
-        }
+        CallsService.shared.endCurrentCallKitCall()
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
