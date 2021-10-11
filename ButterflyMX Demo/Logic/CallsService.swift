@@ -18,6 +18,7 @@ class CallsService: NSObject {
     static let shared = CallsService()
     
     var pushkitToken: Data?
+    var window: UIWindow?
     
     private(set) var provider: CXProvider
     private var callGuid = ""
@@ -111,41 +112,50 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
         }
 
         callGuid = guid
-
+        
         // Audio session should be configured before reporting new incoming call
         setupAudioSession()
 
         // Report new incoming call to system
-        provider.reportNewIncomingCall(with: UUID(uuidString: guid)!, update: update) { error in
+        provider.reportNewIncomingCall(with: UUID(uuidString: guid)!, update: update) { [weak self] error in
             if let _ = error {
-                self.reportFailedCall(reason: .failed)
+                self?.reportFailedCall(reason: .failed)
                 return
             }
-
-            // Start processing the call by ButterflyMX SDK
-            BMXCallKit.shared.processCall(guid: guid) { result in
-                switch result {
-                case .success(let call):
-
-                    // Update info about call on call kit
-                    let update = CXCallUpdate()
-                    if let panelName = call.callDetails?.panelName {
-                        update.localizedCallerName = panelName
-                    }
-                    self.provider.reportCall(with: UUID(uuidString: guid)!, updated: update)
-
-                    // Present the custom incoming view controller
-                    DispatchQueue.main.async {
-                        self.incomingViewController = IncomingCallViewController.initViewController()
-                        if let topViewController = UIApplication.topViewController(), let vc = self.incomingViewController {
-                            topViewController.present(vc, animated: true)
-                        }
-                    }
-                case .failure(let error):
-                    print(error.localizedDescription)
-                    self.reportFailedCall(reason: .failed)
+                        
+            DispatchQueue.main.async {
+                self?.incomingViewController = IncomingCallViewController.initViewController()
+                
+                guard let topViewController = UIApplication.topViewController() ?? CallsService.shared.window?.rootViewController,
+                let incomingViewController  = self?.incomingViewController else {
+                    BMXCoreKit.shared.log(message: "** Error: Couldn't load top view controller **")
+                    return
                 }
+                            
+                topViewController.present(incomingViewController, animated: true) {
+                    processCall()
+                }
+            }
+                                                
+            func processCall() {
+                // Start processing the call by ButterflyMX SDK
+                BMXCallKit.shared.processCall(guid: guid,
+                                              callType: .callkit,
+                                              incomingCallPresenter: self?.incomingViewController) { result in
+                    switch result {
+                    case .success(let call):
+                        // Update info about call on call kit
+                        let update = CXCallUpdate()
+                        if let panelName = call.attributes?.panelName {
+                            update.localizedCallerName = panelName
+                        }
+                        self?.provider.reportCall(with: UUID(uuidString: guid)!, updated: update)
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                        self?.reportFailedCall(reason: .failed)
+                    }
 
+                }
             }
         }
     }
@@ -180,4 +190,3 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
         BMXCallKit.shared.disconnectSoundDevice()
     }
 }
-

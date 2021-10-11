@@ -37,10 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window!.rootViewController = loginViewController
         }
         
+        CallsService.shared.window = window
         CallsService.shared.setupVoipPush()
         requestAccessMicCamera(callback: { status in
             print("User media permission status \(status.rawValue)")
         })
+                
         return true
     }
     

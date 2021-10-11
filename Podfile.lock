@@ -17,12 +17,14 @@ PODS:
   - Japx/Core (3.0.0)
   - OAuthSwift (2.1.0)
   - SVProgressHUD (2.2.5)
+  - TwilioVideo (4.5.0)
 
 DEPENDENCIES:
   - BMXCall (~> 1.0.16)
   - BMXCore (~> 2.0.0)
   - Japx/CodableAlamofire (from `https://github.com/runslikebutter/Japx`)
   - SVProgressHUD
+  - TwilioVideo (~> 4.4)
 
 SPEC REPOS:
   trunk:
@@ -31,6 +33,7 @@ SPEC REPOS:
     - BMXCore
     - OAuthSwift
     - SVProgressHUD
+    - TwilioVideo
 
 EXTERNAL SOURCES:
   Japx:
@@ -48,7 +51,8 @@ SPEC CHECKSUMS:
   Japx: d1f7f3e4b94f2013538102e96cf96fd417005f76
   OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TwilioVideo: a765f519bb8646187eaa0e9f7443d08529ccba0a
 
-PODFILE CHECKSUM: 020c6d2ca09cf35138b0ee069e430a0388b9d78d
+PODFILE CHECKSUM: a9d90de8cfcbfa44ff1488d8a8c453888e938f4f
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

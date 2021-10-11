@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bMj-ld-ss8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bMj-ld-ss8">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -37,19 +37,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5RM-30-YA5">
-                                                    <rect key="frame" x="48" y="6.5" width="51.5" height="31"/>
+                                                    <rect key="frame" x="48" y="6.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="toggleRegisterWebhook:" destination="2HG-AM-HvQ" eventType="valueChanged" id="OJg-9r-tpy"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register Webhook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4EF-ie-z5e">
-                                                    <rect key="frame" x="101.5" y="15" width="104" height="14.5"/>
+                                                    <rect key="frame" x="101" y="15" width="104" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddH-kc-67d">
-                                                    <rect key="frame" x="209.5" y="0.5" width="130" height="43"/>
+                                                    <rect key="frame" x="209" y="0.5" width="130.5" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="tMq-hs-Ae9"/>
                                                     </constraints>
@@ -112,7 +112,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="k8b-sc-GSJ">
-                            <rect key="frame" x="0.0" y="203.00000034679067" width="375" height="281"/>
+                            <rect key="frame" x="0.0" y="221" width="375" height="281"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vch-CJ-T3z">
@@ -790,7 +790,7 @@
                                         <rect key="frame" x="151.5" y="107" width="72" height="72"/>
                                         <state key="normal" image="button_speaker"/>
                                         <connections>
-                                            <action selector="speackerAction:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="PcT-dh-jWT"/>
+                                            <action selector="speakerAction:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="08R-hJ-gOJ"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEY-ZY-RcA">
