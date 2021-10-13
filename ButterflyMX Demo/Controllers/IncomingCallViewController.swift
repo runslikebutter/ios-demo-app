@@ -166,34 +166,6 @@ class IncomingCallViewController: UIViewController {
     }
 }
 
-
-extension IncomingCallViewController: BMXCallDelegate {
-
-    func outgoingVideoStarted(video: UIView) -> CGSize? {
-        selfVideoView.addSubview(video)
-        return selfVideoView.bounds.size
-    }
-
-    func incomingVideoStarted(video: UIView) {
-        setIncomingVideo(video)
-        acceptedCallContainerView.isHidden = false
-    }
-
-    func callEnded(_ call: BMXCall.Call) {
-        DispatchQueue.main.async {
-            CallsService.shared.endCurrentCallKitCall()
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-
-    func callCanceled(_ call: BMXCall.Call, reason: CallCancelReason) {
-        DispatchQueue.main.async {
-            CallsService.shared.endCurrentCallKitCall()
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-}
-
 extension IncomingCallViewController: BMXCall.IncomingCallUIInputs {
 
     func setupWaitingForAnsweringCallUI() {
@@ -214,6 +186,7 @@ extension IncomingCallViewController: BMXCall.IncomingCallUIInputs {
         view.center = self.videoView.center
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
+                
         imagePreview.isHidden = true
         videoView.addSubview(view)
     }
@@ -258,7 +231,7 @@ extension IncomingCallViewController: BMXCall.IncomingCallUIInputs {
                 
     func handleCallEnded(guid: String, usingCallKit: Bool) {
         CallsService.shared.endCurrentCallKitCall()
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true)
     }
     
 }
