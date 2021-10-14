@@ -135,26 +135,24 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
                 topViewController.present(incomingViewController, animated: true) {
                     processCall()
                 }
-            }
-                                                
-            func processCall() {
-                // Start processing the call by ButterflyMX SDK
-                BMXCallKit.shared.processCall(guid: guid,
-                                              callType: .callkit,
-                                              incomingCallPresenter: self?.incomingViewController) { result in
-                    switch result {
-                    case .success(let call):
-                        // Update info about call on call kit
-                        let update = CXCallUpdate()
-                        if let panelName = call.attributes?.panelName {
-                            update.localizedCallerName = panelName
+                
+                func processCall() {
+                    BMXCallKit.shared.processCall(guid: guid,
+                                                  callType: .callkit,
+                                                  incomingCallPresenter: incomingViewController) { result in
+                        switch result {
+                        case .success(let call):
+                            // Update info about call on call kit
+                            let update = CXCallUpdate()
+                            if let panelName = call.attributes?.panelName {
+                                update.localizedCallerName = panelName
+                            }
+                            self?.provider.reportCall(with: UUID(uuidString: guid)!, updated: update)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                            self?.reportFailedCall(reason: .failed)
                         }
-                        self?.provider.reportCall(with: UUID(uuidString: guid)!, updated: update)
-                    case .failure(let error):
-                        print(error.localizedDescription)
-                        self?.reportFailedCall(reason: .failed)
                     }
-
                 }
             }
         }
