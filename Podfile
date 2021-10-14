@@ -10,7 +10,7 @@ target 'ButterflyMX Demo' do
   pod 'BMXCall', '~> 1.0.16'
   pod 'Japx/CodableAlamofire', :git => 'https://github.com/runslikebutter/Japx'
   pod 'SVProgressHUD'
-
+  pod 'TwilioVideo', '~> 4.4'
 end
 
 post_install do |installer|
