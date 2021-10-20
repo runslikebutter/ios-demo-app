@@ -33,20 +33,7 @@ class IncomingCallPresenter: BMXCall.IncomingCallUIInputs {
     func setupWaitingForAnsweringCallUI() {
         incomingCallViewController?.setupWaitingForAnsweringCallUI()
     }
-    
-    func handleCallConnected() {
-        incomingCallViewController?.handleCallConnected()
-    }
-    
-    func handleCallEnded(guid: String, usingCallKit: Bool) {
-        CallsService.shared.endCurrentCallKitCall()
-        CallsService.shared.window?.rootViewController?.dismiss(animated: true)
-    }
-    
-    func handleCallAccepted(from call: Call, usingCallKit: Bool) {
-        incomingCallViewController?.handleCallAccepted(from: call, usingCallKit: usingCallKit)
-    }
-    
+        
     func getInputVideoViewSize() -> CGSize {
         return incomingCallViewController?.getInputVideoViewSize() ?? .zero
     }

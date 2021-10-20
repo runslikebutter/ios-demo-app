@@ -16,7 +16,8 @@ import AVFoundation
 class CallsService: NSObject {
     
     static let shared = CallsService()
-    private var incomingCallPresenter: BMXCall.IncomingCallUIInputs = IncomingCallPresenter()
+    private var incomingCallPresenter = IncomingCallPresenter()
+    private var callStatusHandler = CallStatusHandler()
     
     var pushkitToken: Data?
     var window: UIWindow?
@@ -25,9 +26,12 @@ class CallsService: NSObject {
     private var callGuid = ""
     
     private override init() {
-       provider = CXProvider(configuration: type(of: self).providerConfiguration)
-       super.init()
-       provider.setDelegate(self, queue: nil)
+        provider = CXProvider(configuration: type(of: self).providerConfiguration)
+        super.init()
+        BMXCallKit.shared.incomingCallPresenter = incomingCallPresenter
+        BMXCallKit.shared.callStatusDelegate = callStatusHandler
+        
+        provider.setDelegate(self, queue: nil)
     }
 
     private var callController = CXCallController()
@@ -133,8 +137,7 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
         
         func processCall() {
             BMXCallKit.shared.processCall(guid: guid,
-                                          callType: .callkit,
-                                          incomingCallPresenter: self.incomingCallPresenter) { result in
+                                          callType: .callkit) { result in
                 switch result {
                 case .success(let call):
                     // Update info about call on call kit
@@ -152,11 +155,11 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
     }
 
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
-        (incomingCallPresenter as? IncomingCallPresenter)?.presentIncomingCall() {
+        incomingCallPresenter.presentIncomingCall() {
             BMXCallKit.shared.previewCall(autoAccept: true)
             BMXCallKit.shared.turnOnSpeaker()
         }
-        
+        callStatusHandler.incomingCallViewController = incomingCallPresenter.incomingCallViewController
         action.fulfill()
     }
 
