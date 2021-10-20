@@ -58,7 +58,7 @@ class IncomingCallViewController: UIViewController {
     }
 
     @IBAction func hangUpAction(_ sender: Any) {
-        BMXCallKit.shared.endCall()
+        CallsService.shared.endCurrentCallKitCall()
     }
 
     @IBAction func openDoorAction(_ sender: Any) {
@@ -202,10 +202,5 @@ extension IncomingCallViewController {
     func handleCallAccepted(from call: Call, usingCallKit: Bool) {
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
-    }
-                
-    func handleCallEnded(guid: String, usingCallKit: Bool) {
-        CallsService.shared.endCurrentCallKitCall()
-        self.dismiss(animated: true)
     }
 }
