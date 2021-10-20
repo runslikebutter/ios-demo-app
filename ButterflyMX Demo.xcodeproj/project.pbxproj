@@ -34,6 +34,8 @@
 		1A8DF4A2225CBAF000AB0393 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8DF4A1225CBAF000AB0393 /* Colors.swift */; };
 		1A8DF4A3225CBAF500AB0393 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8DF4A1225CBAF000AB0393 /* Colors.swift */; };
 		1AA6FBF9219B2A78002F7168 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
+		9CAE16F0271FB43700E6E5DC /* IncomingCallPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE16EF271FB43700E6E5DC /* IncomingCallPresenter.swift */; };
+		9CAE16F1271FB43B00E6E5DC /* IncomingCallPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE16EF271FB43700E6E5DC /* IncomingCallPresenter.swift */; };
 		C3689694234CD51F003DED8D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3689693234CD51F003DED8D /* AVFoundation.framework */; };
 		C3C2322C21F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1317219ADCEE003449F8 /* LoginViewController.swift */; };
@@ -93,6 +95,7 @@
 		1A8DF4A1225CBAF000AB0393 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1AA6FBF8219B2A78002F7168 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1ACCD9B121EF73FB00E97924 /* ButterflyMX Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ButterflyMX Demo.entitlements"; sourceTree = "<group>"; };
+		9CAE16EF271FB43700E6E5DC /* IncomingCallPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingCallPresenter.swift; sourceTree = "<group>"; };
 		C3689693234CD51F003DED8D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C3C2324121F5C6B500A84483 /* ButterflyMX Demo Internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ButterflyMX Demo Internal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE11560B1A4691DFA2BADB9A /* Pods-ButterflyMX Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButterflyMX Demo.release.xcconfig"; path = "Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 		1A05268421F0EB5F00F6D373 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				9CAE16EF271FB43700E6E5DC /* IncomingCallPresenter.swift */,
 				1A05267421F0A60700F6D373 /* CallsService.swift */,
 			);
 			path = Logic;
@@ -401,6 +405,7 @@
 				1A1C1303219AD954003449F8 /* AppDelegate.swift in Sources */,
 				1A05267521F0A60700F6D373 /* CallsService.swift in Sources */,
 				1A1C1316219ADC82003449F8 /* Extension.swift in Sources */,
+				9CAE16F0271FB43700E6E5DC /* IncomingCallPresenter.swift in Sources */,
 				1A8DF49F225CB26500AB0393 /* DoorsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +418,7 @@
 				1A8DF4A0225CB26800AB0393 /* DoorsTableViewController.swift in Sources */,
 				C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */,
 				1A2CD59121F6310900515F51 /* AccountTableViewController.swift in Sources */,
+				9CAE16F1271FB43B00E6E5DC /* IncomingCallPresenter.swift in Sources */,
 				C3C2322E21F5C6B500A84483 /* (null) in Sources */,
 				C3C2322F21F5C6B500A84483 /* GradientView.swift in Sources */,
 				1A715B10225632290002772C /* UnitsViewController.swift in Sources */,
