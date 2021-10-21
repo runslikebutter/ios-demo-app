@@ -29,13 +29,13 @@ class CallStatusHandler: BMXCall.CallStatusDelegate {
         print("The call (id: \(callId)) is canceld. The reason is \(reason)")
     }
     
-    func callEnded(callId: String, reason: CallEndReason, usingCallKit: Bool) {
+    func callEnded(callId: String, usingCallKit: Bool) {
         if usingCallKit {
             CallsService.shared.endCurrentCallKitCall()
         }
 
         dismissIncomingCall()
-        print("The call (id: \(callId)) is ended. The reason is \(reason)")
+        print("The call (id: \(callId)) is ended.")
     }
     
     private func dismissIncomingCall() {
