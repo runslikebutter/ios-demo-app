@@ -12,11 +12,11 @@ import BMXCall
 class CallStatusHandler: BMXCall.CallStatusDelegate {
     weak var incomingCallViewController: IncomingCallViewController?
     
-    func handleCallConnected() {
+    func callConnected() {
         incomingCallViewController?.handleCallConnected()
     }
         
-    func handleCallAccepted(from call: Call, usingCallKit: Bool) {
+    func callAccepted(from call: Call, usingCallKit: Bool) {
         incomingCallViewController?.handleCallAccepted(from: call, usingCallKit: usingCallKit)
     }
     
