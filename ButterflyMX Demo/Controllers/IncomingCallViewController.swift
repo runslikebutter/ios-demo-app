@@ -12,8 +12,6 @@ import BMXCall
 import BMXCore
 
 class IncomingCallViewController: UIViewController {
-    var delegate: (IncomingCallUIDataSource & IncomingCallUIDelegate)?
-
     fileprivate var cameraIsEnabled = false
     fileprivate var startTime = 0.0
     fileprivate var previewTime = 0.0
@@ -60,7 +58,7 @@ class IncomingCallViewController: UIViewController {
     }
 
     @IBAction func hangUpAction(_ sender: Any) {
-        BMXCallKit.shared.endCall()
+        CallsService.shared.endCurrentCallKitCall()
     }
 
     @IBAction func openDoorAction(_ sender: Any) {
@@ -109,7 +107,7 @@ class IncomingCallViewController: UIViewController {
         }
         return incomingCallViewController
     }
-
+    
     private func setupUIData() {
         if speakerIsEnabled {
             speakerButton.setImage(UIImage(named: "button_speaker_active"), for: .normal)
@@ -153,20 +151,20 @@ class IncomingCallViewController: UIViewController {
             : videoView.bounds.size.width / size.width
         return CGSize(width: size.width * k, height: size.height * k)
     }
-
-    func setIncomingVideo( _ video: UIView) {
-        incomingView = video
-        video.bounds.size = self.getVideoSize(basedOnOriginalSize: video.bounds.size, forFullscreen: true)
-        video.center = self.videoView.center
-        video.contentMode = .scaleAspectFill
-        video.clipsToBounds = true
-        imagePreview.isHidden = true
-        spinner.stopAnimating()
-        videoView.addSubview(video)
-    }
 }
 
-extension IncomingCallViewController: BMXCall.IncomingCallUIInputs {
+extension IncomingCallViewController {
+    func updateSpeakerControlStatus(enabled: Bool) {
+        speakerButton.setImage(UIImage(named: enabled ? "button_speaker_active" : "button_speaker"), for: .normal)
+    }
+    
+    func updateMicrophoneControlStatus(enabled: Bool) {
+        micButton.setImage(UIImage(named: enabled ? "button_mute" : "button_mute_active"), for: .normal)
+    }
+    
+    func updateCameraControlStatus(enabled: Bool) {
+        cameraButton.setImage(UIImage(named: enabled ? "button_camera_active" : "button_camera"), for: .normal)
+    }
 
     func setupWaitingForAnsweringCallUI() {
         setupUIData()
@@ -182,8 +180,8 @@ extension IncomingCallViewController: BMXCall.IncomingCallUIInputs {
     
     func displayIncomingVideo(from view: UIView) {
         incomingView = view
-        view.bounds.size = self.getVideoSize(basedOnOriginalSize: view.bounds.size, forFullscreen: true)
-        view.center = self.videoView.center
+        view.bounds.size = getVideoSize(basedOnOriginalSize: view.bounds.size, forFullscreen: true)
+        view.center = videoView.center
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
                 
@@ -194,30 +192,7 @@ extension IncomingCallViewController: BMXCall.IncomingCallUIInputs {
     func displayOutgoingVideo(from view: UIView) {
         selfVideoView.addSubview(view)
     }
-    
-    func updateSpeakerControlStatus() {
-        guard let speakerEnabled = delegate?.speakerEnabled else {
-            return
-        }
-        self.speakerButton.setImage(UIImage(named: speakerEnabled ? "button_speaker_active" : "button_speaker"), for: .normal)
-    }
-    
-    func updateMicrophoneControlStatus() {
-        guard let micEnabled = delegate?.micEnabled else {
-            return
-        }
-
-        self.micButton.setImage(UIImage(named: micEnabled ? "button_mute" : "button_mute_active"), for: .normal)
-    }
-    
-    func updateCameraControlStatus() {
-        guard let cameraEnabled = delegate?.cameraEnabled else {
-            return
-        }
-
-        self.cameraButton.setImage(UIImage(named: cameraEnabled ? "button_camera_active" : "button_camera"), for: .normal)
-    }
-    
+        
     func handleCallConnected() {
         spinner.stopAnimating()
         fullScreenButton.isHidden = false
@@ -228,10 +203,4 @@ extension IncomingCallViewController: BMXCall.IncomingCallUIInputs {
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
     }
-                
-    func handleCallEnded(guid: String, usingCallKit: Bool) {
-        CallsService.shared.endCurrentCallKitCall()
-        self.dismiss(animated: true)
-    }
-    
 }
