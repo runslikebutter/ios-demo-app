@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -790,7 +791,7 @@
                                         <rect key="frame" x="151.5" y="107" width="72" height="72"/>
                                         <state key="normal" image="button_speaker"/>
                                         <connections>
-                                            <action selector="speakerAction:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="08R-hJ-gOJ"/>
+                                            <action selector="speakerAction:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="zlA-WB-7S0"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEY-ZY-RcA">
@@ -903,30 +904,29 @@
         <scene sceneID="83x-Nv-hrB">
             <objects>
                 <tableViewController storyboardIdentifier="DoorsTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fJ4-FR-UDH" customClass="DoorsTableViewController" customModule="ButterflyMX_Demo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="nKW-40-yZc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="nKW-40-yZc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DoorTableViewCell" id="r3U-o2-IjN" customClass="DoorTableViewCell" customModule="ButterflyMX_Demo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="49.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="49.5" width="375" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r3U-o2-IjN" id="TOk-ZN-4fd">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press to Open" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rji-Se-dMx">
-                                            <rect key="frame" x="246.5" y="0.0" width="112.5" height="43"/>
+                                            <rect key="frame" x="247" y="0.0" width="112" height="43"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="43" id="RcP-4F-m46"/>
-                                                <constraint firstAttribute="width" constant="112.5" id="oTV-71-3QF"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" red="0.14901960780000001" green="0.49019607840000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yf-kc-u7f">
-                                            <rect key="frame" x="16" y="0.0" width="44" height="43"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yf-kc-u7f">
+                                            <rect key="frame" x="16" y="0.0" width="46.5" height="43"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="43" id="QeM-xk-6MK"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="xBh-e0-yEO"/>
@@ -936,21 +936,32 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="L72-cT-zfd">
-                                            <rect key="frame" x="339" y="12" width="20" height="20"/>
+                                            <rect key="frame" x="339" y="12" width="20" height="36"/>
                                         </activityIndicatorView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuS-d6-gtE">
+                                            <rect key="frame" x="16" y="32" width="38" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" systemColor="systemGray2Color"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="rji-Se-dMx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BuS-d6-gtE" secondAttribute="trailing" constant="8" symbolic="YES" id="8aB-1T-xQZ"/>
+                                        <constraint firstItem="BuS-d6-gtE" firstAttribute="bottom" secondItem="3yf-kc-u7f" secondAttribute="bottom" constant="10" id="C24-Pb-cD8"/>
                                         <constraint firstItem="L72-cT-zfd" firstAttribute="trailing" secondItem="TOk-ZN-4fd" secondAttribute="trailingMargin" id="C6S-yX-Sx2"/>
                                         <constraint firstItem="3yf-kc-u7f" firstAttribute="top" secondItem="TOk-ZN-4fd" secondAttribute="top" id="CWN-si-vbh"/>
                                         <constraint firstItem="3yf-kc-u7f" firstAttribute="leading" secondItem="TOk-ZN-4fd" secondAttribute="leading" constant="16" id="YAK-QW-qBi"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="L72-cT-zfd" secondAttribute="bottom" constant="1" id="YPG-dZ-uhb"/>
                                         <constraint firstItem="rji-Se-dMx" firstAttribute="top" secondItem="TOk-ZN-4fd" secondAttribute="top" id="dyV-Mn-Xcy"/>
+                                        <constraint firstItem="rji-Se-dMx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3yf-kc-u7f" secondAttribute="trailing" constant="8" symbolic="YES" id="hUT-bP-vyL"/>
                                         <constraint firstAttribute="trailing" secondItem="rji-Se-dMx" secondAttribute="trailing" constant="16" id="mWw-de-zd2"/>
                                         <constraint firstItem="L72-cT-zfd" firstAttribute="top" secondItem="TOk-ZN-4fd" secondAttribute="topMargin" constant="1" id="mzV-Ka-QyI"/>
+                                        <constraint firstItem="BuS-d6-gtE" firstAttribute="leading" secondItem="3yf-kc-u7f" secondAttribute="leading" id="p8c-JA-0Z3"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="activityIndicator" destination="L72-cT-zfd" id="lZT-nC-skP"/>
+                                    <outlet property="deviceTypeLabel" destination="BuS-d6-gtE" id="MrL-4J-R66"/>
                                     <outlet property="doorNameLabel" destination="3yf-kc-u7f" id="QMl-p4-m0a"/>
                                     <outlet property="statusLabel" destination="rji-Se-dMx" id="ZRA-lJ-VRp"/>
                                 </connections>
@@ -983,6 +994,9 @@
         <image name="logo_white" width="140" height="34"/>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
