@@ -1,58 +1,43 @@
 PODS:
   - Alamofire (5.2.2)
-  - BMXCall (1.0.16):
-    - BMXCore (~> 2.0.0)
-  - BMXCore (2.0.0):
+  - BMXCall (2.0.0):
+    - BMXCore (~> 2.0.1)
+    - TwilioVideo (~> 4.4)
+  - BMXCore (2.0.1):
     - Alamofire (~> 5.2.1)
-    - Japx/CodableAlamofire (~> 3.0.0)
-    - OAuthSwift (= 2.1.0)
-  - Japx/Alamofire (3.0.0):
-    - Alamofire (~> 5.0)
-    - Japx/Core
-  - Japx/Codable (3.0.0):
-    - Japx/Core
-  - Japx/CodableAlamofire (3.0.0):
     - Japx/Alamofire
-    - Japx/Codable
-  - Japx/Core (3.0.0)
+    - OAuthSwift (= 2.1.0)
+  - Japx/Alamofire (4.0.0):
+    - Alamofire
+    - Japx/Core
+  - Japx/Core (4.0.0)
   - OAuthSwift (2.1.0)
   - SVProgressHUD (2.2.5)
-  - TwilioVideo (4.5.0)
+  - TwilioVideo (4.6.2)
 
 DEPENDENCIES:
-  - BMXCall (~> 1.0.16)
-  - BMXCore (~> 2.0.0)
-  - Japx/CodableAlamofire (from `https://github.com/runslikebutter/Japx`)
+  - BMXCall (~> 2.0.0)
   - SVProgressHUD
-  - TwilioVideo (~> 4.4)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - BMXCall
     - BMXCore
+    - Japx
     - OAuthSwift
     - SVProgressHUD
     - TwilioVideo
 
-EXTERNAL SOURCES:
-  Japx:
-    :git: https://github.com/runslikebutter/Japx
-
-CHECKOUT OPTIONS:
-  Japx:
-    :commit: 10fd9e241d0565f4bfc75f581d4e900f2820a771
-    :git: https://github.com/runslikebutter/Japx
-
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
-  BMXCall: f259dee335adc047aeb00804bd5d871d6862c7e0
-  BMXCore: c305a0d6ff157f25f356143ced8078df45795c80
-  Japx: d1f7f3e4b94f2013538102e96cf96fd417005f76
+  BMXCall: 48be2f882c363198370fa18c6acc042d2d2ecaaf
+  BMXCore: 4c540d11ffbf33490d0851b5e6e9773c4afd8674
+  Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
   OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  TwilioVideo: a765f519bb8646187eaa0e9f7443d08529ccba0a
+  TwilioVideo: f8c75425bce3f41912bb24352154b0502d89a9b3
 
-PODFILE CHECKSUM: a9d90de8cfcbfa44ff1488d8a8c453888e938f4f
+PODFILE CHECKSUM: 20e7cbb2884fed261c3badd7e9e3abe5aa8a3999
 
 COCOAPODS: 1.11.2
