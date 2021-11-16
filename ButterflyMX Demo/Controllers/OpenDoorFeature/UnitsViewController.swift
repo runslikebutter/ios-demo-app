@@ -40,7 +40,7 @@ extension UnitsViewController {
         let selectedTenant = tenants[indexPath.row]
         if selectedTenant.isOpenDoorEnabled {
             let doorViewController = DoorsTableViewController.initViewController()
-            doorViewController.panels = BMXUser.shared.getPanels(from: selectedTenant)
+            doorViewController.devices = BMXUser.shared.getDevices(from: selectedTenant)
             doorViewController.tenant = selectedTenant
             navigationController?.pushViewController(doorViewController, animated: true)
         }
