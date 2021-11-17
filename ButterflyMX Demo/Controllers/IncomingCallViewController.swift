@@ -12,7 +12,6 @@ import BMXCall
 import BMXCore
 
 class IncomingCallViewController: UIViewController {
-
     fileprivate var cameraIsEnabled = false
     fileprivate var startTime = 0.0
     fileprivate var previewTime = 0.0
@@ -49,29 +48,31 @@ class IncomingCallViewController: UIViewController {
     @IBAction func micAction(_ sender: UIButton) {
         if microphoneIsEnabled {
             microphoneIsEnabled = false
-            sender.setImage(UIImage(named: "button_mute_active"), for: .normal)
             BMXCallKit.shared.muteMic()
             print("mute mic")
         } else {
             microphoneIsEnabled = true
-            sender.setImage(UIImage(named: "button_mute"), for: .normal)
             BMXCallKit.shared.unmuteMic()
             print("unmute mic")
         }
     }
 
     @IBAction func hangUpAction(_ sender: Any) {
-        BMXCallKit.shared.endCall()
+        CallsService.shared.endCurrentCallKitCall()
     }
 
     @IBAction func openDoorAction(_ sender: Any) {
-        BMXCallKit.shared.openDoor()
-        self.alert(message: "Door is open!")
+        BMXCallKit.shared.openDoor() { result in
+            if result {
+                self.alert(message: "Door is open!")
+            } else {
+                self.alert(message: "Failed to open the door!")
+            }
+        }
     }
 
     @IBAction func cameraAction(_ sender: UIButton) {
         if self.cameraIsEnabled {
-            sender.setImage(UIImage(named: "button_camera"), for: .normal)
             self.selfVideoView.isHidden = true
             self.cameraIsEnabled = false
             BMXCallKit.shared.hideOutgoingVideo()
@@ -79,24 +80,16 @@ class IncomingCallViewController: UIViewController {
             self.selfVideoView.isHidden = false
             self.cameraIsEnabled = true
             BMXCallKit.shared.showOutgoingVideo()
-            sender.setImage(UIImage(named: "button_camera_active"), for: .normal)
         }
     }
 
-    @IBAction func speackerAction(_ sender: UIButton) {
-        sender.isUserInteractionEnabled = false
-        speakerIsEnabled = !speakerIsEnabled
-
-        sender.setImage(UIImage(named: speakerIsEnabled ? "button_speaker_active" : "button_speaker"), for: .normal)
-        DispatchQueue.global(qos: .default).async {
-            do {
-                try AVAudioSession.sharedInstance().overrideOutputAudioPort(self.speakerIsEnabled ? .speaker : .none)
-                DispatchQueue.main.async {
-                    sender.isUserInteractionEnabled = true
-                }
-            } catch {
-                print("Divert audio to Speaker error: \(error)")
-            }
+    @IBAction func speakerAction(_ sender: UIButton) {
+        if speakerIsEnabled {
+            speakerIsEnabled = false
+            BMXCallKit.shared.turnOffSpeaker()
+        } else {
+            speakerIsEnabled = true
+            BMXCallKit.shared.turnOnSpeaker()
         }
     }
 
@@ -104,8 +97,7 @@ class IncomingCallViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        BMXCallKit.shared.delegate = self
-        setupUIData()
+        fullScreenButton.isHidden = true
     }
 
     static func initViewController() -> IncomingCallViewController {
@@ -115,27 +107,29 @@ class IncomingCallViewController: UIViewController {
         }
         return incomingCallViewController
     }
-
+    
     private func setupUIData() {
         if speakerIsEnabled {
             speakerButton.setImage(UIImage(named: "button_speaker_active"), for: .normal)
         }
 
-        guard let call = BMXCallKit.shared.activeCall?.callDetails else { return }
+        guard let callAttributes = BMXCallKit.shared.activeCall?.attributes else { return }
 
-        if let image = call.mediumUrl {
+        if let image = callAttributes.mediumUrl {
             let imageData = NSData(contentsOf: URL(string: image)!)
             self.imagePreview.image = UIImage(data: imageData! as Data)
         }
+                
         timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+
         callTimeLabel.text = "00:00"
-        callTypeLabel.text = call.getTitle()
-        panelNameLabel.text = call.panelName
+        callTypeLabel.text = callAttributes.getTitle()
+        panelNameLabel.text = callAttributes.panelName
         blurView.addBlurView()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             UIView.animate(withDuration: 1, delay: 0.5, options: .curveEaseOut, animations: {
                 self.blurView.alpha = 0.0
-            }, completion: { (_) in
+            }, completion: { _ in
                 self.blurView.removeFromSuperview()
             })
         }
@@ -157,43 +151,56 @@ class IncomingCallViewController: UIViewController {
             : videoView.bounds.size.width / size.width
         return CGSize(width: size.width * k, height: size.height * k)
     }
-
-    func setIncomingVideo( _ video: UIView) {
-        incomingView = video
-        video.bounds.size = self.getVideoSize(basedOnOriginalSize: video.bounds.size, forFullscreen: true)
-        video.center = self.videoView.center
-        video.contentMode = .scaleAspectFill
-        video.clipsToBounds = true
-        imagePreview.isHidden = true
-        spinner.stopAnimating()
-        videoView.addSubview(video)
-    }
 }
 
+extension IncomingCallViewController {
+    func updateSpeakerControlStatus(enabled: Bool) {
+        speakerButton.setImage(UIImage(named: enabled ? "button_speaker_active" : "button_speaker"), for: .normal)
+    }
+    
+    func updateMicrophoneControlStatus(enabled: Bool) {
+        micButton.setImage(UIImage(named: enabled ? "button_mute" : "button_mute_active"), for: .normal)
+    }
+    
+    func updateCameraControlStatus(enabled: Bool) {
+        cameraButton.setImage(UIImage(named: enabled ? "button_camera_active" : "button_camera"), for: .normal)
+    }
 
-extension IncomingCallViewController: BMXCallDelegate {
-
-    func outgoingVideoStarted(video: UIView) -> CGSize? {
-        selfVideoView.addSubview(video)
+    func setupWaitingForAnsweringCallUI() {
+        setupUIData()
+    }
+    
+    func getInputVideoViewSize() -> CGSize {
+        return view?.bounds.size ?? .zero
+    }
+    
+    func getOutputVideoViewSize() -> CGSize {
         return selfVideoView.bounds.size
     }
-
-    func incomingVideoStarted(video: UIView) {
-        setIncomingVideo(video)
+    
+    func displayIncomingVideo(from view: UIView) {
+        incomingView = view
+        view.bounds.size = getVideoSize(basedOnOriginalSize: view.bounds.size, forFullscreen: true)
+        view.center = videoView.center
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
+                
+        imagePreview.isHidden = true
+        videoView.addSubview(view)
+    }
+    
+    func displayOutgoingVideo(from view: UIView) {
+        selfVideoView.addSubview(view)
+    }
+        
+    func handleCallConnected() {
+        spinner.stopAnimating()
+        fullScreenButton.isHidden = false
         acceptedCallContainerView.isHidden = false
     }
-
-    func callEnded(_ call: CallStatus) {
-        DispatchQueue.main.async {
-            CallsService.shared.endCurrentCallKitCall()
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-
-    func callCanceled(_ call: CallStatus, reason: CallCancelReason) {
-        DispatchQueue.main.async {
-            CallsService.shared.endCurrentCallKitCall()
-            self.dismiss(animated: true, completion: nil)
-        }
+    
+    func handleCallAccepted(from call: Call, usingCallKit: Bool) {
+        self.timer?.invalidate()
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(self.updateTime), userInfo: nil, repeats: true)
     }
 }

@@ -13,10 +13,20 @@ class DoorTableViewCell: UITableViewCell {
     @IBOutlet weak var doorNameLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    @IBOutlet weak var deviceTypeLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func setup(by device: DeviceModel) {
+        doorNameLabel.text = device.name ?? ""
+        if device.type == "keypads" {
+            deviceTypeLabel.text = "Keypad"
+        } else {
+            deviceTypeLabel.text = "Intercom"
+        }
     }
 
     func pleaseWait() {

@@ -16,25 +16,33 @@ import AVFoundation
 class CallsService: NSObject {
     
     static let shared = CallsService()
+    private var incomingCallPresenter = IncomingCallPresenter()
+    private var callStatusHandler = CallStatusHandler()
     
     var pushkitToken: Data?
+    var window: UIWindow?
     
     private(set) var provider: CXProvider
     private var callGuid = ""
-    private var incomingViewController: IncomingCallViewController?
-
+    
     private override init() {
-       provider = CXProvider(configuration: type(of: self).providerConfiguration)
-       super.init()
-       provider.setDelegate(self, queue: nil)
+        provider = CXProvider(configuration: type(of: self).providerConfiguration)
+        super.init()
+        BMXCallKit.shared.incomingCallPresenter = incomingCallPresenter
+        BMXCallKit.shared.callStatusDelegate = callStatusHandler
+        
+        provider.setDelegate(self, queue: nil)
     }
 
     private var callController = CXCallController()
-
+    
     func endCurrentCallKitCall() {
-        let endCallAction = CXEndCallAction(call: UUID(uuidString: callGuid)!)
+        guard !callGuid.isEmpty, let callId = UUID(uuidString: callGuid) else {
+            return
+        }
+        
+        let endCallAction = CXEndCallAction(call: callId)
         let transaction = CXTransaction(action: endCallAction)
-        callGuid = ""
         requestTransaction(transaction)
     }
 
@@ -97,68 +105,66 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
     }
     
     func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType) {
-        let update = CXCallUpdate()
-        update.remoteHandle = CXHandle(type: .generic, value: "Test")
-        update.localizedCallerName = "Initializing..."
-        update.supportsGrouping = false
-        update.supportsHolding = false
-        update.supportsUngrouping = false
-        update.hasVideo = true
-
-        guard let guid = payload.dictionaryPayload["guid"] as? String, callGuid != guid else {
-            // It's the same call or guid is missing, ignore it
+        guard let guid = payload.dictionaryPayload["guid"] as? String else {
+            self.reportFailedCall(reason: .failed)
             return
         }
 
-        callGuid = guid
+        if callGuid != guid {
+            callGuid = guid
+            let update = CXCallUpdate()
+            update.remoteHandle = CXHandle(type: .generic, value: "Test")
+            update.localizedCallerName = "Initializing..."
+            update.supportsGrouping = false
+            update.supportsHolding = false
+            update.supportsUngrouping = false
+            update.hasVideo = true
+            
+            // Audio session should be configured before reporting new incoming call
+            setupAudioSession()
 
-        // Audio session should be configured before reporting new incoming call
-        setupAudioSession()
+            provider.reportNewIncomingCall(with: UUID(uuidString: guid)!, update: update) { [weak self] error in
+                if let _ = error {
+                    self?.reportFailedCall(reason: .failed)
+                    return
+                }
 
-        // Report new incoming call to system
-        provider.reportNewIncomingCall(with: UUID(uuidString: guid)!, update: update) { error in
-            if let _ = error {
-                self.reportFailedCall(reason: .failed)
-                return
+                processCall()
             }
-
-            // Start processing the call by ButterflyMX SDK
-            BMXCallKit.shared.processCall(guid: guid) { result in
+        } else {
+            processCall()
+        }
+        
+        func processCall() {
+            BMXCallKit.shared.processCall(guid: guid,
+                                          callType: .callkit) { result in
                 switch result {
                 case .success(let call):
-
                     // Update info about call on call kit
                     let update = CXCallUpdate()
-                    if let panelName = call.callDetails?.panelName {
+                    if let panelName = call.attributes?.panelName {
                         update.localizedCallerName = panelName
                     }
                     self.provider.reportCall(with: UUID(uuidString: guid)!, updated: update)
-
-                    // Present the custom incoming view controller
-                    DispatchQueue.main.async {
-                        self.incomingViewController = IncomingCallViewController.initViewController()
-                        if let topViewController = UIApplication.topViewController(), let vc = self.incomingViewController {
-                            topViewController.present(vc, animated: true)
-                        }
-                    }
                 case .failure(let error):
                     print(error.localizedDescription)
                     self.reportFailedCall(reason: .failed)
                 }
-
             }
         }
     }
 
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
-        BMXCallKit.shared.previewCall(autoAccept: true)
+        incomingCallPresenter.presentIncomingCall() {
+            BMXCallKit.shared.previewCall(autoAccept: true)
+            BMXCallKit.shared.turnOnSpeaker()
+        }
+        callStatusHandler.incomingCallViewController = incomingCallPresenter.incomingCallViewController
         action.fulfill()
     }
 
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
         BMXCallKit.shared.endCall()
-
-        incomingViewController?.dismiss(animated: true, completion: nil)
         action.fulfill()
     }
 

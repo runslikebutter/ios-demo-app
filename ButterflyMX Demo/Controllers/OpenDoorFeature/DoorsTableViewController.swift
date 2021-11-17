@@ -10,12 +10,11 @@ import UIKit
 import BMXCore
 
 class DoorsTableViewController: UITableViewController {
-    var panels: [PanelModel]?
+    var devices: [DeviceModel]?
     var tenant: TenantModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 44
         title = "Select Panel"
     }
 
@@ -31,22 +30,22 @@ class DoorsTableViewController: UITableViewController {
 extension DoorsTableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return panels?.count ?? 0
+        return devices?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DoorTableViewCell", for: indexPath) as! DoorTableViewCell
-        guard let panels = panels else { return cell }
-        cell.doorNameLabel.text = panels[indexPath.row].name ?? ""
+        guard let devices = devices else { return cell }
+        cell.setup(by: devices[indexPath.row])
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let panel = panels, let tenant = tenant else { return }
+        guard let devices = devices, let tenant = tenant else { return }
         let cell = tableView.cellForRow(at: indexPath) as! DoorTableViewCell
         cell.isUserInteractionEnabled = false
         cell.pleaseWait()
-        BMXDoor.shared.openDoor(panel: panel[indexPath.row], tenant: tenant, completion: { result in
+        BMXDoor.shared.openDoor(device: devices[indexPath.row], tenant: tenant, completion: { result in
             switch result {
             case .success():
                 cell.completeWith("Success!", color: Colors.lightGreen)

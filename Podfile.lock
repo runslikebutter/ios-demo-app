@@ -1,27 +1,22 @@
 PODS:
   - Alamofire (5.2.2)
-  - BMXCall (1.0.16):
-    - BMXCore (~> 2.0.0)
-  - BMXCore (2.0.0):
+  - BMXCall (2.1.0):
+    - BMXCore (~> 2.1.0)
+    - TwilioVideo (~> 4.4)
+  - BMXCore (2.1.0):
     - Alamofire (~> 5.2.1)
-    - Japx/CodableAlamofire (~> 3.0.0)
-    - OAuthSwift (= 2.1.0)
-  - Japx/Alamofire (3.0.0):
-    - Alamofire (~> 5.0)
-    - Japx/Core
-  - Japx/Codable (3.0.0):
-    - Japx/Core
-  - Japx/CodableAlamofire (3.0.0):
     - Japx/Alamofire
-    - Japx/Codable
-  - Japx/Core (3.0.0)
+    - OAuthSwift (= 2.1.0)
+  - Japx/Alamofire (4.0.0):
+    - Alamofire
+    - Japx/Core
+  - Japx/Core (4.0.0)
   - OAuthSwift (2.1.0)
   - SVProgressHUD (2.2.5)
+  - TwilioVideo (4.6.2)
 
 DEPENDENCIES:
-  - BMXCall (~> 1.0.16)
-  - BMXCore (~> 2.0.0)
-  - Japx/CodableAlamofire (from `https://github.com/runslikebutter/Japx`)
+  - BMXCall (~> 2.1.0)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -29,26 +24,20 @@ SPEC REPOS:
     - Alamofire
     - BMXCall
     - BMXCore
+    - Japx
     - OAuthSwift
     - SVProgressHUD
-
-EXTERNAL SOURCES:
-  Japx:
-    :git: https://github.com/runslikebutter/Japx
-
-CHECKOUT OPTIONS:
-  Japx:
-    :commit: 10fd9e241d0565f4bfc75f581d4e900f2820a771
-    :git: https://github.com/runslikebutter/Japx
+    - TwilioVideo
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
-  BMXCall: f259dee335adc047aeb00804bd5d871d6862c7e0
-  BMXCore: c305a0d6ff157f25f356143ced8078df45795c80
-  Japx: d1f7f3e4b94f2013538102e96cf96fd417005f76
+  BMXCall: 539c4bc7e5d143b71b764d67f069d157e91a4331
+  BMXCore: 619f9d7f3debdb407d4cf6a08888a1f9de257bdc
+  Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
   OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TwilioVideo: f8c75425bce3f41912bb24352154b0502d89a9b3
 
-PODFILE CHECKSUM: 020c6d2ca09cf35138b0ee069e430a0388b9d78d
+PODFILE CHECKSUM: af4d776c2ce2f8cc65bda9f8e762de2c0c5e30f1
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
