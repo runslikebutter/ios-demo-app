@@ -1,9 +1,9 @@
 PODS:
   - Alamofire (5.2.2)
-  - BMXCall (2.0.0):
-    - BMXCore (~> 2.0.1)
+  - BMXCall (2.1.0):
+    - BMXCore (~> 2.1.0)
     - TwilioVideo (~> 4.4)
-  - BMXCore (2.0.1):
+  - BMXCore (2.1.0):
     - Alamofire (~> 5.2.1)
     - Japx/Alamofire
     - OAuthSwift (= 2.1.0)
@@ -16,7 +16,7 @@ PODS:
   - TwilioVideo (4.6.2)
 
 DEPENDENCIES:
-  - BMXCall (~> 2.0.0)
+  - BMXCall (~> 2.1.0)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -31,13 +31,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
-  BMXCall: 48be2f882c363198370fa18c6acc042d2d2ecaaf
-  BMXCore: 4c540d11ffbf33490d0851b5e6e9773c4afd8674
+  BMXCall: 539c4bc7e5d143b71b764d67f069d157e91a4331
+  BMXCore: 619f9d7f3debdb407d4cf6a08888a1f9de257bdc
   Japx: 4bb2d79d023af5e7ea44c0a2875c4b070080e111
   OAuthSwift: ab1675598273e04355e0282459c328e65c9ddacd
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TwilioVideo: f8c75425bce3f41912bb24352154b0502d89a9b3
 
-PODFILE CHECKSUM: 20e7cbb2884fed261c3badd7e9e3abe5aa8a3999
+PODFILE CHECKSUM: af4d776c2ce2f8cc65bda9f8e762de2c0c5e30f1
 
 COCOAPODS: 1.11.2
