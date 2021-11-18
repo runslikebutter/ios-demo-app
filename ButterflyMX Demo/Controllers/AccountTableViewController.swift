@@ -18,6 +18,7 @@ class AccountTableViewController: UITableViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     
+    private var initialCallNotificationType: CallNotificationType = .videoCall
     private var currentCallNotificationType: CallNotificationType = .videoCall
     
     override func viewDidLoad() {
@@ -26,7 +27,8 @@ class AccountTableViewController: UITableViewController {
         tableView.dataSource = self
         SVProgressHUD.setDefaultStyle(.light)
         getUserInfo()
-        currentCallNotificationType = CallNotificationTypeManager.shared.getCurrentCallNotificationType()
+        initialCallNotificationType = CallNotificationTypeManager.shared.getCurrentCallNotificationType()
+        currentCallNotificationType = initialCallNotificationType
     }
 
     func getUserInfo() {
@@ -68,14 +70,43 @@ class AccountTableViewController: UITableViewController {
                 }
             }
             tableView.reloadData()
+            
+            if initialCallNotificationType != currentCallNotificationType {
+                unregisterWebhooks { [weak self] in
+                    SVProgressHUD.dismiss()
+                    self?.showRegisterWebhookAlert()
+                }
+            }
+            
         } else if indexPath.section == 2 {
             logout()
         }
     }
     
+    private func showRegisterWebhookAlert() {
+        let alert = UIAlertController(title: "Alert", message: "You need to register webhooks again.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     private func logout() {
         SVProgressHUD.show()
         
+        unregisterWebhooks { [weak self] in
+            BMXCoreKit.shared.logoutUser()
+            SVProgressHUD.dismiss()
+            
+            let stb = UIStoryboard(name: "Main", bundle: nil)
+            let loginViewController = stb.instantiateViewController(withIdentifier: "LoginViewController")
+            loginViewController.modalPresentationStyle = .fullScreen
+            self?.present(loginViewController, animated: true, completion: nil)
+        }
+    }
+    
+    private func unregisterWebhooks(completion: @escaping () -> Void) {
         let tenants = BMXUser.shared.getTenants()
         
         let dispatchGroup = DispatchGroup()
@@ -98,17 +129,10 @@ class AccountTableViewController: UITableViewController {
                 }
             }
         }
-        
+
         dispatchGroup.notify(queue: .main) {
             print("Finished all requests.")
-            
-            BMXCoreKit.shared.logoutUser()
-            SVProgressHUD.dismiss()
-            
-            let stb = UIStoryboard(name: "Main", bundle: nil)
-            let loginViewController = stb.instantiateViewController(withIdentifier: "LoginViewController")
-            loginViewController.modalPresentationStyle = .fullScreen
-            self.present(loginViewController, animated: true, completion: nil)
+            completion()
         }
     }
     
