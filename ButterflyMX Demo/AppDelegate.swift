@@ -37,13 +37,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window!.rootViewController = loginViewController
         }
         
+        application.registerForRemoteNotifications()
+        UNUserNotificationCenter.current().delegate = CallsService.shared
+
         CallsService.shared.window = window
         
         if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .videoCall {
             CallsService.shared.setupVoipPush()
         } else {
-            application.registerForRemoteNotifications()
-            UNUserNotificationCenter.current().delegate = CallsService.shared
+            CallsService.shared.requestPushNotificationPermission()
         }
         
         requestAccessMicCamera(callback: { status in
@@ -100,11 +102,11 @@ extension AppDelegate {
         return token
     }
 
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {        
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         if BMXCoreKit.shared.isUserLoggedIn {
             let token = tokenDataToString(deviceToken)
             
-            UserDefaults.standard.set(token, forKey: "deviceToken")
+            UserDefaults.standard.set(token, forKey: "apnsDeviceToken")
             UserDefaults.standard.synchronize()
         }
     }

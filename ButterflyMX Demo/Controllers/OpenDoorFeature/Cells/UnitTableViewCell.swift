@@ -42,7 +42,14 @@ class UnitTableViewCell: UITableViewCell {
         let key = "webhook-\(tenantModel.id)"
         
         if registerWebhookSwitch.isOn {
-            guard let deviceToken = UserDefaults.standard.string(forKey: "deviceToken") else {
+            let deviceToken: String?
+            if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .videoCall {
+                deviceToken = UserDefaults.standard.string(forKey: "deviceToken")
+            } else {
+                deviceToken = UserDefaults.standard.string(forKey: "apnsDeviceToken")
+            }
+            
+            guard let deviceToken = deviceToken else {
                 return
             }
             

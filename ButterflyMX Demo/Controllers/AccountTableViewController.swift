@@ -18,7 +18,7 @@ class AccountTableViewController: UITableViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     
-    private var initialCallNotificationType: CallNotificationType = .videoCall
+    private var previousCallNotificationType: CallNotificationType = .videoCall
     private var currentCallNotificationType: CallNotificationType = .videoCall
     
     override func viewDidLoad() {
@@ -27,8 +27,13 @@ class AccountTableViewController: UITableViewController {
         tableView.dataSource = self
         SVProgressHUD.setDefaultStyle(.light)
         getUserInfo()
-        initialCallNotificationType = CallNotificationTypeManager.shared.getCurrentCallNotificationType()
-        currentCallNotificationType = initialCallNotificationType
+        previousCallNotificationType = CallNotificationTypeManager.shared.getCurrentCallNotificationType()
+        currentCallNotificationType = previousCallNotificationType
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        previousCallNotificationType = currentCallNotificationType
     }
 
     func getUserInfo() {
@@ -71,10 +76,18 @@ class AccountTableViewController: UITableViewController {
             }
             tableView.reloadData()
             
-            if initialCallNotificationType != currentCallNotificationType {
+            if previousCallNotificationType != currentCallNotificationType {
                 unregisterWebhooks { [weak self] in
                     SVProgressHUD.dismiss()
-                    self?.showRegisterWebhookAlert()
+                    
+                    if self?.currentCallNotificationType == .pushNotification {
+                        self?.showRegisterWebhookAlert() {
+                            CallsService.shared.requestPushNotificationPermission()
+                        }
+                    } else {
+                        self?.showRegisterWebhookAlert()
+                    }
+                    
                 }
             }
             
@@ -83,10 +96,11 @@ class AccountTableViewController: UITableViewController {
         }
     }
     
-    private func showRegisterWebhookAlert() {
+    private func showRegisterWebhookAlert(completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: "Alert", message: "You need to register webhooks again.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             alert.dismiss(animated: true, completion: nil)
+            completion?()
         }
         alert.addAction(okAction)
         present(alert, animated: true, completion: nil)
