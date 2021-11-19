@@ -20,6 +20,7 @@ class CallsService: NSObject {
     private var callStatusHandler = CallStatusHandler()
     
     var pushkitToken: Data?
+    var pushNotificationToken: Data?
     var window: UIWindow?
     
     private(set) var provider: CXProvider
@@ -35,6 +36,22 @@ class CallsService: NSObject {
     }
 
     private var callController = CXCallController()
+    
+    func getPushToken() -> Data? {
+        if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .videoCall {
+            return pushkitToken
+        } else {
+            return pushNotificationToken
+        }
+    }
+    
+    func endCurrntCall() {
+        if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .videoCall {
+            endCurrentCallKitCall()
+        } else {
+            BMXCallKit.shared.endCall()
+        }
+    }
     
     func endCurrentCallKitCall() {
         guard !callGuid.isEmpty, let callId = UUID(uuidString: callGuid) else {
@@ -220,12 +237,32 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
 
 extension CallsService: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        // to do
-        print("will present a notification")
+        let userInfo = notification.request.content.userInfo
+        handleCallPushNotification(userInfo: userInfo)
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        // to do
-        print("received a notification")
+        let userInfo = response.notification.request.content.userInfo
+        handleCallPushNotification(userInfo: userInfo)
+    }
+    
+    private func handleCallPushNotification(userInfo: [AnyHashable: Any]) {
+        guard let guid = userInfo["guid"] as? String else {
+            return
+        }
+        
+        if callGuid != guid {
+            callGuid = guid
+            setupAudioSession()
+            
+            BMXCallKit.shared.processCall(guid: guid,
+                                          callType: .notification) { [weak self] _ in
+                self?.incomingCallPresenter.presentIncomingCall() {
+                    BMXCallKit.shared.previewCall(autoAccept: true)
+                    BMXCallKit.shared.turnOnSpeaker()
+                }
+                self?.callStatusHandler.incomingCallViewController = self?.incomingCallPresenter.incomingCallViewController
+            }
+        }
     }
 }

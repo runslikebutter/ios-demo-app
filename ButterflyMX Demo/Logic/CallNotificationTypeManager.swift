@@ -25,7 +25,8 @@ class CallNotificationTypeManager {
     }
     
     func getCurrentCallNotificationType() -> CallNotificationType {
-        let callNotficationType = UserDefaults.standard.integer(forKey: callNotificationKey)        
+        let callNotficationType = UserDefaults.standard.integer(forKey: callNotificationKey)
+        print(callNotficationType)
         return CallNotificationType(rawValue: callNotficationType) ?? .videoCall
     }
 }
