@@ -58,7 +58,7 @@ class IncomingCallViewController: UIViewController {
     }
 
     @IBAction func hangUpAction(_ sender: Any) {
-        CallsService.shared.endCurrntCall()
+        CallsService.shared.endCurrentCall()
     }
 
     @IBAction func openDoorAction(_ sender: Any) {
