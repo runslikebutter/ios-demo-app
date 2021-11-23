@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         CallsService.shared.window = window
         
-        if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .videoCall {
+        if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .voip {
             CallsService.shared.setupVoipPush()
         } else {
             CallsService.shared.requestPushNotificationPermission()

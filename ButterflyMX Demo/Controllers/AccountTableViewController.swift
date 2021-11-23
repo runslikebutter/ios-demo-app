@@ -18,8 +18,8 @@ class AccountTableViewController: UITableViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     
-    private var previousCallNotificationType: CallNotificationType = .videoCall
-    private var currentCallNotificationType: CallNotificationType = .videoCall
+    private var previousCallNotificationType: CallNotificationType = .voip
+    private var currentCallNotificationType: CallNotificationType = .voip
     
     override func viewDidLoad() {
         super.viewDidLoad()

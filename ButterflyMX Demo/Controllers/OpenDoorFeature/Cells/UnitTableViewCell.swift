@@ -43,7 +43,7 @@ class UnitTableViewCell: UITableViewCell {
         
         if registerWebhookSwitch.isOn {
             let deviceToken: String?
-            if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .videoCall {
+            if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .voip {
                 deviceToken = UserDefaults.standard.string(forKey: "deviceToken")
             } else {
                 deviceToken = UserDefaults.standard.string(forKey: "apnsDeviceToken")
@@ -54,7 +54,7 @@ class UnitTableViewCell: UITableViewCell {
             }
             
             let ngrokId = "bdab-2601-801-201-bad0-49ac-3393-470b-1ebd"
-            let type = CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .videoCall ? "voip" : "apns"
+            let type = CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .voip ? "voip" : "apns"
             let webhookUrl = "http://\(ngrokId).ngrok.io/webhook/?token=\(deviceToken)&type=\(type)"
                         
             SVProgressHUD.show()

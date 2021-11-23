@@ -38,7 +38,7 @@ class CallsService: NSObject {
     private var callController = CXCallController()
     
     func getPushToken() -> Data? {
-        if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .videoCall {
+        if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .voip {
             return pushkitToken
         } else {
             return pushNotificationToken
@@ -46,7 +46,7 @@ class CallsService: NSObject {
     }
     
     func endCurrentCall() {
-        if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .videoCall {
+        if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .voip {
             endCurrentCallKitCall()
         } else {
             BMXCallKit.shared.endCall()
