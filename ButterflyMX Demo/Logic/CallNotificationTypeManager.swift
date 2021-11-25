@@ -22,11 +22,11 @@ class CallNotificationTypeManager {
     
     func saveSelectedCallNotificationType(_ callNotificationType: CallNotificationType) {
         UserDefaults.standard.set(callNotificationType.rawValue, forKey: callNotificationKey)
+        UserDefaults.standard.synchronize()
     }
     
     func getCurrentCallNotificationType() -> CallNotificationType {
         let callNotficationType = UserDefaults.standard.integer(forKey: callNotificationKey)
-        print(callNotficationType)
         return CallNotificationType(rawValue: callNotficationType) ?? .voip
     }
 }

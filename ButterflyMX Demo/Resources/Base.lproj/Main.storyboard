@@ -692,7 +692,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dt-0s-G11" customClass="GradientView" customModule="ButterflyMX_Demo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Kms-wy-ODY">
                                         <rect key="frame" x="147.5" y="82" width="80.5" height="16"/>
@@ -777,7 +777,7 @@
                                 </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k28-H7-v11" customClass="GradientView" customModule="ButterflyMX_Demo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="347" width="375" height="320"/>
+                                <rect key="frame" x="0.0" y="387" width="375" height="280"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -809,11 +809,47 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A2d-YH-O0D" userLabel="Preview Call View">
+                                <rect key="frame" x="0.0" y="298" width="375" height="320"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOq-T2-4Q3" userLabel="Answer Call">
+                                        <rect key="frame" x="60" y="124" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="Khy-0Y-HNn"/>
+                                            <constraint firstAttribute="width" constant="72" id="fq4-tC-hpJ"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="button_accept_call"/>
+                                        <connections>
+                                            <action selector="answerCall:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="46v-32-SG4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKO-db-CHq" userLabel="Hang up">
+                                        <rect key="frame" x="243" y="124" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="ocQ-on-x2O"/>
+                                            <constraint firstAttribute="width" constant="72" id="qRH-7p-Usa"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="button_decline_call"/>
+                                        <connections>
+                                            <action selector="hangUpFromCallPreview:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="JW7-AT-cFW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="aOq-T2-4Q3" firstAttribute="leading" secondItem="A2d-YH-O0D" secondAttribute="leading" constant="60" id="3wx-uM-9dI"/>
+                                    <constraint firstItem="aOq-T2-4Q3" firstAttribute="centerY" secondItem="A2d-YH-O0D" secondAttribute="centerY" id="8C9-0T-kAN"/>
+                                    <constraint firstItem="ZKO-db-CHq" firstAttribute="centerY" secondItem="A2d-YH-O0D" secondAttribute="centerY" id="LOO-9f-eIc"/>
+                                    <constraint firstAttribute="height" constant="320" id="RVf-dN-A8t"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZKO-db-CHq" secondAttribute="trailing" constant="60" id="lbJ-I3-vtr"/>
+                                </constraints>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5S4-x6-l61">
-                                <rect key="frame" x="0.0" y="347" width="375" height="320"/>
+                                <rect key="frame" x="0.0" y="387" width="375" height="280"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WDG-RX-NQL">
-                                        <rect key="frame" x="151.5" y="219" width="72" height="72"/>
+                                        <rect key="frame" x="151" y="219" width="73" height="72"/>
                                         <state key="normal" image="button_decline_call"/>
                                         <connections>
                                             <action selector="hangUpAction:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="JSp-hL-lO7"/>
@@ -826,7 +862,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ml-kh-xgN">
-                                        <rect key="frame" x="151.5" y="107" width="72" height="72"/>
+                                        <rect key="frame" x="151" y="107" width="73" height="72"/>
                                         <state key="normal" image="button_speaker"/>
                                         <connections>
                                             <action selector="speakerAction:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="zlA-WB-7S0"/>
@@ -839,56 +875,59 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOP-Ws-zOU">
-                                        <rect key="frame" x="58" y="107" width="72" height="72"/>
+                                        <rect key="frame" x="58" y="107" width="71.5" height="72"/>
                                         <state key="normal" image="button_camera"/>
                                         <connections>
                                             <action selector="cameraAction:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="GCc-hC-Any"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mute" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOe-kP-lyQ">
-                                        <rect key="frame" x="265" y="184" width="33" height="17"/>
+                                        <rect key="frame" x="265" y="184" width="32.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ymp-aF-c0z">
-                                        <rect key="frame" x="245.5" y="107" width="72" height="72"/>
+                                        <rect key="frame" x="246" y="107" width="70.5" height="72"/>
                                         <state key="normal" image="button_mute"/>
                                         <connections>
                                             <action selector="micAction:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="Nhi-W6-zW5"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QB5-DP-Cji">
-                                        <rect key="frame" x="61.5" y="29" width="252" height="48"/>
-                                        <state key="normal" image="button_open_door"/>
-                                        <state key="highlighted" image="button_open_door_pressed"/>
-                                        <connections>
-                                            <action selector="openDoorAction:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="71Z-DD-jlI"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="WDG-RX-NQL" firstAttribute="top" secondItem="8ml-kh-xgN" secondAttribute="bottom" constant="40" id="4i0-mx-Xx7"/>
-                                    <constraint firstAttribute="height" constant="320" id="8aT-ze-SdD"/>
+                                    <constraint firstAttribute="height" constant="280" id="8aT-ze-SdD"/>
                                     <constraint firstItem="lEY-ZY-RcA" firstAttribute="top" secondItem="KOP-Ws-zOU" secondAttribute="bottom" constant="5" id="9H6-Nf-oyf"/>
+                                    <constraint firstItem="ymp-aF-c0z" firstAttribute="leading" secondItem="8ml-kh-xgN" secondAttribute="trailing" constant="22" id="9y8-Tw-NL4"/>
+                                    <constraint firstItem="vOe-kP-lyQ" firstAttribute="leading" secondItem="G6W-T9-bf7" secondAttribute="trailing" constant="51" id="G41-Dr-0zN"/>
                                     <constraint firstItem="vOe-kP-lyQ" firstAttribute="centerX" secondItem="ymp-aF-c0z" secondAttribute="centerX" id="I6c-TQ-twh"/>
+                                    <constraint firstItem="8ml-kh-xgN" firstAttribute="leading" secondItem="KOP-Ws-zOU" secondAttribute="trailing" constant="21.5" id="KUh-Sf-Xp8"/>
                                     <constraint firstItem="8ml-kh-xgN" firstAttribute="centerX" secondItem="5S4-x6-l61" secondAttribute="centerX" id="ONa-Ic-pU8"/>
                                     <constraint firstItem="ymp-aF-c0z" firstAttribute="bottom" secondItem="8ml-kh-xgN" secondAttribute="bottom" id="PPH-Ay-7rD"/>
                                     <constraint firstItem="G6W-T9-bf7" firstAttribute="top" secondItem="8ml-kh-xgN" secondAttribute="bottom" constant="5" id="PpV-io-eK2"/>
-                                    <constraint firstItem="QB5-DP-Cji" firstAttribute="top" secondItem="5S4-x6-l61" secondAttribute="top" constant="29" id="ST6-ot-6mE"/>
                                     <constraint firstItem="KOP-Ws-zOU" firstAttribute="centerX" secondItem="5S4-x6-l61" secondAttribute="centerX" multiplier="0.5" id="W09-hB-2qX"/>
                                     <constraint firstItem="KOP-Ws-zOU" firstAttribute="bottom" secondItem="8ml-kh-xgN" secondAttribute="bottom" id="WE4-GJ-9GC"/>
+                                    <constraint firstItem="8ml-kh-xgN" firstAttribute="leading" secondItem="WDG-RX-NQL" secondAttribute="leading" id="Yat-X7-Dlm"/>
                                     <constraint firstItem="vOe-kP-lyQ" firstAttribute="top" secondItem="ymp-aF-c0z" secondAttribute="bottom" constant="5" id="ZCS-aQ-Flb"/>
                                     <constraint firstItem="G6W-T9-bf7" firstAttribute="centerX" secondItem="8ml-kh-xgN" secondAttribute="centerX" id="eCG-RY-hK3"/>
-                                    <constraint firstItem="8ml-kh-xgN" firstAttribute="top" secondItem="QB5-DP-Cji" secondAttribute="bottom" constant="30" id="gOb-Ds-Q44"/>
-                                    <constraint firstItem="QB5-DP-Cji" firstAttribute="centerX" secondItem="5S4-x6-l61" secondAttribute="centerX" id="nLq-NJ-X5d"/>
+                                    <constraint firstItem="KOP-Ws-zOU" firstAttribute="leading" secondItem="5S4-x6-l61" secondAttribute="leading" constant="58" id="hZZ-L8-wDu"/>
+                                    <constraint firstItem="G6W-T9-bf7" firstAttribute="leading" secondItem="lEY-ZY-RcA" secondAttribute="trailing" constant="42" id="sOP-p8-Tmf"/>
                                     <constraint firstItem="WDG-RX-NQL" firstAttribute="centerX" secondItem="5S4-x6-l61" secondAttribute="centerX" id="uqe-VA-T6t"/>
+                                    <constraint firstAttribute="bottom" secondItem="WDG-RX-NQL" secondAttribute="bottom" constant="-11" id="x4k-Y3-b1r"/>
                                     <constraint firstItem="ymp-aF-c0z" firstAttribute="centerX" secondItem="5S4-x6-l61" secondAttribute="centerX" multiplier="1.5" id="xML-m1-nQN"/>
-                                    <constraint firstItem="QB5-DP-Cji" firstAttribute="centerX" secondItem="5S4-x6-l61" secondAttribute="centerX" id="xVc-Jg-jht"/>
                                     <constraint firstItem="lEY-ZY-RcA" firstAttribute="centerX" secondItem="KOP-Ws-zOU" secondAttribute="centerX" id="z3b-Vk-SSq"/>
                                 </constraints>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QB5-DP-Cji" userLabel="Open Door">
+                                <rect key="frame" x="61.5" y="309.5" width="252" height="48"/>
+                                <state key="normal" image="button_open_door"/>
+                                <state key="highlighted" image="button_open_door_pressed"/>
+                                <connections>
+                                    <action selector="openDoorAction:" destination="Jgz-qC-7rj" eventType="touchUpInside" id="71Z-DD-jlI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -904,20 +943,27 @@
                             <constraint firstItem="k28-H7-v11" firstAttribute="top" secondItem="5S4-x6-l61" secondAttribute="top" id="LPH-s6-fg6"/>
                             <constraint firstItem="k28-H7-v11" firstAttribute="leading" secondItem="X0P-dg-JZC" secondAttribute="leading" id="O9g-9G-8gE"/>
                             <constraint firstItem="89j-Hh-axu" firstAttribute="top" secondItem="NWE-ZG-470" secondAttribute="bottom" constant="10" id="SD7-ap-rf7"/>
+                            <constraint firstItem="Cm9-au-GmR" firstAttribute="top" secondItem="A2d-YH-O0D" secondAttribute="bottom" id="WyX-P0-r07"/>
+                            <constraint firstAttribute="trailing" secondItem="A2d-YH-O0D" secondAttribute="trailing" id="XCi-Mf-CCX"/>
                             <constraint firstAttribute="trailing" secondItem="k28-H7-v11" secondAttribute="trailing" id="Xr4-xF-Q9t"/>
                             <constraint firstItem="ITy-gt-EL5" firstAttribute="top" secondItem="X0P-dg-JZC" secondAttribute="top" constant="40" id="Y2V-FJ-HrD"/>
                             <constraint firstItem="ITy-gt-EL5" firstAttribute="leading" secondItem="X0P-dg-JZC" secondAttribute="leading" constant="15" id="agi-7F-ol1"/>
+                            <constraint firstItem="QB5-DP-Cji" firstAttribute="centerX" secondItem="X0P-dg-JZC" secondAttribute="centerX" id="cKV-Kk-WLs"/>
                             <constraint firstItem="jvW-OZ-98K" firstAttribute="centerX" secondItem="X0P-dg-JZC" secondAttribute="centerX" id="ckZ-df-lyr"/>
                             <constraint firstItem="5S4-x6-l61" firstAttribute="leading" secondItem="X0P-dg-JZC" secondAttribute="leading" id="f4M-sL-1rQ"/>
                             <constraint firstAttribute="bottom" secondItem="AM8-kk-Aad" secondAttribute="bottom" id="gFH-gj-ySm"/>
                             <constraint firstItem="jvW-OZ-98K" firstAttribute="top" secondItem="cTF-bp-Qnz" secondAttribute="bottom" id="j3M-YZ-ais"/>
+                            <constraint firstItem="A2d-YH-O0D" firstAttribute="leading" secondItem="X0P-dg-JZC" secondAttribute="leading" id="k2P-Cu-UD4"/>
                             <constraint firstItem="AM8-kk-Aad" firstAttribute="width" secondItem="X0P-dg-JZC" secondAttribute="width" id="n0B-Q4-XIw"/>
                             <constraint firstItem="2Js-uV-lDp" firstAttribute="top" secondItem="X0P-dg-JZC" secondAttribute="top" constant="40" id="p8o-7t-EEx"/>
                             <constraint firstItem="AM8-kk-Aad" firstAttribute="top" secondItem="X0P-dg-JZC" secondAttribute="top" id="pWT-Zi-ONm"/>
+                            <constraint firstItem="QB5-DP-Cji" firstAttribute="centerY" secondItem="X0P-dg-JZC" secondAttribute="centerY" id="pdu-x9-kWR"/>
                             <constraint firstItem="AM8-kk-Aad" firstAttribute="centerX" secondItem="X0P-dg-JZC" secondAttribute="centerX" id="tdk-jt-vSn"/>
                             <constraint firstItem="2Js-uV-lDp" firstAttribute="centerX" secondItem="X0P-dg-JZC" secondAttribute="centerX" id="xkb-Nk-Ctl"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="acceptedCallContainerView" destination="5S4-x6-l61" id="u6m-Ez-xap"/>
                         <outlet property="blurView" destination="m6i-VD-5bV" id="niu-J8-LhW"/>
@@ -927,7 +973,9 @@
                         <outlet property="fullScreenButton" destination="89j-Hh-axu" id="3wa-2k-NMr"/>
                         <outlet property="imagePreview" destination="kge-Lz-QnG" id="VPI-OU-tUl"/>
                         <outlet property="micButton" destination="ymp-aF-c0z" id="Ip1-4P-2Hi"/>
+                        <outlet property="openDoorButton" destination="QB5-DP-Cji" id="pmt-pv-yvb"/>
                         <outlet property="panelNameLabel" destination="MrG-i9-LbE" id="yib-gY-o0k"/>
+                        <outlet property="previewCallContainerView" destination="A2d-YH-O0D" id="da7-W8-PdT"/>
                         <outlet property="selfVideoView" destination="ITy-gt-EL5" id="Jmr-4v-7GV"/>
                         <outlet property="speakerButton" destination="8ml-kh-xgN" id="fQ3-RE-WIw"/>
                         <outlet property="spinner" destination="ZuS-4S-dDm" id="kOe-cn-RC8"/>
@@ -1017,6 +1065,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="button_accept_call" width="72" height="72"/>
         <image name="button_camera" width="72" height="72"/>
         <image name="button_decline_call" width="72" height="72"/>
         <image name="button_edit" width="34" height="34"/>

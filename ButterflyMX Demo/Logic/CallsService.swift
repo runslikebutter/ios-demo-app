@@ -233,33 +233,11 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
     func provider(_ provider: CXProvider, didDeactivate audioSession: AVAudioSession) {
         BMXCallKit.shared.disconnectSoundDevice()
     }
-    
-    func rejectCallForPushNotification(userInfo: [AnyHashable: Any]) {
-        guard let guid = userInfo["guid"] as? String else {
-            return
-        }
-        
-        if callGuid != guid {
-            callGuid = guid
-            
-            BMXCallKit.shared.processCall(guid: guid,
-                                          callType: .notification) { result in
-                switch result {
-                case .success:
-                    self.endCurrentCall()
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-        }
-    }
 }
 
 extension CallsService: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        let userInfo = notification.request.content.userInfo
-        
-        handleCallPushNotification(userInfo: userInfo)        
+        completionHandler([.alert, .sound])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {

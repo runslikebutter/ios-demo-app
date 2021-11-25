@@ -24,6 +24,9 @@ class IncomingCallViewController: UIViewController {
     @IBOutlet weak var callTypeLabel: UILabel!
     @IBOutlet weak var panelNameLabel: UILabel!
     @IBOutlet weak var acceptedCallContainerView: UIView!
+    @IBOutlet weak var previewCallContainerView: UIView!
+    
+    @IBOutlet weak var openDoorButton: UIView!
     @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var imagePreview: UIImageView!
     @IBOutlet weak var selfVideoView: UIView!
@@ -57,6 +60,16 @@ class IncomingCallViewController: UIViewController {
         }
     }
 
+    @IBAction func answerCall(_ sender: Any) {
+        acceptedCallContainerView.isHidden = false
+        previewCallContainerView.removeFromSuperview()
+        BMXCallKit.shared.unmuteMic()
+    }
+    
+    @IBAction func hangUpFromCallPreview(_ sender: Any) {
+        CallsService.shared.endCurrentCall()
+    }
+    
     @IBAction func hangUpAction(_ sender: Any) {
         CallsService.shared.endCurrentCall()
     }
@@ -196,7 +209,16 @@ extension IncomingCallViewController {
     func handleCallConnected() {
         spinner.stopAnimating()
         fullScreenButton.isHidden = false
-        acceptedCallContainerView.isHidden = false
+        openDoorButton.isHidden = false
+                
+        if BMXCallKit.shared.callType == .callkit {
+            acceptedCallContainerView.isHidden = false
+            previewCallContainerView.removeFromSuperview()
+        } else {
+            acceptedCallContainerView.isHidden = true
+            previewCallContainerView.isHidden = false
+            BMXCallKit.shared.muteMic()
+        }
     }
     
     func handleCallAccepted(from call: Call, usingCallKit: Bool) {
