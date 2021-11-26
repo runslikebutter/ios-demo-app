@@ -8,6 +8,7 @@
 
 import UIKit
 import BMXCore
+import SVProgressHUD
 
 class DoorsTableViewController: UITableViewController {
     var devices: [DeviceModel]?
@@ -15,7 +16,27 @@ class DoorsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Select Panel"
+        title = "Select Device"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(reloadData))
+    }
+    
+    @objc func reloadData() {
+        guard let tenant = tenant else {
+            return
+        }
+        SVProgressHUD.show()
+        BMXCoreKit.shared.reloadUserData { result in
+            SVProgressHUD.dismiss()
+            switch result {
+            case .success:
+                if let tenant = try? BMXUser.shared.getTenants().first(where: {tenant.id == $0.id}) {
+                    self.devices = BMXUser.shared.getDevices(from: tenant)
+                    self.tableView.reloadData()
+                }
+            case .failure(let error):
+                BMXCoreKit.shared.log(message: "Failed to reload data: \(error.localizedDescription)")
+            }
+        }
     }
 
     static func initViewController() -> DoorsTableViewController {
