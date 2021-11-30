@@ -37,8 +37,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window!.rootViewController = loginViewController
         }
         
+        application.registerForRemoteNotifications()
+        UNUserNotificationCenter.current().delegate = CallsService.shared
+
         CallsService.shared.window = window
-        CallsService.shared.setupVoipPush()
+        
+        if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .voip {
+            CallsService.shared.setupVoipPush()
+        } else {
+            CallsService.shared.requestPushNotificationPermission()
+        }
+        
         requestAccessMicCamera(callback: { status in
             print("User media permission status \(status.rawValue)")
         })
@@ -80,5 +89,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    }
+}
+
+extension AppDelegate {
+    private func tokenDataToString(_ data: Data) -> String {
+        var token: String = ""
+        for i in 0..<data.count {
+            token += String(format: "%02.2hhx", data[i] as CVarArg)
+        }
+
+        return token
+    }
+
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        CallsService.shared.pushNotificationToken = deviceToken
+        
+        if BMXCoreKit.shared.isUserLoggedIn && CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .pushNotification{
+            let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+            UserDefaults.standard.set(token, forKey: "apnsDeviceToken")
+            UserDefaults.standard.synchronize()
+        }
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        BMXCoreKit.shared.log(message: "failed to register for remote notifications: \(error.localizedDescription)")
     }
 }

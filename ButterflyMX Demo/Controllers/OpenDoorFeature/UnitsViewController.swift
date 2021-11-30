@@ -17,7 +17,11 @@ class UnitsViewController: UITableViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 44
-        tenants = BMXUser.shared.getTenants()
+        tenants = BMXUser.shared.getTenants()        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
     }
 }

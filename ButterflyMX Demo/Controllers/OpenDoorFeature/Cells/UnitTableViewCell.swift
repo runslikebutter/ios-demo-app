@@ -42,12 +42,20 @@ class UnitTableViewCell: UITableViewCell {
         let key = "webhook-\(tenantModel.id)"
         
         if registerWebhookSwitch.isOn {
-            guard let deviceToken = UserDefaults.standard.string(forKey: "deviceToken") else {
+            let deviceToken: String?
+            if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .voip {
+                deviceToken = UserDefaults.standard.string(forKey: "deviceToken")
+            } else {
+                deviceToken = UserDefaults.standard.string(forKey: "apnsDeviceToken")
+            }
+            
+            guard let deviceToken = deviceToken else {
                 return
             }
             
             let ngrokId = "bdab-2601-801-201-bad0-49ac-3393-470b-1ebd"
-            let webhookUrl = "http://\(ngrokId).ngrok.io/webhook/?token=\(deviceToken)&type=voip"
+            let type = CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .voip ? "voip" : "apns"
+            let webhookUrl = "http://\(ngrokId).ngrok.io/webhook/?token=\(deviceToken)&type=\(type)"
                         
             SVProgressHUD.show()
             
