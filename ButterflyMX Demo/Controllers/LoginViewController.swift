@@ -47,7 +47,7 @@ class LoginViewController: UITableViewController {
                       mainViewController.modalPresentationStyle = .overFullScreen
                       SVProgressHUD.dismiss()
                       self.present(mainViewController, animated: true, completion: {
-                        guard let pushToken = CallsService.shared.pushkitToken else { return }
+                        guard let pushToken = CallsService.shared.getPushToken() else { return }                          
                         let token = pushToken.map { String(format: "%02.2hhx", $0) }.joined()
                         
                         UserDefaults.standard.set(token, forKey: "deviceToken")

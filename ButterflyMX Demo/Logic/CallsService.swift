@@ -20,6 +20,7 @@ class CallsService: NSObject {
     private var callStatusHandler = CallStatusHandler()
     
     var pushkitToken: Data?
+    var pushNotificationToken: Data?
     var window: UIWindow?
     
     private(set) var provider: CXProvider
@@ -35,6 +36,22 @@ class CallsService: NSObject {
     }
 
     private var callController = CXCallController()
+    
+    func getPushToken() -> Data? {
+        if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .voip {
+            return pushkitToken
+        } else {
+            return pushNotificationToken
+        }
+    }
+    
+    func endCurrentCall() {
+        if CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .voip {
+            endCurrentCallKitCall()
+        } else {
+            BMXCallKit.shared.endCall()
+        }
+    }
     
     func endCurrentCallKitCall() {
         guard !callGuid.isEmpty, let callId = UUID(uuidString: callGuid) else {
@@ -83,6 +100,37 @@ class CallsService: NSObject {
         }
     }
 
+    func requestPushNotificationPermission() {
+        let center = UNUserNotificationCenter.current()
+        center.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .denied:
+                BMXCoreKit.shared.log(message: "Notification permission status: denied")
+                DispatchQueue.main.async {
+                    let settingsUrl = URL(string: UIApplication.openSettingsURLString)
+                    if let url = settingsUrl {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    }
+                }
+            case .notDetermined:
+                BMXCoreKit.shared.log(message: "Notification permission status: notDetermined")
+                center.requestAuthorization(options:[.alert, .sound, .badge]) { ok, err in
+                    if let err = err {
+                        BMXCoreKit.shared.log(message: "Not Authorized \(err.localizedDescription)")
+                    }
+                }
+            case .authorized:
+                BMXCoreKit.shared.log(message: "Notification permission status: authorized")
+            case .provisional:
+                BMXCoreKit.shared.log(message: "Notification permission status: Provisional")
+            case .ephemeral:
+                BMXCoreKit.shared.log(message: "Notification permission status: Ephemeral")
+            @unknown default:
+                BMXCoreKit.shared.log(message: "Notification permission status: Default")
+                break
+            }
+        }
+    }
 }
 
 extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
@@ -187,3 +235,33 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
     }
 }
 
+extension CallsService: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        handleCallPushNotification(userInfo: userInfo)
+    }
+    
+    private func handleCallPushNotification(userInfo: [AnyHashable: Any]) {
+        guard let guid = userInfo["guid"] as? String else {
+            return
+        }
+        
+        if callGuid != guid {
+            callGuid = guid
+            setupAudioSession()
+            
+            BMXCallKit.shared.processCall(guid: guid,
+                                          callType: .notification) { [weak self] _ in
+                self?.incomingCallPresenter.presentIncomingCall() {
+                    BMXCallKit.shared.previewCall(autoAccept: true)
+                    BMXCallKit.shared.turnOnSpeaker()
+                }
+                self?.callStatusHandler.incomingCallViewController = self?.incomingCallPresenter.incomingCallViewController
+            }
+        }
+    }
+}
