@@ -29,7 +29,7 @@ class DoorsTableViewController: UITableViewController {
             SVProgressHUD.dismiss()
             switch result {
             case .success:
-                if let tenant = try? BMXUser.shared.getTenants().first(where: {tenant.id == $0.id}) {
+                if let tenant = try? BMXUser.shared.getTenants().first(where: {tenant.id == $0.id}), let tenant = tenant {
                     self.devices = BMXUser.shared.getDevices(from: tenant)
                     self.tableView.reloadData()
                 }
