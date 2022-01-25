@@ -140,12 +140,10 @@ extension CallsService: PKPushRegistryDelegate, CXProviderDelegate {
 
     func pushRegistry(_ registry: PKPushRegistry, didUpdate pushCredentials: PKPushCredentials, for type: PKPushType) {
         pushkitToken = pushCredentials.token
-        if BMXCoreKit.shared.isUserLoggedIn {
-            let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
-            
-            UserDefaults.standard.set(token, forKey: "deviceToken")
-            UserDefaults.standard.synchronize()
-        }
+
+        let token = pushCredentials.token.map { String(format: "%02.2hhx", $0) }.joined()
+        UserDefaults.standard.set(token, forKey: "deviceToken")
+        UserDefaults.standard.synchronize()
     }
 
     private func reportFailedCall(reason: CXCallEndedReason) {

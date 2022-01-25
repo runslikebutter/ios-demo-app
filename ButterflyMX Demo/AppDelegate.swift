@@ -104,12 +104,9 @@ extension AppDelegate {
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         CallsService.shared.pushNotificationToken = deviceToken
-        
-        if BMXCoreKit.shared.isUserLoggedIn && CallNotificationTypeManager.shared.getCurrentCallNotificationType() == .pushNotification{
-            let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-            UserDefaults.standard.set(token, forKey: "apnsDeviceToken")
-            UserDefaults.standard.synchronize()
-        }
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        UserDefaults.standard.set(token, forKey: "apnsDeviceToken")
+        UserDefaults.standard.synchronize()
     }
 
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

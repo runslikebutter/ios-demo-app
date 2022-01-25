@@ -39,6 +39,6 @@ class CallStatusHandler: BMXCall.CallStatusDelegate {
     }
     
     private func dismissIncomingCall() {
-        CallsService.shared.window?.rootViewController?.dismiss(animated: true)
+        incomingCallViewController?.dismiss(animated: true)
     }
 }

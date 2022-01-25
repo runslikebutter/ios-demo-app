@@ -46,13 +46,7 @@ class LoginViewController: UITableViewController {
                       let mainViewController = stb.instantiateViewController(withIdentifier: "MainTabController")
                       mainViewController.modalPresentationStyle = .overFullScreen
                       SVProgressHUD.dismiss()
-                      self.present(mainViewController, animated: true, completion: {
-                        guard let pushToken = CallsService.shared.getPushToken() else { return }                          
-                        let token = pushToken.map { String(format: "%02.2hhx", $0) }.joined()
-                        
-                        UserDefaults.standard.set(token, forKey: "deviceToken")
-                        UserDefaults.standard.synchronize()
-                      })
+                      self.present(mainViewController, animated: true, completion: nil)
                  case .failure(let error):
                      print(error)
                      SVProgressHUD.showError(withStatus: error.localizedDescription)
