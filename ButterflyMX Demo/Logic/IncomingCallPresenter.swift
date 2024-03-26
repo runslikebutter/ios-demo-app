@@ -9,6 +9,7 @@
 import Foundation
 import BMXCall
 import BMXCore
+import UIKit
 
 class IncomingCallPresenter: BMXCall.IncomingCallUIInputs {
     var delegate: (IncomingCallUIDataSource & IncomingCallUIDelegate)?

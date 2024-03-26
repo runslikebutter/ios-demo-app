@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,13 +33,15 @@
 		1A8DF4A2225CBAF000AB0393 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8DF4A1225CBAF000AB0393 /* Colors.swift */; };
 		1A8DF4A3225CBAF500AB0393 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8DF4A1225CBAF000AB0393 /* Colors.swift */; };
 		1AA6FBF9219B2A78002F7168 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA6FBF8219B2A78002F7168 /* Foundation.framework */; };
-		8EE4B5C51CED0CC1F492AE36 /* Pods_ButterflyMX_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A629B66E0B243E03B71DF367 /* Pods_ButterflyMX_Demo.framework */; };
 		9C0523D12746DD5C00009CDA /* CallNotificationTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0523D02746DD5C00009CDA /* CallNotificationTypeManager.swift */; };
 		9CAE16F0271FB43700E6E5DC /* IncomingCallPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE16EF271FB43700E6E5DC /* IncomingCallPresenter.swift */; };
 		9CAE16F1271FB43B00E6E5DC /* IncomingCallPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE16EF271FB43700E6E5DC /* IncomingCallPresenter.swift */; };
 		9CAE16F62720BC4D00E6E5DC /* CallStatusHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE16F52720BC4D00E6E5DC /* CallStatusHandler.swift */; };
 		9CAE16F72720BC4D00E6E5DC /* CallStatusHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE16F52720BC4D00E6E5DC /* CallStatusHandler.swift */; };
 		C3689694234CD51F003DED8D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3689693234CD51F003DED8D /* AVFoundation.framework */; };
+		C37BCF982BB2C24B00190B52 /* BMXCall in Frameworks */ = {isa = PBXBuildFile; productRef = C37BCF972BB2C24B00190B52 /* BMXCall */; };
+		C37BCF9A2BB2C24B00190B52 /* BMXCore in Frameworks */ = {isa = PBXBuildFile; productRef = C37BCF992BB2C24B00190B52 /* BMXCore */; };
+		C37BCF9D2BB2C25B00190B52 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = C37BCF9C2BB2C25B00190B52 /* SVProgressHUD */; };
 		C3C2322C21F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		C3C2322D21F5C6B500A84483 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1C1317219ADCEE003449F8 /* LoginViewController.swift */; };
 		C3C2322E21F5C6B500A84483 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -97,14 +99,11 @@
 		1A8DF4A1225CBAF000AB0393 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1AA6FBF8219B2A78002F7168 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1ACCD9B121EF73FB00E97924 /* ButterflyMX Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "ButterflyMX Demo.entitlements"; sourceTree = "<group>"; };
-		2D901E80BACD08199101B38F /* Pods-ButterflyMX Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButterflyMX Demo.release.xcconfig"; path = "Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo.release.xcconfig"; sourceTree = "<group>"; };
 		9C0523D02746DD5C00009CDA /* CallNotificationTypeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallNotificationTypeManager.swift; sourceTree = "<group>"; };
 		9CAE16EF271FB43700E6E5DC /* IncomingCallPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomingCallPresenter.swift; sourceTree = "<group>"; };
 		9CAE16F52720BC4D00E6E5DC /* CallStatusHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallStatusHandler.swift; sourceTree = "<group>"; };
-		A629B66E0B243E03B71DF367 /* Pods_ButterflyMX_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ButterflyMX_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3689693234CD51F003DED8D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C3C2324121F5C6B500A84483 /* ButterflyMX Demo Internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ButterflyMX Demo Internal.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D85B80B35CFF1E97DB9D27C3 /* Pods-ButterflyMX Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButterflyMX Demo.debug.xcconfig"; path = "Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,10 +111,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C37BCF9D2BB2C25B00190B52 /* SVProgressHUD in Frameworks */,
+				C37BCF9A2BB2C24B00190B52 /* BMXCore in Frameworks */,
 				1AA6FBF9219B2A78002F7168 /* Foundation.framework in Frameworks */,
 				1A59B851234B529300E1E536 /* CallKit.framework in Frameworks */,
+				C37BCF982BB2C24B00190B52 /* BMXCall in Frameworks */,
 				C3689694234CD51F003DED8D /* AVFoundation.framework in Frameworks */,
-				8EE4B5C51CED0CC1F492AE36 /* Pods_ButterflyMX_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,7 +172,6 @@
 				1A1C1301219AD954003449F8 /* ButterflyMX Demo */,
 				1A1C1300219AD954003449F8 /* Products */,
 				2C982F0229A4D5E7B4BBC659 /* Frameworks */,
-				A27422D1F52146F27A8C64BE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -235,18 +235,8 @@
 				C3689693234CD51F003DED8D /* AVFoundation.framework */,
 				1A59B84F234B514200E1E536 /* CallKit.framework */,
 				1AA6FBF8219B2A78002F7168 /* Foundation.framework */,
-				A629B66E0B243E03B71DF367 /* Pods_ButterflyMX_Demo.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		A27422D1F52146F27A8C64BE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2D901E80BACD08199101B38F /* Pods-ButterflyMX Demo.release.xcconfig */,
-				D85B80B35CFF1E97DB9D27C3 /* Pods-ButterflyMX Demo.debug.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,17 +246,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A1C1311219AD956003449F8 /* Build configuration list for PBXNativeTarget "ButterflyMX Demo" */;
 			buildPhases = (
-				E1D16298BB349B5714F88332 /* [CP] Check Pods Manifest.lock */,
 				1A1C12FB219AD954003449F8 /* Sources */,
 				1A1C12FC219AD954003449F8 /* Frameworks */,
 				1A1C12FD219AD954003449F8 /* Resources */,
-				660E337E9A5F97BA8522B63A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "ButterflyMX Demo";
+			packageProductDependencies = (
+				C37BCF972BB2C24B00190B52 /* BMXCall */,
+				C37BCF992BB2C24B00190B52 /* BMXCore */,
+				C37BCF9C2BB2C25B00190B52 /* SVProgressHUD */,
+			);
 			productName = "BMX API Client";
 			productReference = 1A1C12FF219AD954003449F8 /* ButterflyMX Demo.app */;
 			productType = "com.apple.product-type.application";
@@ -322,6 +315,10 @@
 				Base,
 			);
 			mainGroup = 1A1C12F6219AD953003449F8;
+			packageReferences = (
+				C37BCF962BB2C24B00190B52 /* XCRemoteSwiftPackageReference "butterflymx-sdk-ios" */,
+				C37BCF9B2BB2C25B00190B52 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
+			);
 			productRefGroup = 1A1C1300219AD954003449F8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -354,48 +351,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		660E337E9A5F97BA8522B63A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ButterflyMX Demo/Pods-ButterflyMX Demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E1D16298BB349B5714F88332 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ButterflyMX Demo-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1A1C12FB219AD954003449F8 /* Sources */ = {
@@ -525,7 +480,6 @@
 		};
 		1A1C1313219AD956003449F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2D901E80BACD08199101B38F /* Pods-ButterflyMX Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ButterflyMX Demo/ButterflyMX Demo.entitlements";
@@ -659,7 +613,6 @@
 		};
 		C3C2324821F5C79900A84483 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D85B80B35CFF1E97DB9D27C3 /* Pods-ButterflyMX Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "ButterflyMX Demo/ButterflyMX Demo.entitlements";
@@ -767,6 +720,43 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C37BCF962BB2C24B00190B52 /* XCRemoteSwiftPackageReference "butterflymx-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/runslikebutter/butterflymx-sdk-ios/";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		C37BCF9B2BB2C25B00190B52 /* XCRemoteSwiftPackageReference "SVProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVProgressHUD/SVProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C37BCF972BB2C24B00190B52 /* BMXCall */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C37BCF962BB2C24B00190B52 /* XCRemoteSwiftPackageReference "butterflymx-sdk-ios" */;
+			productName = BMXCall;
+		};
+		C37BCF992BB2C24B00190B52 /* BMXCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C37BCF962BB2C24B00190B52 /* XCRemoteSwiftPackageReference "butterflymx-sdk-ios" */;
+			productName = BMXCore;
+		};
+		C37BCF9C2BB2C25B00190B52 /* SVProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C37BCF9B2BB2C25B00190B52 /* XCRemoteSwiftPackageReference "SVProgressHUD" */;
+			productName = SVProgressHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1A1C12F7219AD953003449F8 /* Project object */;
 }
