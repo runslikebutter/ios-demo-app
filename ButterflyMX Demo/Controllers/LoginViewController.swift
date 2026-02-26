@@ -68,16 +68,19 @@ class LoginViewController: UITableViewController {
         var clientId = ""
         switch environment {
         case .development:
-            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretTest") as? String ?? "N/a"
-            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdTest") as? String ?? "N/a"
+            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretTest") as? String ?? ""
+            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdTest") as? String ?? ""
         case .sandbox:
-            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretSandbox") as? String ?? "N/a"
-            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdSandbox") as? String ?? "N/a"
+            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretSandbox") as? String ?? ""
+            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdSandbox") as? String ?? ""
         case .production:
-            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretProd") as? String ?? "N/a"
-            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdProd") as? String ?? "N/a"
+            secret = Bundle.main.object(forInfoDictionaryKey: "butterflymxSecretProd") as? String ?? ""
+            clientId = Bundle.main.object(forInfoDictionaryKey: "butterflymxClientIdProd") as? String ?? ""
         @unknown default:
             fatalError()
+        }
+        if secret.isEmpty {
+            return BMXAuthProvider(clientID: clientId)
         }
         return BMXAuthProvider(secret: secret, clientID: clientId)
     }
