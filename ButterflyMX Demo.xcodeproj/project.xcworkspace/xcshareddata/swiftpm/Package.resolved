@@ -1,12 +1,13 @@
 {
+  "originHash" : "f7da3b16a9b07107f7bbea62ec72cf6013f8412690abdbce16b2f2dfd2829733",
   "pins" : [
     {
       "identity" : "alamofire",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
-        "revision" : "723fa5a6c65812aec4a0d7cc432ee198883b6e00",
-        "version" : "5.9.0"
+        "revision" : "bda9ed57d72988a3a2ada33d824583541f86eac6",
+        "version" : "5.12.2"
       }
     },
     {
@@ -24,7 +25,7 @@
       "location" : "https://github.com/runslikebutter/butterflymx-sdk-ios/",
       "state" : {
         "branch" : "main",
-        "revision" : "3f172ccc55e4304621b25c3e9a0bf4e41c330ff4"
+        "revision" : "4805f31ba1d81a6daa48fe96df89dcc36f3350a5"
       }
     },
     {
@@ -122,10 +123,10 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/twilio/twilio-video-ios.git",
       "state" : {
-        "revision" : "21805ce89585481405bb914922be288d47c1fc62",
-        "version" : "5.1.1"
+        "revision" : "9cd840e09cfa6a051974e422f139efae5087a536",
+        "version" : "5.11.3"
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
