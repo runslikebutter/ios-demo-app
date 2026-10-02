@@ -43,6 +43,21 @@ Open `ButterflyMX Demo/Info.plist` and fill in the keys for the environment(s) y
 
 Select a simulator or device and press **Run**. Use the environment toggle on the login screen to switch between development, sandbox, and production.
 
+## Testing against a local SDK
+
+To try SDK changes in the demo before they're pushed, build the demo against a local checkout of [butterflymx-sdk-ios](https://github.com/runslikebutter/butterflymx-sdk-ios):
+
+1. Open `ButterflyMX Demo.xcodeproj`.
+2. Drag your local `butterflymx-sdk-ios` folder (the one containing `Package.swift`) into the Project Navigator. Keep the folder name `butterflymx-sdk-ios`: a local package only overrides the remote dependency when the folder name matches it. With any other name, package resolution fails with `unable to override package 'ButterflyMX'`.
+3. Build and run. Changes to the SDK sources are picked up on the next build.
+4. When you're done, select the folder in the Project Navigator, press Delete and choose **Remove Reference** to go back to the remote package. Then discard the changes to the project:
+
+   ```bash
+   git checkout -- "ButterflyMX Demo.xcodeproj"
+   ```
+
+Using a local package changes `project.pbxproj` (the folder reference) and `Package.resolved` (Xcode drops the SDK's pin, and may update other pins when it resolves again after you remove the reference). Don't commit either change.
+
 ## What the demo covers
 
 | Feature | Where to look |
