@@ -5,7 +5,7 @@ This app demonstrates how to integrate the [ButterflyMX iOS SDK](https://github.
 ## Requirements
 
 - Xcode 14+
-- iOS 13+
+- iOS 15+
 - A ButterflyMX `client_id` (and optionally a `client_secret` for legacy flows)
 
 > Contact [support@butterflymx.com](mailto:support@butterflymx.com) to obtain credentials.
